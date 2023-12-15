@@ -1,3 +1,17 @@
+html {
+    scroll-behavior: smooth;
+}
+
+li{
+        
+    font-weight: 490;
+
+}
+
+h2{
+    font-size: 40px;
+}
+
 .top-bar {
     background-color: #333;
     overflow: hidden;

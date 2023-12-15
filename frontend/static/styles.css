@@ -21,6 +21,10 @@ h2{
     display: flex;
 }
 
+.logo {
+    max-width: 100px;
+}
+
 .text {
     flex: 1;
     padding: 20px;

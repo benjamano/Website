@@ -52,8 +52,10 @@ h2{
     align-items: center;
 }
 
-.logo {
-    max-width: 100px; /* Adjust as needed */
+.logo img {
+    max-width: 50px;
+    max-height: 50px;
+    scale: 0.5;
 }
 
 .top-bar a {

@@ -145,12 +145,8 @@ a:hover {
     font-size: 36px;
     margin-bottom: 20px;
 }
-.contactcard h2{
-    color: #000000;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
 .button-container {
+    color: black;
     justify-content: space-around;
     flex-wrap: wrap;
 }
@@ -159,15 +155,10 @@ a:hover {
     margin: 16px;
     text-align: center;
     padding: 20px;
-    /*border: 2px solid #333;*/
     border-radius: 16px;
     background-color: #7a272f;
     transition: background-color 0.3s ease-in-out;
-    width: 400px;
-    /* min-width: 50px;
-    width: 1000px;
-    min-height: 30px;
-    height: 40px; */
+    width: 400px; /* Adjust the width as needed */
 }
 
 .fancybutton img {
@@ -175,9 +166,9 @@ a:hover {
     margin-bottom: 10px;
     max-width: 100%;
     filter: brightness(0) invert(1);
-
 }
-.fancybutton h2{
+
+.fancybutton h2 {
     font-weight: bold;
     color: white;
     display: block;
@@ -188,9 +179,10 @@ a:hover {
 .fancybutton:hover {
     background-color: #932e38;
 }
-/*@media (width: 600px) {
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
     .fancybutton {
-        width: 100%;
-        margin-bottom: 10px;
+        width: 100%; /* Make buttons take full width on smaller screens */
     }
-}/*
+}

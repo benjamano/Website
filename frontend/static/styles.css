@@ -167,19 +167,19 @@ a:hover {
     width: 1000px;
     min-height: 30px;
     height: 40px;
+}
 
-    img {
-        max-width: 50px;
-        margin-bottom: 10px;
+.fancybutton img {
+    max-width: 50px;
+    margin-bottom: 10px;
 
-    }
-    h2{
-        font-weight: bold;
-        color: white;
-        display: block;
-        font-size: 16px;
-        font-weight: bold;
-    }
+}
+.fancybutton h2{
+    font-weight: bold;
+    color: white;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .fancybutton:hover {

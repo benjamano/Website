@@ -4,7 +4,7 @@ app = Flask(__name__, template_folder='../frontend/templates', static_folder='..
 
 
 @app.route("/")
-def hello_world():
+def home():
     return render_template("index.html")
 
 

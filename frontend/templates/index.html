@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome to My Website</title>
-    <link rel="icon" href="{{url_for('static', filename='/images/SmallLogo.png')}}"/>
+    <title>Full Stack Web Dev</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
+<style>
+
+</style>
 <div class="top-bar">
     <a href="#home">Home</a>
     <a href="#about">About</a>
@@ -17,7 +19,6 @@
     </div>
 </div>
 <body>
-
     <div class="content">
         <div class="text">
             <section id="home">
@@ -26,6 +27,27 @@
                 <h3>Full Stack Web Developer</h3>
             </div>
             </section>
+
+            <div class="button-container">
+
+                <div class="fancybutton">
+                    <img src="{{ url_for('static', filename='images/icons/buttons/ComputersPhoneTablet.png') }}" alt="A Computer Symbol">
+                    <br>
+                    <span><h2>My Services</h2></span>
+                </div>
+
+                <div class="fancybutton">
+                    <img src="{{ url_for('static', filename='images/icons/buttons/EmailAeroplane.png') }}" alt="An icon of an @ symbol">
+                    <br>
+                    <span><h2>Contact Me</h2></span>
+                </div>
+
+                <div class="fancybutton">
+                    <img src="{{ url_for('static', filename='images/icons/buttons/Clipboard.png') }}" alt="An icon of an I">
+                    <br>
+                    <span><h2>About Me</h2></span>
+                </div>
+            </div>
 
             <section id="about">
                 <h2>About</h2>
@@ -92,6 +114,11 @@
             </section>
 
             <section id="contact">
+                <div class="contactcard">
+                    <img src="{{ url_for('static', filename='images/me.jpg') }}" alt="A photo of me, Ben looking fancy at prom!">
+                    <h1>Benjamin Mercer</h1>
+                    <h2>Full Stack Web Developer</h2>
+                </div>
                 <h2>Contact</h2>
                 <h3>Please, do not hesitate contact me by email for any questions @</h3>
                 <h1><a href=mailto:"benmercer76@btinternet.com">benmercer76@btinternet.com</a><h1>

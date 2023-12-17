@@ -188,7 +188,7 @@ a:hover {
 .fancybutton:hover {
     background-color: #932e38;
 }
-@media (max-width: 600px) {
+@media (width: 600px) {
     .fancybutton {
         width: 100%; /* Make buttons take full width on smaller screens */
         margin-bottom: 10px; /* Add spacing between stacked buttons */

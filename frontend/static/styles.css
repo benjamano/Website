@@ -163,6 +163,7 @@ a:hover {
     border-radius: 10px;
     background-color: #7a272f;
     transition: background-color 0.3s ease-in-out;
+    width: 400px;
     /* min-width: 50px;
     width: 1000px;
     min-height: 30px;
@@ -170,8 +171,9 @@ a:hover {
 }
 
 .fancybutton img {
-    max-width: 50px;
+    max-height: 50px;
     margin-bottom: 10px;
+    max-width: 100%;
 
 }
 .fancybutton h2{

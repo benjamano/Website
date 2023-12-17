@@ -151,16 +151,16 @@ a:hover {
     margin-bottom: 20px;
 }
 .button-container {
-    display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .fancybutton {
     margin: 16px;
     text-align: center;
     padding: 20px;
-    border: 2px solid #333;
-    border-radius: 10px;
+    /*border: 2px solid #333;*/
+    border-radius: 16px;
     background-color: #7a272f;
     transition: background-color 0.3s ease-in-out;
     width: 400px;
@@ -171,19 +171,26 @@ a:hover {
 }
 
 .fancybutton img {
-    max-height: 50px;
+    max-height: 150px;
     margin-bottom: 10px;
     max-width: 100%;
+    filter: brightness(0) invert(1);
 
 }
 .fancybutton h2{
     font-weight: bold;
     color: white;
     display: block;
-    font-size: 16px;
+    font-size: 32px;
     font-weight: bold;
 }
 
 .fancybutton:hover {
     background-color: #932e38;
+}
+@media (max-width: 600px) {
+    .fancybutton {
+        width: 100%; /* Make buttons take full width on smaller screens */
+        margin-bottom: 10px; /* Add spacing between stacked buttons */
+    }
 }

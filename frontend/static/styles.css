@@ -210,26 +210,58 @@ footer{
     font-size: 15px;
     font-weight: light;
 }
-.slider {
+.custom-image-slider {
     position: relative;
-    width: 500px;
-    height: 500px;
-  }
-  
-  .slider img {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
+    overflow: hidden;
+    height: 0;
+    padding-bottom: 75%; /* Adjust this value according to your image aspect ratio */
   }
-  .slider::before {
-    content: '';
+
+  .slider-before,
+  .slider-after {
     position: absolute;
+    width: 100%;
+    display: block;
     top: 0;
     left: 0;
-    width: 50%;
     height: 100%;
-    background: white;
+    object-fit: cover;
+  }
+
+  .slider-after {
+    overflow: hidden;
+  }
+
+  .slider-handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background-color: #fff;
     cursor: ew-resize;
   }
+
+.slider-handle::before,
+.slider-handle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  cursor: ew-resize;
+  transition: all 0.2s ease-out; /* Add transition property */
+}
+
+.slider-handle::before {
+  left: -24px;
+  border-right: 16px solid #fff;
+}
+
+.slider-handle::after {
+  right: -24px;
+  border-left: 16px solid #fff;
+}

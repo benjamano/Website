@@ -210,28 +210,26 @@ footer{
     font-size: 15px;
     font-weight: light;
 }
-.scroll-container {
+.slider {
     position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+    width: 500px;
+    height: 500px;
   }
   
-  .image-layer {
+  .slider img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
   }
-  
-  .scroll-pin {
+  .slider::before {
+    content: '';
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20px;
-    height: 80px;
-    background-color: white;
-    cursor: pointer;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: white;
+    cursor: ew-resize;
   }

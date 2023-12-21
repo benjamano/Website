@@ -7,6 +7,9 @@ app = Flask(__name__, template_folder='../frontend/templates', static_folder='..
 def home():
     return render_template("index.html")
 
+@app.route("/lasertag")
+def LaserTag():
+    return render_template("lasertag.html")
 
 if __name__ == '__main__':
     app.run()

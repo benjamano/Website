@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laser Tag Improvements</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="icon" href="/static/images/SmallLogo.png">
+</head>
+<div class="top-bar">
+    <a href="https://benmercer.pythonanywhere.com/">Home</a>
+    <a href="https://benmercer.pythonanywhere.com/">About</a>
+    <a href="https://benmercer.pythonanywhere.com/">Services</a>
+    <a href="https://benmercer.pythonanywhere.com/">Skills</a>
+    <a href="https://benmercer.pythonanywhere.com/lasertag">Projects</a>
+    <!-- <a href="#portfolio">Portfolio</a> -->
+    <a href="https://benmercer.pythonanywhere.com/">Contact</a>
+    <div class="logo">
+        <img src="{{ url_for('static', filename='images/FullLogo.png') }}" alt="My Logo - A BM with a small 'Designs' text">
+    </div>
+</div>
+<body>
+  <div class="scroll-container">
+    <div class="image-layer top" data-image="{{ url_for('static', filename='images/beforeaafter/beforemain.jpg') }}"></div>
+    <div class="image-layer bottom" data-image="{{ url_for('static', filename='images/beforeaafter/aftermain.jpg') }}"></div>
+    <div class="scroll-pin"></div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const scrollContainer = document.querySelector('.scroll-container');
+        const scrollPin = document.querySelector('.scroll-pin');
+      
+        function setImages(topImage, bottomImage) {
+          const topImageLayer = document.querySelector('.image-layer.top');
+          const bottomImageLayer = document.querySelector('.image-layer.bottom');
+      
+          topImageLayer.style.backgroundImage = `url(${topImage})`;
+          bottomImageLayer.style.backgroundImage = `url(${bottomImage})`;
+        }
+      
+        // Initial images
+        setImages('image1.jpg', 'image2.jpg');
+      
+        scrollPin.addEventListener('mousedown', function(e) {
+          e.preventDefault();
+          window.addEventListener('mousemove', movePin);
+          window.addEventListener('mouseup', function() {
+            window.removeEventListener('mousemove', movePin);
+          });
+        });
+      
+        function movePin(e) {
+          const containerRect = scrollContainer.getBoundingClientRect();
+          const pinX = e.clientX - containerRect.left;
+          const pinPercentage = (pinX / containerRect.width) * 100;
+      
+          scrollPin.style.left = `${pinPercentage}%`;
+          scrollContainer.style.clipPath = `polygon(0 0, ${pinPercentage}% 0, ${pinPercentage}% 100%, 0 100%)`;
+        }
+      });
+      
+    </script>
+</body>
+</html>

@@ -285,8 +285,7 @@ footer{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 300px;
-    opacity: 0;
+    opacity: 1;
     transform: translateY(20px);
     transition: opacity 0.8s, transform 0.8s;
 }
@@ -296,24 +295,24 @@ footer{
     transform: translateY(0);
 }
 
-.service-box p, .service-box h3, .service-box li {
+.service-box p,
+.service-box h3,
+.service-box li {
     margin: 0;
+    overflow: hidden;
 }
 
 .service-box p {
+    margin-bottom: 16px;
     font-size: 17px;
     color: white;
-    height: 50px;
-    overflow: hidden;
 }
 
 .service-box h3 {
     font-size: 26px;
-    margin-bottom: 8px;
+    margin-bottom: 32px;
     color: white;
     text-decoration: underline;
-    height: 40px;
-    overflow: hidden;
 }
 
 .service-box ul {
@@ -326,8 +325,6 @@ footer{
     font-size: 15px;
     margin-bottom: 8px;
     color: white;
-    height: 20px;
-    overflow: hidden;
 }
 
 @media (max-width: 768px) {

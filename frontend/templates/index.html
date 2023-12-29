@@ -6,6 +6,340 @@
     <link rel="icon" href="/static/images/SmallLogo.png">
 </head>
 <style>
+    html {
+    scroll-behavior: smooth;
+}
+
+li{
+        
+    font-weight: 600;
+
+}
+
+h2{
+    font-size: 40px;
+}
+
+.content {
+    display: flex;
+}
+
+.text {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.image-box {
+    width: 200px;
+    position: fixed;
+    top: 0;
+    right: 32px;
+    height: 100vh;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.image-box img {
+    margin-top: 100px;
+    width: 100%;
+    /*height: 100%; */
+    object-fit: cover;
+}
+.image-box h3 {
+    margin-top: 8px;
+    text-align: center;
+}
+
+
+.top-bar {
+    border-bottom: 2px solid;
+    background-color: #ba3d49;
+    overflow: hidden;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    padding: 0px;
+}
+
+.logo img {
+    max-width: 50px;
+    max-height: 50px;
+    scale: 2;
+    margin-right: 24px;
+}
+
+.top-bar a {
+    border-left: 4px solid white;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.top-bar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.top-bar a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+section {
+    padding: 20px;
+    margin-bottom: 30px 0;
+    background-color: #f9f9f9;
+    text-align: left;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.contactcard{
+    position: fixed;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    width: 50%;
+    border: 3px solid #f1f1f1;
+    border-radius: 25px;
+    background-color: #777777;
+}
+.contactcard img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+.contactcard h1{
+    color: #000000;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+.contactcard h2{
+    color: #000000;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.button-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.fancybutton {
+    margin: 16px;
+    text-align: center;
+    padding: 20px;
+    /*border: 2px solid #333;*/
+    border-radius: 16px;
+    background-color: #7a272f;
+    transition: background-color 0.3s ease-in-out;
+    width: 400px;
+    /* min-width: 50px;
+    width: 1000px;
+    min-height: 30px;
+    height: 40px; */
+    text-decoration: none;
+}
+
+.fancybutton img {
+    max-height: 150px;
+    margin-bottom: 10px;
+    max-width: 100%;
+    filter: brightness(0) invert(1);
+
+}
+.fancybutton h2{
+    font-weight: bold;
+    color: white;
+    display: block;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.fancybutton:hover {
+    background-color: #932e38;
+}
+footer{
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    background-color: #2f3033;
+    color: white;
+    text-align: center;
+    padding: 8px;
+    margin-left: -16px;
+    text-align: center;
+}
+
+.footer h1{
+    color: white;
+    font-size: 20px;
+}
+
+.footer h2{
+    color: white;
+    font-size: 15px;
+    font-weight: light;
+}
+.custom-image-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 0;
+    padding-bottom: 75%; /* Adjust this value according to your image aspect ratio */
+  }
+
+  .slider-before,
+  .slider-after {
+    position: absolute;
+    width: 100%;
+    display: block;
+    top: 0;
+    left: 0;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .slider-after {
+    overflow: hidden;
+  }
+
+  .slider-handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background-color: #fff;
+    cursor: ew-resize;
+  }
+
+.slider-handle::before,
+.slider-handle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  cursor: ew-resize;
+  transition: all 0.2s ease-out; /* Add transition property */
+}
+
+.slider-handle::before {
+  left: -24px;
+  border-right: 16px solid #fff;
+}
+
+.slider-handle::after {
+  right: -24px;
+  border-left: 16px solid #fff;
+}
+.service-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 32px;
+    margin-bottom: auto;
+    padding: 0;
+}
+
+.service-box {
+    flex: 1;
+    margin: 16px;
+    padding: 48px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 1;
+    transform: translateY(20px);
+    transition: opacity 0.8s, transform 0.8s;
+}
+
+.service-box.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-box p,
+.service-box h3,
+.service-box li {
+    margin: 0;
+    overflow: hidden;
+}
+
+.service-box p {
+    margin-bottom: 16px;
+    font-size: 17px;
+    color: white;
+}
+
+.service-box h3 {
+    font-size: 26px;
+    margin-bottom: 32px;
+    color: white;
+    text-decoration: underline;
+}
+
+.service-box ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-box li {
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .service-box {
+        flex: 100%;
+    }
+}
 </style>
 <div class="top-bar">
     <a href="#home">Home</a>

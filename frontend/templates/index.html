@@ -96,6 +96,18 @@
                         <li>Making opening times available (Where Relevant)</li>
                         <li>Keeping contact details current, Address / Postcode, Phone Numbers, Emails</li>
                     </div>
+
+                    <div class="service-box" style="background-color: #fd8454;">
+                        <h3>Google Maps Presence</h3>
+                        <p>I can create a google maps location equipped with all the details that may be relevant to your business</p>
+                        <li>Photos of the inside / out</li>
+                        <li>Contact Details</li>
+                        <li>Opening Times</li>
+                        <li>Address / Postcode</li>
+                        <li>Social Media / Website Links</li>
+                        <li>Setup the built in messging service</li>
+                        <li>Set up reviews and explaining how to respond to them</li>
+                    </div>
                 
                 </div>
             
@@ -163,11 +175,13 @@
     let lastScrollY = window.scrollY;
 
     const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
+        entries.forEach((entry, index) => {
             const isScrollingDown = window.scrollY > lastScrollY;
 
             if (entry.isIntersecting) {
-                entry.target.classList.add('reveal');
+                setTimeout(() => {
+                    entry.target.classList.add('reveal');
+                }, index * 200);
                 observer.unobserve(entry.target);
             }
 

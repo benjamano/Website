@@ -85,7 +85,7 @@ h2{
 
 section {
     padding: 20px;
-    margin: 50px 0;
+    margin-bottom: 30px 0;
     background-color: #f9f9f9;
     text-align: left;
 }
@@ -197,6 +197,7 @@ footer{
     color: white;
     text-align: center;
     padding: 8px;
+    margin-left: -16px;
     text-align: center;
 }
 
@@ -264,4 +265,73 @@ footer{
 .slider-handle::after {
   right: -24px;
   border-left: 16px solid #fff;
+}
+.service-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 32px;
+    margin-bottom: auto;
+    padding: 0;
+}
+
+.service-box {
+    flex: 1;
+    margin: 16px;
+    padding: 48px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s, transform 0.8s;
+}
+
+.service-box.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-box p, .service-box h3, .service-box li {
+    margin: 0;
+}
+
+.service-box p {
+    font-size: 17px;
+    color: white;
+    height: 50px;
+    overflow: hidden;
+}
+
+.service-box h3 {
+    font-size: 26px;
+    margin-bottom: 8px;
+    color: white;
+    text-decoration: underline;
+    height: 40px;
+    overflow: hidden;
+}
+
+.service-box ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-box li {
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: white;
+    height: 20px;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .service-box {
+        flex: 100%;
+    }
 }

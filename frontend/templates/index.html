@@ -494,13 +494,14 @@
         <h2>Email: <a href=mailto:"benmercer76@btinternet.com">benmercer76@btinternet.com</a></h2>
     </footer>
 </body>
-<!-- <script>
+<script>
     const serviceBoxes = document.querySelectorAll('.service-box');
 
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('reveal');
+                observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.5 });
@@ -508,5 +509,5 @@
     serviceBoxes.forEach(box => {
         observer.observe(box);
     });
-</script> -->
+</script>
 </html>

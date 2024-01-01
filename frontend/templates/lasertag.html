@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Laser Tag Improvements</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   <link rel="icon" href="/static/images/SmallLogo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=0.1">
+  <meta charset="UTF-8">
 </head>
 <style>
     .slider-before, .slider-after {
@@ -25,11 +25,33 @@
     </div>
 </div>
 <body>
-    <div class="custom-image-slider" id="customImageSlider">
-        <img class="slider-before" src="{{ url_for('static', filename='images/beforeafter/beforemain.png') }}" alt="Before">
-        <img class="slider-after" src="{{ url_for('static', filename='images/beforeafter/aftermain.png') }}" alt="After">
-        <div class="slider-handle"></div>
+
+  <h3 style="font-size: 80px">*This site is aa work in progress!!</h3>
+
+  <div class="button-container">
+
+    <div class="fancybutton" href="#laser">
+      <img href="#laser" src="{{ url_for('static', filename='images/CrossHairWall.jpg') }}" alt="A photo from the laser tag arena, depicting a crosshair glowing due to UV lighting">
     </div>
+
+    <!-- <div class="fancybutton" href="#laser">
+      <img href="#laser" src="{{ url_for('static', filename='images/UVWall.jpg') }}" alt="A photo from the laser tag arena, depicting a wall glowing due to UV lighting"> -->
+
+    <section id="laser">
+      <div class="container">
+        <div class="content">
+          <h2>Laser Tag Improvements</h2>
+          <p>As part of my work at <a href="https://www.play2day.biz/">Play2Day</a>, I was tasked with improving the laser tag arena. This included painting the barrels with UV paint, fixing an old sound system and installing new lighting.</p>
+          <p>Below are some before and after photos of the arena.</p>
+
+          <div class="custom-image-slider" id="customImageSlider">
+            <img class="slider-before" src="{{ url_for('static', filename='images/beforeafter/beforemain.png') }}" alt="Before">
+            <img class="slider-after" src="{{ url_for('static', filename='images/beforeafter/aftermain.png') }}" alt="After">
+            <div class="slider-handle"></div>
+        </div>
+        </div>
+      </div>  
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
           const container = document.querySelector(".custom-image-slider");

@@ -355,13 +355,31 @@ footer{
     }
 
     .fancybutton {
-        width: 80%; /* Adjust width for buttons in portrait mode */
-        max-width: 300px; /* Set max-width for buttons in portrait mode */
+        width: 80%;
+        max-width: 75%;
+        margin-top: 16px;/
+    }
+
+    .service-container {
+        flex-direction: column; /* Stack service boxes vertically in portrait mode */
+        align-items: center; /* Center service boxes in portrait mode */
     }
 
     .service-box {
-        padding: 20px; /* Adjust padding for service boxes in portrait mode */
-        text-align: center; /* Center text in service boxes in portrait mode */
+        margin-bottom: 20px; /* Add some spacing between stacked service boxes */
+        width: 100%; /* Make service boxes take full width in portrait mode */
+    }
+
+    .service-box h3 {
+        font-size: 24px; /* Adjust font size for h3 in service boxes in portrait mode */
+    }
+
+    .service-box p {
+        font-size: 16px; /* Adjust font size for paragraphs in service boxes in portrait mode */
+    }
+
+    .service-box li {
+        font-size: 14px; /* Adjust font size for list items in service boxes in portrait mode */
     }
 
     .footer {

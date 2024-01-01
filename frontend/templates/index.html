@@ -4,22 +4,23 @@
     <title>Full Stack Web Dev</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="icon" href="/static/images/SmallLogo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <style>
 </style>
-<div class="top-bar">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#skills">Skills</a>
-    <a href="https://benmercer.pythonanywhere.com/lasertag">Projects</a>
-    <!-- <a href="#portfolio">Portfolio</a> -->
-    <a href="#contact">Contact</a>
-    <div class="logo">
-        <img src="{{ url_for('static', filename='images/FullLogo.png') }}" alt="My Logo - A BM with a small 'Designs' text">
-    </div>
-</div>
 <body>
+    <div class="top-bar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#skills">Skills</a>
+        <a href="https://benmercer.pythonanywhere.com/lasertag">Projects</a>
+        <!-- <a href="#portfolio">Portfolio</a> -->
+        <a href="#contact">Contact</a>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/FullLogo.png') }}" alt="My Logo - A BM with a small 'Designs' text">
+        </div>
+    </div>
     <div class="content">
         <div class="text">
             <section id="home">

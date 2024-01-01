@@ -26,12 +26,14 @@
 </div>
 <body>
 
-  <h3 style="font-size: 80px">*This site is aa work in progress!!</h3>
+  <h3 style="font-size: 80px">*This site is a work in progress!!</h3>
 
   <div class="button-container">
 
-    <div class="fancybutton" href="#laser">
-      <img href="#laser" src="{{ url_for('static', filename='images/CrossHairWall.jpg') }}" alt="A photo from the laser tag arena, depicting a crosshair glowing due to UV lighting">
+    <div class="fancybutton" href="#laser" style="background-color:transparent;">
+      <img style="filter: blur(2px);" href="#laser" src="{{ url_for('static', filename='images/CrossHairWall.jpg') }}" alt="A photo from the laser tag arena, depicting a crosshair glowing due to UV lighting">
+      <br>
+      <span><h2>Laser Tag Additions</h2></span>
     </div>
 
     <!-- <div class="fancybutton" href="#laser">

@@ -153,6 +153,7 @@ a:hover {
 .button-container {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .fancybutton {
@@ -330,5 +331,9 @@ footer{
 @media (max-width: 768px) {
     .service-box {
         flex: 100%;
+    }
+    .fancybutton {
+        width: 100%;
+        max-width: 300px;
     }
 }

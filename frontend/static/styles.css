@@ -361,11 +361,13 @@ footer{
         font-size: 18px;
     }
     .top-bar {
-        padding: 20px;
+        padding: 20px; 
+        width: 100%;
     }
 
     .footer {
         padding: 20px;
+        width: 100%; 
     }
 }
 

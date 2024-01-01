@@ -328,12 +328,43 @@ footer{
     color: white;
 }
 
-@media (max-width: 768px) {
-    .service-box {
-        flex: 100%;
+@media (orientation: portrait) {
+    h1 {
+        font-size: 36px; /* Adjust font size for h1 in portrait mode */
     }
+
+    h2 {
+        font-size: 28px; /* Adjust font size for h2 in portrait mode */
+    }
+
+    h3 {
+        font-size: 18px; /* Adjust font size for h3 in portrait mode */
+    }
+
+    p {
+        font-size: 16px; /* Adjust font size for paragraphs in portrait mode */
+    }
+
+    .content {
+        flex-direction: column; /* Stack content vertically in portrait mode */
+    }
+
+    .button-container {
+        flex-direction: column; /* Stack buttons vertically in portrait mode */
+        align-items: center; /* Center buttons in portrait mode */
+    }
+
     .fancybutton {
-        width: 100%;
-        max-width: 300px;
+        width: 80%; /* Adjust width for buttons in portrait mode */
+        max-width: 300px; /* Set max-width for buttons in portrait mode */
+    }
+
+    .service-box {
+        padding: 20px; /* Adjust padding for service boxes in portrait mode */
+        text-align: center; /* Center text in service boxes in portrait mode */
+    }
+
+    .footer {
+        padding: 20px; /* Adjust padding for footer in portrait mode */
     }
 }

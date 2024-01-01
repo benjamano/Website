@@ -360,6 +360,13 @@ footer{
     .service-box li {
         font-size: 18px;
     }
+    .top-bar {
+        padding: 20px;
+    }
+
+    .footer {
+        padding: 20px;
+    }
 }
 
 /* Extra max-width compatibilities */

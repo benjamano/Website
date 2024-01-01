@@ -360,6 +360,14 @@ footer{
         margin-top: 16px;/
     }
 
+    .fancybutton h2 {
+        font-size: 60px; /* Adjust font size for h2 in portrait mode */
+    }
+
+    .fancybutton img {
+        max-height: 300px; /* Adjust max height for images in portrait mode */
+    }
+
     .service-container {
         flex-direction: column; /* Stack service boxes vertically in portrait mode */
         align-items: center; /* Center service boxes in portrait mode */
@@ -371,18 +379,26 @@ footer{
     }
 
     .service-box h3 {
-        font-size: 24px; /* Adjust font size for h3 in service boxes in portrait mode */
+        font-size: 80px; /* Adjust font size for h3 in service boxes in portrait mode */
     }
 
     .service-box p {
-        font-size: 16px; /* Adjust font size for paragraphs in service boxes in portrait mode */
+        font-size: 45px; /* Adjust font size for paragraphs in service boxes in portrait mode */
     }
 
     .service-box li {
-        font-size: 14px; /* Adjust font size for list items in service boxes in portrait mode */
+        font-size: 45px; /* Adjust font size for list items in service boxes in portrait mode */
     }
 
     .footer {
         padding: 20px; /* Adjust padding for footer in portrait mode */
+    }
+
+    .footer h1 {
+        font-size: 60px; /* Adjust font size for h1 in footer in portrait mode */
+    }
+
+    .footer h2 {
+        font-size: 40px; /* Adjust font size for h2 in footer in portrait mode */
     }
 }

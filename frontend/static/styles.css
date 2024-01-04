@@ -333,6 +333,7 @@ footer{
     width: 400px;
     max-width: 100%;
     overflow: hidden;
+    border-radius: 16px;
 }
 
 .portrait-button a {
@@ -344,7 +345,7 @@ footer{
     width: 100%;
     height: auto;
     object-fit: cover;
-    filter: blur(8px);
+    border-radius: 16px;
 }
 
 .button-content {
@@ -354,7 +355,7 @@ footer{
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
-    z-index: 1;
+    z-index: 1; /* Ensure the text is above the blurred image */
 }
 
 .portrait-button h2 {

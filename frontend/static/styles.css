@@ -355,14 +355,15 @@ footer{
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
-    z-index: 1; /* Ensure the text is above the blurred image */
+    z-index: 1;
+    backdrop-filter: blur(8px); /* Adjust the blur intensity as needed */
+    border-radius: 16px; /* Ensure the text has rounded corners */
 }
 
 .portrait-button h2 {
     font-size: 24px;
     margin: 0;
 }
-
 @media (orientation: portrait) {
     .portrait-button {
         width: 100%; /* Make the button take full width in portrait mode */

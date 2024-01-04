@@ -30,11 +30,15 @@
 
   <div class="button-container">
 
-    <div class="fancybutton" href="#laser">
-      <img style="filter: blur(2px);" href="#laser" src="{{ url_for('static', filename='images/CrossHairWall.jpg') }}" alt="A photo from the laser tag arena, depicting a crosshair glowing due to UV lighting">
-      <br>
-      <span><h2>Laser Tag Additions</h2></span>
+    <div class="portrait-button">
+      <a href="#laser">
+          <img src="{{ url_for('static', filename='images/CrossHairWall.jpg') }}" alt="A photo from the laser tag arena, depicting a crosshair glowing due to UV lighting">
+          <div class="button-content">
+              <h2>Laser Tag Lighting</h2>
+          </div>
+      </a>
     </div>
+
 
     <!-- <div class="fancybutton" href="#laser">
       <img href="#laser" src="{{ url_for('static', filename='images/UVWall.jpg') }}" alt="A photo from the laser tag arena, depicting a wall glowing due to UV lighting"> -->

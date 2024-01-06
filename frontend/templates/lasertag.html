@@ -93,6 +93,39 @@
     </section>
 
     <script>
+
+    const slider1 = document.getElementById('slider1');
+    const imageSlider1 = document.querySelectorAll('.image-slider')[0];
+    const topImage1 = document.querySelectorAll('.top-image')[0];
+
+    const slider2 = document.getElementById('slider2');
+    const imageSlider2 = document.querySelectorAll('.image-slider')[1];
+    const topImage2 = document.querySelectorAll('.top-image')[1];
+
+    function initializeSlider(slider, imageSlider, topImage) {
+        let isDragging = false;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            document.addEventListener('mousemove', handleMouseMove);
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+                document.removeEventListener('mousemove', handleMouseMove);
+            });
+        });
+
+        function handleMouseMove(e) {
+            if (isDragging) {
+                const newWidth = (e.clientX - imageSlider.getBoundingClientRect().left) / imageSlider.offsetWidth * 100;
+                topImage.style.width = `${newWidth}%`;
+                slider.style.left = `${newWidth}%`;
+            }
+        }
+    }
+
+    initializeSlider(slider1, imageSlider1, topImage1);
+    initializeSlider(slider2, imageSlider2, topImage2);
+
         document.addEventListener("DOMContentLoaded", function () {
           const container = document.querySelector(".custom-image-slider");
           const afterImage = document.querySelector(".slider-after");

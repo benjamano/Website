@@ -64,6 +64,22 @@
         <div class="slider-handle"></div>
       </div>
 
+      <div class="image-slider-container">
+        <div class="image-slider">
+            <img src="{{ url_for('static', filename='images/before+after/BeforeIcicle-1.jpg') }}" alt="Image 1" class="top-image">
+            <img src="{{ url_for('static', filename='images/before+after/AfterIcicle-1.jpg') }}" alt="Image 2" class="bottom-image">
+            <div class="slider" id="slider1"></div>
+        </div>
+    </div>
+    
+    <div class="image-slider-container">
+        <div class="image-slider">
+            <img src="{{ url_for('static', filename='images/before+after/AlienBefore.jpg') }}" alt="Image 3" class="top-image">
+            <img src="{{ url_for('static', filename='images/before+after/AlienAfter.jpg') }}" alt="Image 4" class="bottom-image">
+            <div class="slider" id="slider2"></div>
+        </div>
+    </div>
+
       <!-- <div class="custom-image-slider" id="customImageSlider2">
         <img class="slider-before" src="{{ url_for('static', filename='images/before+after/AlienBefore.jpg') }}" alt="Before" style="height: 800px">
         <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AlienAfter.jpg') }}" alt="After" style="height: 800px">

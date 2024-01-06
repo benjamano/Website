@@ -369,6 +369,42 @@ footer{
     margin: 0;
     padding: 32px;
 }
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.image-slider-container {
+    position: relative;
+}
+
+.image-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.top-image,
+.bottom-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: #333;
+    cursor: ew-resize;
+}
 @media (orientation: portrait) {
     .portrait-button {
         width: 100%; /* Make the button take full width in portrait mode */

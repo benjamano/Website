@@ -64,27 +64,11 @@
         <div class="slider-handle"></div>
       </div>
 
-      <div class="image-slider-container">
-        <div class="image-slider">
-            <img src="{{ url_for('static', filename='images/before+after/BeforeIcicle-1.jpg') }}" alt="Image 1" class="top-image">
-            <img src="{{ url_for('static', filename='images/before+after/AfterIcicle-1.jpg') }}" alt="Image 2" class="bottom-image">
-            <div class="slider" id="slider1"></div>
-        </div>
-    </div>
-    
-    <div class="image-slider-container">
-        <div class="image-slider">
-            <img src="{{ url_for('static', filename='images/before+after/AlienBefore.jpg') }}" alt="Image 3" class="top-image">
-            <img src="{{ url_for('static', filename='images/before+after/AlienAfter.jpg') }}" alt="Image 4" class="bottom-image">
-            <div class="slider" id="slider2"></div>
-        </div>
-    </div>
-
-      <!-- <div class="custom-image-slider" id="customImageSlider2">
+      <div class="custom-image-slider" id="customImageSlider2">
         <img class="slider-before" src="{{ url_for('static', filename='images/before+after/AlienBefore.jpg') }}" alt="Before" style="height: 800px">
         <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AlienAfter.jpg') }}" alt="After" style="height: 800px">
         <div class="slider-handle"></div>
-      </div> -->
+      </div>
     </div>
 
     <section id="socialmedia">
@@ -93,117 +77,90 @@
     </section>
 
     <script>
-
       document.addEventListener("DOMContentLoaded", function () {
-        initializeSlider("slider1", 0);
-        initializeSlider("slider2", 1);
-    });
-    
-    function initializeSlider(sliderId, index) {
-        const slider = document.getElementById(sliderId);
-        const imageSlider = document.querySelectorAll('.image-slider')[index];
-        const topImage = document.querySelectorAll('.top-image')[index];
-    
-        let isDragging = false;
-    
-        slider.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            document.addEventListener('mousemove', handleMouseMove);
-            document.addEventListener('mouseup', () => {
-                isDragging = false;
-                document.removeEventListener('mousemove', handleMouseMove);
-            });
-        });
-    
-        function handleMouseMove(e) {
-            if (isDragging) {
-                const newWidth = (e.clientX - imageSlider.getBoundingClientRect().left) / imageSlider.offsetWidth * 100;
-                topImage.style.width = `${newWidth}%`;
-                slider.style.left = `${newWidth}%`;
-            }
-        }
-    }
-        document.addEventListener("DOMContentLoaded", function () {
-          const container = document.querySelector(".custom-image-slider");
-          const afterImage = document.querySelector(".slider-after");
-          const handle = document.querySelector(".slider-handle");
-      
+        const sliders = document.querySelectorAll(".custom-image-slider");
+  
+        sliders.forEach((slider) => {
+          const afterImage = slider.querySelector(".slider-after");
+          const handle = slider.querySelector(".slider-handle");
+  
           // Set initial handle position and clipPath
           const initialPercentage = 50;
           handle.style.left = `${initialPercentage}%`;
           afterImage.style.clipPath = `inset(0 ${100 - initialPercentage}% 0 0)`;
-      
+  
           let dragging = false;
           let lastX = 0;
-      
+  
           // Add mouse event listeners
           handle.addEventListener("mousedown", (e) => {
             dragging = true;
             lastX = e.clientX;
             e.preventDefault();
           });
-      
+  
           document.addEventListener("mouseup", () => {
             dragging = false;
           });
-      
+  
           document.addEventListener("mouseleave", () => {
             dragging = false;
           });
-      
+  
           document.addEventListener("mousemove", (e) => {
             if (!dragging) return;
-      
-            const rect = container.getBoundingClientRect();
+  
+            const rect = slider.getBoundingClientRect();
             const x = e.clientX - rect.left;
             let widthPercentage = (x / rect.width) * 100;
-      
+  
             // Add constraint to keep the handle within 1% of either edge
             widthPercentage = Math.max(0, Math.min(widthPercentage, 100));
-      
+  
             // Update handle position using requestAnimationFrame
             window.requestAnimationFrame(() => {
               handle.style.left = `${widthPercentage}%`;
               afterImage.style.clipPath = `inset(0 ${100 - widthPercentage}% 0 0)`;
             });
-      
+  
             lastX = x;
           });
-      
+  
           // Add touch event listeners
           handle.addEventListener("touchstart", (e) => {
             dragging = true;
             lastX = e.touches[0].clientX;
             e.preventDefault();
           });
-      
+  
           document.addEventListener("touchend", () => {
             dragging = false;
           });
-      
-          container.addEventListener("touchcancel", () => {
+  
+          slider.addEventListener("touchcancel", () => {
             dragging = false;
           });
-      
-          container.addEventListener("touchmove", (e) => {
+  
+          slider.addEventListener("touchmove", (e) => {
             if (!dragging) return;
-      
-            const rect = container.getBoundingClientRect();
+  
+            const rect = slider.getBoundingClientRect();
             const x = e.touches[0].clientX - rect.left;
             let widthPercentage = (x / rect.width) * 100;
-      
+  
             // Add constraint to keep the handle within 1% of either edge
             widthPercentage = Math.max(0, Math.min(widthPercentage, 100));
-      
+  
             // Update handle position using requestAnimationFrame
             window.requestAnimationFrame(() => {
               handle.style.left = `${widthPercentage}%`;
               afterImage.style.clipPath = `inset(0 ${100 - widthPercentage}% 0 0)`;
-              });
-      
+            });
+  
             lastX = x;
           });
+        });
       });
-      </script>
+  </script>
 </body>
 </html>

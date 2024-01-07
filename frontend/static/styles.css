@@ -371,7 +371,8 @@ footer{
 }
 @media (orientation: portrait) {
     .portrait-button {
-        width: 100%; /* Make the button take full width in portrait mode */
+        width: 700px;
+        padding-bottom: 16px;
     }
 
     .portrait-button img {

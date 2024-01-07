@@ -11,6 +11,27 @@
     .slider-before, .slider-after {
       user-select: none;
     }
+    body {
+      -ms-overflow-style: none; /* for Internet Explorer, Edge */
+      scrollbar-width: none; /* for Firefox */
+      overflow-y: scroll; 
+    }
+    
+    body::-webkit-scrollbar {
+      display: none; /* for Chrome, Safari, and Opera */
+    }
+    
+    .alongsidetext {
+      flex: 1;
+      max-width: 50%;
+      padding: 0 16px;
+    }
+
+    iframe {
+      flex: 1;
+      max-width: 50%;
+    }
+
   </style>
 <div class="top-bar">
     <a href="https://benmercer.pythonanywhere.com/">Home</a>
@@ -104,8 +125,11 @@
 
     <section id="socialmedia">
       <div class="button-container">
-        <h2>Social Media for Play2Day</h2>
-        <p>As part of my work at Play2Day, I started managing their social media accounts, this included setting up the new Instagram account, improving their Facebook account, and also making their Google Maps page much more informative as well as replying to reviews made.</p>
+        <div class="alongsidetext">
+          <h2>Social Media for Play2Day</h2>
+          <p>As part of my work at Play2Day, I started managing their social media accounts, this included setting up the new Instagram account, improving their Facebook account, and also making their Google Maps page much more informative as well as replying to reviews made.</p>
+        </div>
+
         <iframe src="https://onedrive.live.com/embed?resid=dc458cf5ccf237dd%2116143&authkey=!AGMimVMgAMdgpp8&em=2" width="80%" height="800px" frameborder="0" scrolling="no"></iframe>
       </div>
     </section>

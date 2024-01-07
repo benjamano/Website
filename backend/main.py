@@ -9,7 +9,7 @@ def home():
 
 @app.route("/lasertag")
 def LaserTag():
-    return render_template("lasertag.html")
+    return render_template("projects.html")
 
 if __name__ == '__main__':
     app.run()

@@ -385,7 +385,7 @@ footer{
     }
 
     h2 {
-        font-size: 28px; /* Adjust font size for h2 in portrait mode */
+        font-size: 76px; /* Adjust font size for h2 in portrait mode */
     }
 
     h3 {
@@ -393,7 +393,7 @@ footer{
     }
 
     p {
-        font-size: 16px; /* Adjust font size for paragraphs in portrait mode */
+        font-size: 44px; /* Adjust font size for paragraphs in portrait mode */
     }
 
     .content {

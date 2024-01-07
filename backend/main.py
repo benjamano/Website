@@ -7,7 +7,7 @@ app = Flask(__name__, template_folder='../frontend/templates', static_folder='..
 def home():
     return render_template("index.html")
 
-@app.route("/lasertag")
+@app.route("/projects")
 def LaserTag():
     return render_template("projects.html")
 

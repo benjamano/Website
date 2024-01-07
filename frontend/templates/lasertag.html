@@ -28,10 +28,6 @@
 
   <h3 style="font-size: 80px">*This site is a work in progress!!</h3>
 
-  <center>
-    <h3 style="font-size:80px;">Select an option</h3>
-  </center>
-
   <div class="button-container">
 
     <div class="portrait-button">
@@ -52,10 +48,10 @@
 
   <section id="laser">
     <div class="container">
-      <div class="stickouttext" style="background-color:#ffbbc1">
+      <div class="stickouttext" style="background-color:#bd8186; padding: 32px; border-radius: 32px 32px 0px 0px;">
         <h2>Laser Tag Improvements</h2>
         <p>As part of my work at <a href="https://www.play2day.biz/">Play2Day</a>, I was tasked with improving the laser tag arena. During my time, I noticed that children would often get hurt, so I decided I wanted to increase the visibility inside the arena, but didn't want to harm the overall theme of the arena.  </p>
-        <p>Below are some before and after photos of the arena.</p>
+        <p style="margin-bottom: 0px;">Below are some before and after photos of the arena.</p>
       </div>
 
       <div class="button-container" style="background-color: #bd8186; padding: 32px; width: 100%; right: 0; position: absolute;">
@@ -68,6 +64,18 @@
         <div class="custom-image-slider" id="customImageSlider2" style="height: 800px; width: 800px; border-radius: 64px;">
           <img class="slider-before" src="{{ url_for('static', filename='images/before+after/AlienBefore.jpg') }}" alt="Before" style="height: 800px; width: 800px">
           <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AlienAfter.jpg') }}" alt="After" style="height: 800px; width: 800px">
+          <div class="slider-handle"></div>
+        </div>
+
+        <div class="custom-image-slider" id="customImageSlider3" style="height: 800px; width: 800px; border-radius: 64px;">
+          <img class="slider-before" src="{{ url_for('static', filename='images/before+after/BeforeCentre.jpg') }}" alt="Before" style="height: 800px; width: 800px">
+          <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AfterCentre.jpg') }}" alt="After" style="height: 800px; width: 800px">
+          <div class="slider-handle"></div>
+        </div>
+
+        <div class="custom-image-slider" id="customImageSlider4" style="height: 800px; width: 800px; border-radius: 64px;">
+          <img class="slider-before" src="{{ url_for('static', filename='images/before+after/BeforeSmallCorner.jpg') }}" alt="Before" style="height: 800px; width: 800px">
+          <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AfterSmallCorner.jpg') }}" alt="After" style="height: 800px; width: 800px">
           <div class="slider-handle"></div>
         </div>
       </div>

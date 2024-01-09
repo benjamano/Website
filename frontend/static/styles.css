@@ -217,13 +217,13 @@ footer{
     font-weight: light;
 }
 .custom-image-slider {
-    height: 600px;
-    width: 600px;
     position: relative;
     width: 100%;
     overflow: hidden;
     height: 0;
     /* padding-bottom: 48px; */
+    height: 600px;
+    width: 600px;
   }
 
   .slider-before,

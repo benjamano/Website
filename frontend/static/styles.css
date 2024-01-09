@@ -370,6 +370,12 @@ footer{
     padding: 32px;
 }
 @media (orientation: portrait) {
+
+    .custom-image-slider, .slider-after, .slider-before {
+        height: 800px;
+        width: 800px;
+    }
+
     .portrait-button {
         width: 700px;
         padding-bottom: 16px;

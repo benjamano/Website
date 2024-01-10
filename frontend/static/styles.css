@@ -374,6 +374,14 @@ footer{
 }
 @media (orientation: portrait) {
 
+    .logo img{
+        display: none;
+    }
+
+    .top-bar a{
+        font-size: 55px;
+    }
+
     .custom-image-slider, .slider-after, .slider-before {
         height: 800px;
         width: 800px;

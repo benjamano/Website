@@ -338,7 +338,6 @@ footer{
 .portrait-button {
     position: relative;
     margin: 16px;
-    width: 400px;
     max-width: 100%;
     overflow: hidden;
     border-radius: 48px;

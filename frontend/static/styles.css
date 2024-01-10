@@ -381,13 +381,12 @@ footer{
     }
 
     .portrait-button {
-        width: 700px;
         padding-bottom: 16px;
     }
 
     .portrait-button img {
         height: auto;
-        max-width: 100%; /* Make sure the image doesn't exceed the button width */
+        width: 750px;
     }
 
     h1 {

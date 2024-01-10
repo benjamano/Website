@@ -350,10 +350,10 @@ footer{
 }
 
 .portrait-button img {
-    width: 100%;
-    height: auto;
     object-fit: cover;
     border-radius: 40px;
+    width: 400px;
+    height: auto;
 }
 
 .button-content {

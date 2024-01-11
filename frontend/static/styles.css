@@ -363,8 +363,8 @@ footer{
     text-align: center;
     color: white;
     z-index: 1;
-    backdrop-filter: blur(8px); /* Adjust the blur intensity as needed */
-    border-radius: 16px; /* Ensure the text has rounded corners */
+    /* backdrop-filter: blur(8px); */
+    border-radius: 16px;
 }
 
 .portrait-button h2 {

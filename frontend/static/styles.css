@@ -1,13 +1,13 @@
-@import 'tailwindcss/base';
+/* @import 'tailwindcss/base';
 @import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss/utilities'; */
 
 html {
     scroll-behavior: smooth;
 }
 
 li{
-
+    padding-bottom: 8px;
     font-weight: 600;
 
 }

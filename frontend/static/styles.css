@@ -379,6 +379,13 @@ footer{
     margin: 0;
     padding: 32px;
 }
+
+.main-page{
+    padding: 132px; 
+    padding-top: 0px; 
+    padding-bottom: 0px;
+}
+
 @media (orientation: portrait) {
 
     .logo img{
@@ -401,6 +408,12 @@ footer{
     .portrait-button img {
         height: auto;
         width: 750px;
+    }
+
+    .main-page{
+        padding: 32px; 
+        padding-top: 0px; 
+        padding-bottom: 0px;
     }
 
     h1 {

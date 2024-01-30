@@ -175,10 +175,11 @@ a:hover {
     font-size: 24px;
     margin-bottom: 20px;
 }
-.button-container {
+.button-container .columncontainter {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    padding: 16px 300px 16px 300px;
 }
 
 .fancybutton {
@@ -409,6 +410,15 @@ footer{
 
 @media (orientation: portrait) {
 
+    .alongsidetext{
+        max-width: 80%;
+    }
+
+    .columncontainter{
+        padding: 16px 50px 16px 50px;
+        flex-direction: column;
+    }
+
     .logo img {
         display: none;
     }
@@ -460,6 +470,7 @@ footer{
     .button-container {
         flex-direction: row;
         align-items: center;
+        padding: 16px 100px 16px 100px;
     }
 
     .fancybutton {

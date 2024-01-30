@@ -27,6 +27,11 @@
       max-width: 50%;
     }
 
+    video{
+      flex: 1;
+      max-width: 50%;
+    }
+
   </style>
 <div class="top-bar">
     <a href="https://benmercer.pythonanywhere.com/">Home</a>
@@ -121,13 +126,23 @@
     </div>
     
     <section id="laserguns">
-      <div class="container">
-        <h2>
-          Laser Tag Gun Repairs
-        </h2>
-        <p>
-          As part of my work at <a href="https://www.play2day.biz/">Play2Day</a>, I took on the challenge of repairing the faulty Laser-Tag guns, I had to teach myself how to repair through trial and error. Here is a timelapse of me switching the case of a gun with a new case. This requires me to remove all comonents and transplant them into the new shell.
-        </p>
+      <div class="button-container" style="background-color:azure">
+        <div class="alongsidetext">
+          <h2>
+            Laser Tag Gun Repairs
+          </h2>
+          <p>
+            As part of my work at <a href="https://www.play2day.biz/">Play2Day</a>, I took on the challenge of repairing the faulty Laser-Tag guns, I had to teach myself how to repair through trial and error. Here is a timelapse of me switching the case of a gun with a new case. This requires me to remove all comonents and transplant them into the new shell.
+          </p>
+        </div>
+        <div class="video-container">
+          <!--<div class="loading-overlay">
+            <img src="loading.gif" alt="Loading">
+          </div> -->
+          <video autoplay muted playsinline style="pointer-events: none;">
+            <source src="{{ url_for('static', filename='videos/Timelapse-Gun-Case.mp4') }}" type="video/mp4">
+          </video>
+        </div>
       </div>
     </section>
     

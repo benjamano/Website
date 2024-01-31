@@ -175,7 +175,14 @@ a:hover {
     font-size: 24px;
     margin-bottom: 20px;
 }
-.button-container .columncontainter {
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 16px 300px 16px 300px;
+}
+
+.columncontainter {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;

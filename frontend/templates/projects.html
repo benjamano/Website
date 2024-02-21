@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>My Projects / Portfolio</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-  <link rel="icon" href="/static/images/SmallLogo.png">
-  <meta name="viewport" content="width=device-width, initial-scale=0.1">
-  <meta charset="UTF-8">
-  <meta name="description" content="Ben Mercer's Portfolio - Including Laser Tag Lighting System Upgrades And Social Media Account Page Improvement.">
+    <title>My Projects / Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="/static/images/SmallLogo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=0.1">
+    <meta charset="UTF-8">
+    <meta name="description" content="Ben Mercer's Portfolio - Including Laser Tag Lighting System Upgrades And Social Media Account Page Improvement.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <style>
     .slider-before, .slider-after {
@@ -32,153 +35,157 @@
       max-width: 50%;
     }
 
-  </style>
-<div class="top-bar">
-    <a href="https://benmercer.pythonanywhere.com/">Home</a>
-    <a href="https://benmercer.pythonanywhere.com/">Services</a>
-    <a href="https://benmercer.pythonanywhere.com/">Skills</a>
-    <a href="https://benmercer.pythonanywhere.com/projects">Projects</a>
-    <!-- <a href="#portfolio">Portfolio</a> -->
-    <a href="https://benmercer.pythonanywhere.com/">Contact</a>
+</style>
+<div class="sidebar">
     <div class="logo">
         <img src="{{ url_for('static', filename='images/FullLogo.png') }}" alt="My Logo - A BM with a small 'Designs' text">
     </div>
+    <ul>
+        <a href="https://benmercer.pythonanywhere.com/"><li>Home</li></a>
+        <a href="https://benmercer.pythonanywhere.com/#services"><li>Services</li></a>
+        <a href="https://benmercer.pythonanywhere.com/#skills"><li>Skills</li></a>
+        <a href="https://benmercer.pythonanywhere.com/projects"><li>Projects</li></a>
+        <!-- <li><a href="#portfolio">Portfolio</a></li> -->
+        <a href="https://benmercer.pythonanywhere.com/#contact"><li>Contact</li></a>
+    </ul>
 </div>
 <body>
-  <div class="button-container" style="flex-direction: row; margin-top: 64px;">
-
-    <div class="portrait-button">
-      <a href="#laser">
-          <img src="{{ url_for('static', filename='images/CrossHairWall.jpg') }}" alt="A photo from the laser tag arena, depicting a crosshair glowing red due to UV lighting">
-          <div class="button-content">
-              <h2>Laser Tag Lighting</h2>
-          </div>
-      </a>
+    <div class="content">
+        <div class="button-container" style="flex-direction: row; margin-top: 64px;">
+            <div class="portrait-button">
+            <a href="#laser">
+                <img src="{{ url_for('static', filename='images/CrossHairWall.jpg') }}" alt="A photo from the laser tag arena, depicting a crosshair glowing red due to UV lighting">
+                <div class="button-content">
+                    <h2>Laser Tag Lighting</h2>
+                </div>
+            </a>
+            </div>
+            <div class="portrait-button">
+            <a href="#laserguns">
+                <img src="{{ url_for('static', filename='images/icons/buttons/GreenCrosshair.png') }}" alt="A photo from the laser tag arena, depicting a crosshair glowing green due to UV lighting">
+                <div class="button-content" style="color: white;">
+                    <h2>Laser-Tag Gun Repairs</h2>
+                </div>
+            </a>
+            </div>
+            <div class="portrait-button">
+            <a href="#socialmedia">
+                <img src="{{ url_for('static', filename='images/icons/buttons/GreenCrosshair.png') }}" alt="A photo from the laser tag arena, depicting a crosshair glowing green due to UV lighting">
+                <div class="button-content" style="color: white;">
+                    <h2>Social Media Portfolio</h2>
+                </div>
+            </a>
+            </div>
     </div>
-    <div class="portrait-button">
-      <a href="#laserguns">
-          <img src="{{ url_for('static', filename='images/icons/buttons/GreenCrosshair.png') }}" alt="A photo from the laser tag arena, depicting a crosshair glowing green due to UV lighting">
-          <div class="button-content" style="color: white;">
-              <h2>Laser-Tag Gun Repairs</h2>
-          </div>
-      </a>
-    </div>
-    <div class="portrait-button">
-      <a href="#socialmedia">
-          <img src="{{ url_for('static', filename='images/icons/buttons/GreenCrosshair.png') }}" alt="A photo from the laser tag arena, depicting a crosshair glowing green due to UV lighting">
-          <div class="button-content" style="color: white;">
-              <h2>Social Media Portfolio</h2>
-          </div>
-      </a>
-    </div>
-  </div>
 
-  <!-- <div class="fancybutton" href="#laser">
-    <img href="#laser" src="{{ url_for('static', filename='images/UVWall.jpg') }}" alt="A photo from the laser tag arena, depicting a wall glowing due to UV lighting"> -->
+    <!-- <div class="fancybutton" href="#laser">
+        <img href="#laser" src="{{ url_for('static', filename='images/UVWall.jpg') }}" alt="A photo from the laser tag arena, depicting a wall glowing due to UV lighting"> -->
 
-  <section id="laser" style="padding: 0px; margin-top: 128px;">
-    <div class="container" style="max-width: none; padding: 0px; background-color: #f2f2f2;">
-      <div class="stickouttext" style="background-color:#a33e46; padding: 32px; border-radius: 32px 32px 0px 0px; display: inline-table; width: 70%;">
-        <h2 style="color:rgb(255, 255, 255); font-weight: 700;">Laser Tag Improvements</h2>
-        <p style="color:rgba(255, 255, 255, 0.76)">As part of my work at <a href="https://www.play2day.biz/">Play2Day</a>, I decided to improve the laser tag arena. During my time, I noticed that children would often get hurt, so I decided I wanted to increase the visibility inside the arena, but didn't want to harm the overall theme of the arena.  </p>
-        <p style="color:rgba(255, 253, 253, 0.685);margin-bottom: 0px;">Below are some before and after photos of the arena.</p>
-      </div>
-      <div class="container" style="width: 100%; max-width: 100%; padding: 0px;">
-        <div class="button-container" style="background-color: #942c35; padding: 64px 300px 64px 300px;">
-          <div class="custom-image-slider" id="customImageSlider1" style="border-radius: 64px; margin-bottom: 82px;">
-            <img class="slider-before" src="{{ url_for('static', filename='images/before+after/BeforeIcicle-1.jpg') }}" alt="Before">
-            <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AfterIcicle-1.jpg') }}" alt="After" >
-            <div class="slider-handle"></div>
-          </div>
-
-          <div class="custom-image-slider" id="customImageSlider2" style="border-radius: 64px; margin-bottom: 82px;">
-            <img class="slider-before" src="{{ url_for('static', filename='images/before+after/AlienBefore.jpg') }}" alt="Before" >
-            <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AlienAfter.jpg') }}" alt="After" >
-            <div class="slider-handle"></div>
-          </div>
-
-          <div class="custom-image-slider" id="customImageSlider3" style=" border-radius: 64px; margin-bottom: 82px;">
-            <img class="slider-before" src="{{ url_for('static', filename='images/before+after/BeforeCentre.jpg') }}" alt="Before" >
-            <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AfterCentre.jpg') }}" alt="After" >
-            <div class="slider-handle"></div>
-          </div>
-
-          <div class="custom-image-slider" id="customImageSlider4" style=" border-radius: 64px; margin-bottom: 82px;">
-            <img class="slider-before" src="{{ url_for('static', filename='images/before+after/BeforeSmallCorner.jpg') }}" alt="Before" >
-            <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AfterSmallCorner.jpg') }}" alt="After" >
-            <div class="slider-handle"></div>
-          </div>
-
-          <div class="custom-image-slider" id="customImageSlider5" style=" border-radius: 64px; margin-bottom: 82px;">
-            <img class="slider-before" src="{{ url_for('static', filename='images/before+after/BeforeCorner.jpg') }}" alt="Before" >
-            <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AfterCorner.jpg') }}" alt="After">
-            <div class="slider-handle"></div>
-          </div>
-
-          <div class="custom-image-slider" id="customImageSlider6" style=" border-radius: 64px; margin-bottom: 82px;">
-            <img class="slider-before" src="{{ url_for('static', filename='images/before+after/BeforeGreenCorner.jpg') }}" alt="Before" >
-            <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AfterGreenCorner.jpg') }}" alt="After" >
-            <div class="slider-handle"></div>
-          </div>
+    <section id="laser" style="padding: 0px; margin-top: 128px;">
+        <div class="container" style="max-width: none; padding: 0px;">
+        <div class="stickouttext" style="background-color:#3b0000; padding: 32px; border-radius: 32px 32px 0px 0px; display: inline-table; width: 70%;">
+            <h2 style="color:rgb(255, 255, 255); font-weight: 700;">Laser Tag Improvements</h2>
+            <p style="color:rgba(255, 255, 255, 0.76)">As part of my work at <a href="https://www.play2day.biz/">Play2Day</a>, I decided to improve the laser tag arena. During my time, I noticed that children would often get hurt, so I decided I wanted to increase the visibility inside the arena, but didn't want to harm the overall theme of the arena.  </p>
+            <p style="color:rgba(255, 253, 253, 0.685);margin-bottom: 0px;">Below are some before and after photos of the arena.</p>
         </div>
-      </div>
-    </div>
-    <section id="laserguns" style="padding:0px; margin-top: 128px;">
-      <div class="columncontainter" style="background-color: #04bd80;">
-        <div class="alongsidetext">
-          <h2 style="color: white">
-            Laser Tag Gun Repairs
-          </h2>
-          <p style="color:rgba(255, 255, 255, 0.76)">
-            As part of my work at <a href="https://www.play2day.biz/">Play2Day</a>, I took on the challenge of repairing the faulty Laser-Tag guns, I had to teach myself how to repair through trial and error. I was commited to this as I wanted to make a proper change to Play2Day, as it meant alot to me personally.
-          </p>
-          <p style="color:rgba(255, 255, 255, 0.76);">The video here shows a timelapse of me repairing a laser gun, this involved switching the shell (Case) of the gun. This is the most complicated procedure, mainly because it requries everything to be un-hot-glued. This usually takes about an hour and requires patience and knowledge on what you're doing. Keep in mind I had to full teach myself how to do this!!</p>
+        <div class="container" style="width: 100%; max-width: 100%; padding: 0px;">
+            <div class="button-container" style="background-color: #3b0000; padding: 64px 300px 64px 300px;">
+            <div class="custom-image-slider" id="customImageSlider1" style="border-radius: 64px; margin-bottom: 82px;">
+                <img class="slider-before" src="{{ url_for('static', filename='images/before+after/BeforeIcicle-1.jpg') }}" alt="Before">
+                <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AfterIcicle-1.jpg') }}" alt="After" >
+                <div class="slider-handle"></div>
+            </div>
+
+            <div class="custom-image-slider" id="customImageSlider2" style="border-radius: 64px; margin-bottom: 82px;">
+                <img class="slider-before" src="{{ url_for('static', filename='images/before+after/AlienBefore.jpg') }}" alt="Before" >
+                <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AlienAfter.jpg') }}" alt="After" >
+                <div class="slider-handle"></div>
+            </div>
+
+            <div class="custom-image-slider" id="customImageSlider3" style=" border-radius: 64px; margin-bottom: 82px;">
+                <img class="slider-before" src="{{ url_for('static', filename='images/before+after/BeforeCentre.jpg') }}" alt="Before" >
+                <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AfterCentre.jpg') }}" alt="After" >
+                <div class="slider-handle"></div>
+            </div>
+
+            <div class="custom-image-slider" id="customImageSlider4" style=" border-radius: 64px; margin-bottom: 82px;">
+                <img class="slider-before" src="{{ url_for('static', filename='images/before+after/BeforeSmallCorner.jpg') }}" alt="Before" >
+                <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AfterSmallCorner.jpg') }}" alt="After" >
+                <div class="slider-handle"></div>
+            </div>
+
+            <div class="custom-image-slider" id="customImageSlider5" style=" border-radius: 64px; margin-bottom: 82px;">
+                <img class="slider-before" src="{{ url_for('static', filename='images/before+after/BeforeCorner.jpg') }}" alt="Before" >
+                <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AfterCorner.jpg') }}" alt="After">
+                <div class="slider-handle"></div>
+            </div>
+
+            <div class="custom-image-slider" id="customImageSlider6" style=" border-radius: 64px; margin-bottom: 82px;">
+                <img class="slider-before" src="{{ url_for('static', filename='images/before+after/BeforeGreenCorner.jpg') }}" alt="Before" >
+                <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AfterGreenCorner.jpg') }}" alt="After" >
+                <div class="slider-handle"></div>
+            </div>
+            </div>
         </div>
-        <video autoplay muted playsinline loop style="pointer-events: none; border-radius: 16px;">
-          <source src="{{ url_for('static', filename='videos/Timelapse-Gun-Case-1.mp4') }}" type="video/mp4">
-        </video>
+        </section>
+        <section id="laserguns" style="padding:0px; margin-top: 128px;">
+        <div class="columncontainter" style="background-color: #002b1c;">
+            <div class="alongsidetext">
+            <h2 style="color: white">
+                Laser Tag Gun Repairs
+            </h2>
+            <p style="color:rgba(255, 255, 255, 0.76)">
+                As part of my work at <a href="https://www.play2day.biz/">Play2Day</a>, I took on the challenge of repairing the faulty Laser-Tag guns, I had to teach myself how to repair through trial and error. I was commited to this as I wanted to make a proper change to Play2Day, as it meant alot to me personally.
+            </p>
+            <p style="color:rgba(255, 255, 255, 0.76);">The video here shows a timelapse of me repairing a laser gun, this involved switching the shell (Case) of the gun. This is the most complicated procedure, mainly because it requries everything to be un-hot-glued. This usually takes about an hour and requires patience and knowledge on what you're doing. Keep in mind I had to full teach myself how to do this!!</p>
+            </div>
+            <video autoplay muted playsinline loop style="pointer-events: none; border-radius: 16px;">
+            <source src="{{ url_for('static', filename='videos/Timelapse-Gun-Case-1.mp4') }}" type="video/mp4">
+            </video>
+        </section>
+        <!--
+        <section id="socialmedia" style="padding: 0px; padding-top: 64px;">
+        <div class="button-container" style="background-color: #8c7eff; padding: 16px;">
+            <div class="alongsidetext">
+            <h2 style="text-align: left; font-size: 40px; color: whitesmoke;">Social Media for Play2Day</h2>
+            <p style="font-size: 16px; color: cornsilk;">As part of my work at Play2Day, I started managing their social media accounts, this included:</p>
+            <ul style="font-size: 16px; color: cornsilk;">
+                <li>Managing a content calendar</li>
+                <li>Creating & Posting content</li>
+                <li>Responding to comments & messages</li>
+                <li>Setting up direct messaging on Google Maps</li>
+                <li>Responding to reviews on Google Maps</li>
+                <li>Adding photos of the center to their Google Maps page</li>
+                <li>Improving the Instagram and fFacebook pages with story highlights</li>
+                <li>Took professional photos of the centre to be used in posts</li>
+            </ul>
+            </div>    
     </section>
-    <!--
+    -->
+
+
     <section id="socialmedia" style="padding: 0px; padding-top: 64px;">
-      <div class="button-container" style="background-color: #8c7eff; padding: 16px;">
+        <div class="button-container" style="background-color: #05002e; padding: 16px;">
         <div class="alongsidetext">
-          <h2 style="text-align: left; font-size: 40px; color: whitesmoke;">Social Media for Play2Day</h2>
-          <p style="font-size: 16px; color: cornsilk;">As part of my work at Play2Day, I started managing their social media accounts, this included:</p>
-          <ul style="font-size: 16px; color: cornsilk;">
+            <h2 style="text-align: left; font-size: 40px; color: whitesmoke;">Social Media for Play2Day</h2>
+            <p style="font-size: 16px; color: cornsilk;">As part of my work at Play2Day, I started managing their social media accounts, this included:</p>
+            <ul style="font-size: 16px; color: cornsilk;">
             <li>Managing a content calendar</li>
             <li>Creating & Posting content</li>
             <li>Responding to comments & messages</li>
             <li>Setting up direct messaging on Google Maps</li>
             <li>Responding to reviews on Google Maps</li>
             <li>Adding photos of the center to their Google Maps page</li>
-            <li>Improving the Instagram and fFacebook pages with story highlights</li>
+            <li>Improving the Instagram and Facebook pages with story highlights</li>
             <li>Took professional photos of the centre to be used in posts</li>
-          </ul>
-        </div>    
-  </section>
-  -->
+            </ul>
+        </div>
 
-
-  <section id="socialmedia" style="padding: 0px; padding-top: 64px;">
-    <div class="button-container" style="background-color: #8c7eff; padding: 16px;">
-      <div class="alongsidetext">
-        <h2 style="text-align: left; font-size: 40px; color: whitesmoke;">Social Media for Play2Day</h2>
-        <p style="font-size: 16px; color: cornsilk;">As part of my work at Play2Day, I started managing their social media accounts, this included:</p>
-        <ul style="font-size: 16px; color: cornsilk;">
-          <li>Managing a content calendar</li>
-          <li>Creating & Posting content</li>
-          <li>Responding to comments & messages</li>
-          <li>Setting up direct messaging on Google Maps</li>
-          <li>Responding to reviews on Google Maps</li>
-          <li>Adding photos of the center to their Google Maps page</li>
-          <li>Improving the Instagram and Facebook pages with story highlights</li>
-          <li>Took professional photos of the centre to be used in posts</li>
-        </ul>
-      </div>
-
-      <iframe src="https://onedrive.live.com/embed?resid=dc458cf5ccf237dd%2116143&authkey=!AGMimVMgAMdgpp8&em=2" width="80%" height="800px" frameborder="0" scrolling="no" style="height: 400px;"></iframe>
+        <iframe src="https://onedrive.live.com/embed?resid=dc458cf5ccf237dd%2116143&authkey=!AGMimVMgAMdgpp8&em=2" width="80%" height="800px" frameborder="0" scrolling="no" style="height: 400px;"></iframe>
+        </div>
+    </section>
     </div>
-  </section>
+</body>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {

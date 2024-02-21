@@ -6,24 +6,28 @@
     <link rel="icon" href="/static/images/SmallLogo.png">
     <meta name="viewport" content="width=device-width, initial-scale=0.1">
     <meta charset="UTF-8">
-    <meta name="keywords" content="Ben Mercer, Full Stack Web Developer, Web Developer, Web Design, Web, Design, Developer, Full Stack, Full, Stack, Ben, Mercer, Ben Mercer Designs, Ben Mercer Web Design, Ben Mercer Web Developer, Ben Mercer Full Stack Web Developer, Ben Mercer Full Stack Web Design, Ben Mercer Full Stack Developer, Ben Mercer Web, Ben Mercer Web Dev, Ben Mercer Web Development, Ben Mercer Web Design, Ben Mercer Web Designer, Ben Mercer Web Developer, Ben Mercer Web Development">
+    <meta name="keywords" content="Ben Mercer, Full Stack Web Developer, Web Developer, Web Design, Web, Design, Developer, Full Stack, Full, Stack, Ben, Mercer, Ben Mercer Designs, Ben Mercer Web Design, Ben Mercer Web Developer, Ben Mercer Full Stack Web Developer, Ben Mercer Full Stack Web Design, Ben Mercer Full Stack Developer, Ben Mercer Web, Ben Mercer Web Dev, Ben Mercer Web Development, Ben Mercer Web Design, Ben Mercer Web Designer, Ben Mercer Web Developer, Ben Mercer Web Development, Free, Free Web Design, Free Web Development">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <style>
 </style>
-
 <body>
-    <div class="top-bar">
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#skills">Skills</a>
-        <a href="https://benmercer.pythonanywhere.com/projects">Projects</a>
-        <!-- <a href="#portfolio">Portfolio</a> -->
-        <a href="#contact">Contact</a>
+    <div class="sidebar">
         <div class="logo">
             <img src="{{ url_for('static', filename='images/FullLogo.png') }}" alt="My Logo - A BM with a small 'Designs' text">
         </div>
+        <ul>
+            <a href="#home"><li>Home</li></a>
+            <a href="#services"><li>Services</li></a>
+            <a href="#skills"><li>Skills</li></a>
+            <a href="https://benmercer.pythonanywhere.com/projects"><li>Projects</li></a>
+            <!-- <li><a href="#portfolio">Portfolio</a></li> -->
+            <a href="#contact"><li>Contact</li></a>
+        </ul>
     </div>
-    <div class="content" class="main-page">
+    <div class="content">
         <div class="text">
             <section id="home">
             <div class="container">
@@ -33,43 +37,44 @@
             </section>
 
             <div class="button-container">
-
+                
+                <a href="#services">
                 <div class="fancybutton" href="#services">
-                    <a href="#services">
                         <img src="{{ url_for('static', filename='images/icons/buttons/Clipboard.png') }}" alt="An icon of an I">
                         <br>
                         <span><h2>My Services</h2></span>
-                    </a>
                 </div>
+                </a>
 
+                <a href="#contact">
                 <div class="fancybutton" href="#contact">
-                    <a href="#contact">
                         <img src="{{ url_for('static', filename='images/icons/buttons/EmailAeroplane.png') }}" alt="An icon of an @ symbol">
                         <br>
                         <span><h2>Contact Me</h2></span>
-                    </a>
                 </div>
+                </a>
 
+                <a href="https://benmercer.pythonanywhere.com/projects">
                 <div class="fancybutton" href="https://benmercer.pythonanywhere.com/projects">
-                    <a href="https://benmercer.pythonanywhere.com/projects">
                         <img src="{{ url_for('static', filename='images/icons/buttons/Projects.png') }}" alt="A set of icons showing a laser gun, computer and speaker">
                         <br>
                         <span><h2>Projects / Portfolio</h2></span>
-                    </a>
                 </div>
+                </a>
             </div>
 
             <section id="services">
                 <div class="service-container">
 
-                    <div class="service-box" style="background-color: #00baff;">
+                    <div class="service-box" style="background-color: #004606;">
                         <h3>FREE Website Development</h3>
                         <p>To increase my range of abilities, I offer free web design & implementation for a limited time.</p>
                         <li>Frontend, HTML5, CSS, React.js</li>
                         <li>Backend, Python - Flask/Django </li>
+                        <li>Wordpress, Wix or other alternatives</li>
                     </div>
                 
-                    <div class="service-box" style="background-color: #8dc63f;">
+                    <div class="service-box" style="background-color: #3d3900;">
                         <h3>Facebook / Instagram Page Setup</h3>
                         <p>I have experience with setting up social media pages, for example a child's play centre, <a href="https://www.facebook.com/play2dayipswich/">Play2Day</a></p>
                         <li>Adding the relevent social media + website redirect links</li>
@@ -78,7 +83,7 @@
                         <li>Keeping contact details current, Address / Postcode, Phone Numbers, Emails</li>
                     </div>
 
-                    <div class="service-box" style="background-color: #fd8454;">
+                    <div class="service-box" style="background-color: #380000;">
                         <h3>Google Maps Presence</h3>
                         <p>I can create a google maps location equipped with all the details that may be relevant to your business</p>
                         <li>Photos of the inside / out</li>
@@ -114,7 +119,6 @@
 
             <section id="skills">
                 <h2>Skills</h2>
-                <h3>My skills are constantly evolving, and I'm always looking to learn new skills and libraries to implement into my websites.</h3>
                 <h3>My current skills are:</h3>
                 <ul>
                     <li>HTML</li>

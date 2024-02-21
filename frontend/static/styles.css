@@ -102,6 +102,7 @@ a:hover {
 }
 
 .logo {
+    filter: brightness(0) invert(1);
     padding-right: 16px;
     padding-left: 24px;
     padding-bottom: 8px;

@@ -97,7 +97,7 @@ a:hover {
     left: 0;
     z-index: 1;
     overflow: hidden;
-    border-right: solid 0.5px rgb(189, 98, 98);
+    border-right: solid 0.5px rgb(70, 70, 70);
     background-color: inherit;
 }
 
@@ -108,7 +108,7 @@ a:hover {
     padding-bottom: 8px;
     padding-top: 8px;
     text-align: center;
-    border-bottom: solid 0.5px rgb(70, 70, 70);
+    border-bottom: solid 0.5px rgb(51, 50, 50);
 }
 
 .logo img {

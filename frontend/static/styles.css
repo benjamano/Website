@@ -179,7 +179,7 @@ section {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    padding: 16px 300px 16px 300px;
+    padding: 16px 50px 16px 50px;
 }
 
 .button-container a:hover{
@@ -190,7 +190,7 @@ section {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    padding: 16px 300px 16px 300px;
+    padding: 16px 50px 16px 50px;
 }
 
 .fancybutton {
@@ -271,8 +271,8 @@ footer{
     overflow: hidden;
     height: 0;
     /* padding-bottom: 48px; */
-    height: 600px;
-    width: 600px;
+    height: 400px;
+    width: 400px;
   }
 
   .slider-before,
@@ -284,8 +284,6 @@ footer{
     left: 0;
     height: 100%;
     object-fit: cover;
-    height: 600px;
-    width: 600px;
   }
 
   .slider-after {

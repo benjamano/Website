@@ -59,7 +59,6 @@ a:hover {
 
 .content {
     margin-left: 200px;
-    display: flex;
 }
 
 .text {
@@ -98,12 +97,15 @@ a:hover {
     left: 0;
     z-index: 1;
     overflow: hidden;
-    border-right: solid 0.5px rgb(70, 70, 70);
+    border-right: solid 0.5px rgb(189, 98, 98);
     background-color: inherit;
 }
 
 .logo {
+    padding-right: 16px;
     padding-left: 24px;
+    padding-bottom: 8px;
+    padding-top: 8px;
     text-align: center;
     border-bottom: solid 0.5px rgb(70, 70, 70);
 }

@@ -328,8 +328,8 @@ footer{
     overflow: hidden;
     height: 0;
     /* padding-bottom: 48px; */
-    height: 20rem;
-    width: 20rem;
+    height: 30rem;
+    width: 30rem;
   }
 
   .slider-before,
@@ -442,7 +442,6 @@ footer{
 .portrait-button {
     position: relative;
     margin: 16px;
-    max-width: 100%;
     overflow: hidden;
     border-radius: 48px;
 }
@@ -509,10 +508,6 @@ footer{
         display: none;
     }
 
-    .portrait-button {
-        padding-bottom: 16px;
-    }
-
     .portrait-button img {
         height: auto;
         width: 16rem;
@@ -547,5 +542,10 @@ footer{
 
     .desktop-container{
         padding: 1rem 1rem 1rem 1rem;
+    }
+
+    .custom-image-slider{
+        height: 70vw;
+        width: 70vw;
     }
 }

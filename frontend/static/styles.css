@@ -311,9 +311,10 @@ footer{
 }
 
 .footer h2{
+    font-size: 1rem; 
     color: white;
-    font-size: 15px;
     font-weight: light;
+    overflow: hidden;
 }
 
 .alongsidetext {

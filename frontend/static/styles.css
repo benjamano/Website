@@ -44,8 +44,8 @@ h3{
 
 p {
     color: #666;
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 1rem;
+    margin-bottom: 5vw;
 }
 
 a {
@@ -187,8 +187,7 @@ a:hover {
 
 .topbar ul li {
     flex: 0 1 auto; 
-    min-width: 100px; 
-    max-width: 200px;
+    font-size: 3vw;
     color: #8f8f8f;
     font-weight: 600;
     padding: 16px;
@@ -329,8 +328,8 @@ footer{
     overflow: hidden;
     height: 0;
     /* padding-bottom: 48px; */
-    height: 400px;
-    width: 400px;
+    height: 20rem;
+    width: 20rem;
   }
 
   .slider-before,
@@ -501,7 +500,7 @@ footer{
     }
 
     .columncontainter{
-        padding: 16px 100px 16px 100px;
+        padding: 1rem;
         flex-direction: column;
         align-items: center;
     }
@@ -516,7 +515,7 @@ footer{
 
     .portrait-button img {
         height: auto;
-        width: 750px;
+        width: 16rem;
     }
 
     .main-page {
@@ -546,7 +545,7 @@ footer{
         width: 100%; /* Make service boxes take full width in portrait mode */
     }
 
-    .footer {
-        padding: 20px; /* Adjust padding for footer in portrait mode */
+    .desktop-container{
+        padding: 1rem 1rem 1rem 1rem;
     }
 }

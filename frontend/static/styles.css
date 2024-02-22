@@ -27,14 +27,14 @@ li{
 h1{
     font-family: "Roboto Mono", monospace;
     color: white;
-    font-size: 64px;
-    margin-bottom: 20px;
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
 h2{
     font-family: "Roboto Mono";
     color: white;
-    font-size: 40px;
+    font-size: 3rem;
 }
 
 h3{
@@ -63,7 +63,6 @@ a:hover {
 
 .text {
     flex: 1;
-    padding: 20px;
 }
 
 .image-box {
@@ -221,9 +220,8 @@ section {
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 80vw;
+    padding: 1rem;
     text-align: center;
 }
 
@@ -254,14 +252,15 @@ section {
 }
 
 .fancybutton {
-    margin: 16px;
+    margin: 1rem;
     text-align: center;
-    padding: 36px;
+    padding: 4rem;
     border: 2px solid #333;
     border-radius: 8px;
     background-color: none;
     transition: background-color 0.3s ease-in-out;
-    width: 400px;
+    width: 15rem;
+    height: 15rem;
     /* min-width: 50px;
     width: 1000px;
     min-height: 30px;
@@ -280,7 +279,7 @@ section {
     font-weight: bold;
     color: white;
     display: block;
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: bold;
 }
 
@@ -419,14 +418,14 @@ footer{
 }
 
 .service-box p {
-    margin-bottom: 16px;
-    font-size: 17px;
+    margin-bottom: 2rem;
+    font-size: 1rem;
     color: white;
 }
 
 .service-box h3 {
-    font-size: 26px;
-    margin-bottom: 32px;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
     color: white;
     text-decoration: underline;
 }
@@ -506,6 +505,7 @@ footer{
     .columncontainter{
         padding: 16px 100px 16px 100px;
         flex-direction: column;
+        align-items: center;
     }
 
     .logo img {
@@ -536,16 +536,6 @@ footer{
         flex-direction: row;
         align-items: center;
         padding: 16px 100px 16px 100px;
-    }
-
-    .fancybutton {
-        width: 80%;
-        max-width: 75%;
-        margin-top: 16px;/
-    }
-
-    .fancybutton h2 {
-        font-size: 60px; /* Adjust font size for h2 in portrait mode */
     }
 
     .fancybutton img {

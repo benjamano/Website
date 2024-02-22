@@ -535,10 +535,6 @@ footer{
         padding: 16px 100px 16px 100px;
     }
 
-    .fancybutton img {
-        max-height: 300px; /* Adjust max height for images in portrait mode */
-    }
-
     .service-container {
         flex-direction: column; /* Stack service boxes vertically in portrait mode */
         align-items: center; /* Center service boxes in portrait mode */

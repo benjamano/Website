@@ -26,16 +26,16 @@
     }
 
     video{
-      flex: 1;
-      max-width: 35vw;
-    }
-    @media (orientation: portrait) {
-
-      video{
-        max-width: 65vw;
+        flex: 1;
+        max-width: 35vw;
       }
-
-    }
+      @media (orientation: portrait) {
+  
+        video{
+          max-width: 65vw;
+        }
+  
+      }
 
 </style>
 <div class="topbar">
@@ -65,7 +65,7 @@
 </div>
 <body>
     <div class="content">
-        <div class="button-container" style="flex-direction: row; margin-top: 64px;">
+        <div class="button-container" style="flex-direction: row; margin-top: 6vw;">
             <div class="portrait-button">
             <a href="#laser">
                 <img src="{{ url_for('static', filename='images/CrossHairWall.jpg') }}" alt="A photo from the laser tag arena, depicting a crosshair glowing red due to UV lighting">

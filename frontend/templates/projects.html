@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <title>My Projects / Portfolio</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="/styles.css">
     <link rel="icon" href="/static/images/SmallLogo.png">
-    <meta name="viewport" content="width=device-width, initial-scale=0.1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <meta name="description" content="Ben Mercer's Portfolio - Including Laser Tag Lighting System Upgrades And Social Media Account Page Improvement.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,17 +25,24 @@
       display: none; /* for Chrome, Safari, and Opera */
     }
 
-    iframe {
-      flex: 1;
-      max-width: 50%;
-    }
-
     video{
       flex: 1;
       max-width: 50%;
     }
 
 </style>
+<div class="topbar">
+
+    <ul>
+        <a href="https://benmercer.pythonanywhere.com/"><li>Home</li></a>
+        <a href="https://benmercer.pythonanywhere.com/#services"><li>Services</li></a>
+        <a href="https://benmercer.pythonanywhere.com/#skills"><li>Skills</li></a>
+        <a href="https://benmercer.pythonanywhere.com/projects"><li>Projects</li></a>
+        <!-- <li><a href="#portfolio">Portfolio</a></li> -->
+        <a href="https://benmercer.pythonanywhere.com/#contact"><li>Contact</li></a>
+    </ul>
+
+</div>
 <div class="sidebar">
     <div class="logo">
         <img src="{{ url_for('static', filename='images/FullLogo.png') }}" alt="My Logo - A BM with a small 'Designs' text">
@@ -120,7 +127,7 @@
                 <div class="slider-handle"></div>
             </div>
 
-            <div class="custom-image-slider" id="customImageSlider6" style=" border-radius: 24; margin-bottom: 24px;">
+            <div class="custom-image-slider" id="customImageSlider6" style=" border-radius: 24px; margin-bottom: 24px;">
                 <img class="slider-before" src="{{ url_for('static', filename='images/before+after/BeforeGreenCorner.jpg') }}" alt="Before" >
                 <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AfterGreenCorner.jpg') }}" alt="After" >
                 <div class="slider-handle"></div>
@@ -168,7 +175,7 @@
 
     <section id="socialmedia" style="padding: 0px; padding-top: 64px;">
         <div class="container" style="max-width: 98%; text-align: initial; padding-bottom:0px;">
-            <div class="button-container" style="border: solid 1px grey; border-radius:  16px 16px 0px 0px; align-items: center;  max-width: 98%; ">
+            <div class="desktop-container" style="border: solid 1px grey; border-radius:  16px 16px 0px 0px; align-items: center;  max-width: 98%; ">
                 <div class="alongsidetext">
                     <h2 style="text-align: left; font-size: 40px; color: whitesmoke;">Social Media for Play2Day</h2>
                     <p style="font-size: 16px; color: cornsilk;">As part of my work at Play2Day, I started managing their social media accounts, this included:</p>
@@ -184,7 +191,7 @@
                     </ul>
                 </div>
 
-                <iframe src="https://onedrive.live.com/embed?resid=dc458cf5ccf237dd%2116143&authkey=!AGMimVMgAMdgpp8&em=2" width="80%" height="800px" frameborder="0" scrolling="no" style="height: 400px;"></iframe>
+                <a href="https://1drv.ms/w/s!At038sz1jEXc_g8lG4iPzsXT7L18?e=cRWdVX"><h3 style="text-decoration:underline; color:rgb(0, 153, 255); text-align: center;">Follow this link to view the Word document of my Social Media Portfolio</h3></a>
             </div>  
         </div>
     </section>

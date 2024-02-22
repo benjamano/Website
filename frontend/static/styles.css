@@ -161,6 +161,59 @@ a:hover {
     transition: 300ms;
 }
 
+.topbar{
+    display: none;
+    font-family: "Roboto Mono";
+    height: auto;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    overflow: hidden;
+    border-bottom: solid 0.5px rgb(70, 70, 70);
+    background-color: inherit;
+}
+
+.topbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    color: #636363;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.topbar ul li {
+    flex: 0 1 auto; 
+    min-width: 100px; 
+    max-width: 200px;
+    color: #8f8f8f;
+    font-weight: 600;
+    padding: 16px;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.topbar ul li:hover {
+    background-color: #1d1d1d;
+    color: white;
+}
+
+.topbar a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+
+.topbar a:hover {
+    color: white;
+    text-decoration: none;
+}
+
 section {
     padding: 20px;
     margin-bottom: 30px 0;
@@ -184,6 +237,13 @@ section {
 
 .button-container a:hover{
     text-decoration: none;
+}
+
+.desktop-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 16px 50px 16px 50px;
 }
 
 .columncontainter {
@@ -428,26 +488,28 @@ footer{
 
 @media (orientation: portrait) {
 
-    .alongsidetext{
-        max-width: 80%;
+    .desktop-container{
+        flex-direction: column;
+    }
+
+    .topbar{
+        display: inherit;
+    }
+
+    .sidebar {
+        display: none;
+        width: 0;
+        height: 0;
+        z-index: 1;
     }
 
     .columncontainter{
-        padding: 16px 50px 16px 50px;
+        padding: 16px 100px 16px 100px;
         flex-direction: column;
     }
 
     .logo img {
         display: none;
-    }
-
-    .top-bar a {
-        font-size: 55px;
-    }
-
-    .custom-image-slider, .slider-after, .slider-before {
-        height: 800px;
-        width: 800px;
     }
 
     .portrait-button {
@@ -465,23 +527,8 @@ footer{
         padding-bottom: 0px;
     }
 
-    h1 {
-        font-size: 36px; /* Adjust font size for h1 in portrait mode */
-    }
-
-    h2 {
-        font-size: 76px; /* Adjust font size for h2 in portrait mode */
-    }
-
-    h3 {
-        font-size: 18px; /* Adjust font size for h3 in portrait mode */
-    }
-
-    p {
-        font-size: 44px; /* Adjust font size for paragraphs in portrait mode */
-    }
-
     .content {
+        margin-left: 0px;
         flex-direction: column; /* Stack content vertically in portrait mode */
     }
 
@@ -515,27 +562,7 @@ footer{
         width: 100%; /* Make service boxes take full width in portrait mode */
     }
 
-    .service-box h3 {
-        font-size: 80px; /* Adjust font size for h3 in service boxes in portrait mode */
-    }
-
-    .service-box p {
-        font-size: 45px; /* Adjust font size for paragraphs in service boxes in portrait mode */
-    }
-
-    .service-box li {
-        font-size: 45px; /* Adjust font size for list items in service boxes in portrait mode */
-    }
-
     .footer {
         padding: 20px; /* Adjust padding for footer in portrait mode */
-    }
-
-    .footer h1 {
-        font-size: 60px; /* Adjust font size for h1 in footer in portrait mode */
-    }
-
-    .footer h2 {
-        font-size: 40px; /* Adjust font size for h2 in footer in portrait mode */
     }
 }

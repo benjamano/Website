@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, redirect, request, url_for, session, flash
 
 app = Flask(__name__, template_folder='../frontend/templates', static_folder='../frontend/static')
 
+app.secret_key = "rfwef65657eo234w223fh33HI2UhuhgR7YG"
 
 @app.route("/")
 def home():

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>https://publicaccess.eastsuffolk.gov.uk/online-applications/applicationDetails.do?activeTab=makeComment&keyVal=RUDVP5QXKIA00 
+    <title>Login</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="icon" href="/static/images/SmallLogo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,6 +14,16 @@
 <style>
 </style>
 <body>
+    <div class="topbar">
+        <ul>
+            <a href="https://benmercer.pythonanywhere.com/"><li>Home</li></a>
+            <a href="https://benmercer.pythonanywhere.com/#services"><li>Services</li></a>
+            <a href="https://benmercer.pythonanywhere.com/#skills"><li>Skills</li></a>
+            <a href="https://benmercer.pythonanywhere.com/projects"><li>Projects</li></a>
+            <!-- <li><a href="#portfolio">Portfolio</a></li> -->
+            <a href="https://benmercer.pythonanywhere.com/#contact"><li>Contact</li></a>
+        </ul>
+    </div>
     <div class="sidebar">
         <div class="logo">
             <img src="{{ url_for('static', filename='images/FullLogo.png') }}" alt="My Logo - A BM with a small 'Designs' text">
@@ -28,27 +38,27 @@
         </ul>
     </div>
     <div class="content">
-        <div class="login">
-            <h1>Login</h1>
-            <form action="#" method="post">
-                <input type="text" name="username" placeholder="Username" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <input type="submit" value="Login">
-                <div class="popup">
-                    error
-                </div>
-                {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    <div class="popup">
-                        {% for message in messages %}
-                            {{ message }}
-                        {% endfor %}
-                    </div>
-                {% endif %}
-                {% endwith %}
-            </form>
+        <div style="display:flex; justify-content:center;">
+            <div class="login">
+                <h1>Login</h1>
+                <form action="#" method="post">
+                    <input type="text" name="username" placeholder="Username" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="submit" value="Login">
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="popup">
+                            {% for message in messages %}
+                                {{ message }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% endwith %}
+                </form>
+            </div>
         </div>
     </div>
+    
 </body>
     
 </html>

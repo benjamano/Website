@@ -21,12 +21,16 @@ def login():
         password = request.form["password"]
         
         if username == "ben" and password == "B3n1sCool":
-            return render_template("system/home.html")
+            return redirect(url_for("partyhome"))
         
         else:
             flash("Invalid username or password")
     
     return render_template("login.html")
+
+@app.route("/partyhome", methods = ['GET', 'POST'])
+def partyhome():
+    return render_template("/system/home.html")
 
 if __name__ == '__main__':
     app.run()

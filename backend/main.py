@@ -90,6 +90,8 @@ def newParty():
         age = request.form["Age"]
         
         flash(f"{partytype}, {firstchildname}, {secondchildname}, {childnum}, {age}")
+        
+        return render_template("/system/newparty.html")
             
     else:
         return render_template("/system/newparty.html")

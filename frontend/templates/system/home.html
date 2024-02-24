@@ -20,7 +20,7 @@
             <a href="https://benmercer.pythonanywhere.com/partyhome"><li>Home</li></a>
             <a href="https://benmercer.pythonanywhere.com/new"><li>Add new Party</li></a>
             <a href="https://benmercer.pythonanywhere.com/modify"><li>Modify a party</li></a>
-            <a href="https://benmercer.pythonanywhere.com/room1"><li>ROOM TVs</li></a>
+            <a href="https://benmercer.pythonanywhere.com/rooms"><li>ROOM TVs</li></a>
             <a href="https://benmercer.pythonanywhere.com/logout"><li>Logout</li></a> 
             <!--
             <a href="https://benmercer.pythonanywhere.com/room1"><li>Room 1 TV</li></a>
@@ -37,40 +37,44 @@
             <a href="https://benmercer.pythonanywhere.com/partyhome"><li>Home</li></a>
             <a href="https://benmercer.pythonanywhere.com/new"><li>Add new Party</li></a>
             <a href="https://benmercer.pythonanywhere.com/modify"><li>Modify a party</li></a>
-            <a href="https://benmercer.pythonanywhere.com/room1"><li>ROOM TVs</li></a>
+            <a href="https://benmercer.pythonanywhere.com/rooms"><li>ROOM TVs</li></a>
             <a href="https://benmercer.pythonanywhere.com/logout"><li>Logout</li></a>
         </ul>
     </div>
     <div class="content">
-        {% if time < 12 %}
-            <h1>Good morning, what would you like to do?</h1>
-        {% else %}
-            <h1>Good evening, what would you like to do?</h1>
-        {% endif %}
+        <div class="text">
+            <div class="container">
+                <h1>Party Booking System</h1>
+                {% if time < 12 %}
+                    <h3>Good morning, what would you like to do?</h3>
+                {% else %}
+                    <h3>Good evening, what would you like to do?</h3>
+                {% endif %}
+            </div>
     
         <div class="button-container">
                     
             <a href="https://benmercer.pythonanywhere.com/new">
             <div class="fancybutton" href="https://benmercer.pythonanywhere.com/new">
-                    <h1 style="font-size: 4rem;">+</h1>
-                    <br>
-                    <span><h2>My Services</h2></span>
+                <i class="fa-solid fa-plus" style="font-size:6rem; margin-bottom: 2vw; text-decoration: none; color: white"></i>
+                <br>
+                <span><h2>New Party</h2></span>
             </div>
             </a>
 
-            <a href="#contact">
-            <div class="fancybutton" href="#contact">
-                    <img src="{{ url_for('static', filename='images/icons/buttons/EmailAeroplane.png') }}" alt="An icon of an @ symbol">
+            <a href="https://benmercer.pythonanywhere.com/modify">
+            <div class="fancybutton" href="https://benmercer.pythonanywhere.com/modify">
+                    <i class="fa-solid fa-pen-to-square" style="font-size:6rem; margin-bottom: 2vw; text-decoration: none; color: white"></i>
                     <br>
-                    <span><h2>Contact Me</h2></span>
+                    <span><h2>Edit Party Booking</h2></span>
             </div>
             </a>
 
             <a href="https://benmercer.pythonanywhere.com/projects">
-            <div class="fancybutton" href="https://benmercer.pythonanywhere.com/projects">
-                    <img src="{{ url_for('static', filename='images/icons/buttons/Projects.png') }}" alt="A set of icons showing a laser gun, computer and speaker">
+            <div class="fancybutton" href="https://benmercer.pythonanywhere.com/rooms">
+                    <i class="fa-solid fa-tv" style="font-size:6rem; margin-bottom: 2vw; text-decoration: none; color: white"></i>
                     <br>
-                    <span><h2>Projects / Portfolio</h2></span>
+                    <span><h2>ALWAYS ON TV SCREEN</h2></span>
             </div>
             </a>
         </div>

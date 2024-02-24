@@ -513,10 +513,11 @@ footer{
 .login input[type="password"],
 .login input[type="number"],
 .login select,
+.login input[type="date"],
+.login input[type="time"],
 .login option {
     font-family: "Roboto Mono";
     font-size: 1rem;
-    width: 20vw;
     padding: 1vw;
     margin-bottom: 1vw;
     border: 2px solid #ccc;
@@ -558,6 +559,24 @@ footer{
 .popup:hover {
     background-color: #ff6b6b; /* New background color for highlighting */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* New box shadow for highlighting */
+}
+
+.searchresults{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+
+}
+
+.searchresults table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    color: white;
+    font-family: "Roboto Mono";
+    border: white 2px solid;
 }
 
 @media (orientation: portrait) {

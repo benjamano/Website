@@ -24,7 +24,7 @@ def onStart():
 
         q.execute(tblRoom)
         q.execute(tblPartyType)
-        q.execute(tblParty)
+        q.execute(tblParties)
         q.execute(tblFood)
         q.execute(tblFoodOrder)
 

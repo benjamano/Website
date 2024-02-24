@@ -75,7 +75,7 @@ def partyHome():
     else:
         return render_template("/system/home.html", time=int(datetime.datetime.now().strftime("%H")))
     
-@app.route("/partyhome/new", methods = ['GET', 'POST'])
+@app.route("/new", methods = ['GET', 'POST'])
 def newParty():
     
     if session["loggedin"] == False:

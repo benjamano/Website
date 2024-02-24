@@ -91,7 +91,7 @@ def newParty():
         flash(f"{partytype}, {childname}, {childnum}, {age}")
             
     else:
-        return render_template("/system/new.html")
+        return render_template("/system/newparty.html")
 
 if __name__ == '__main__':
     app.run()

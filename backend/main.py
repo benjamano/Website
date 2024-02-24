@@ -73,7 +73,7 @@ def partyHome():
         return redirect(url_for("login"))
     
     else:
-        return render_template("/system/home.html", time=datetime.datetime.now().strftime("%H"))
+        return render_template("/system/home.html", time=int(datetime.datetime.now().strftime("%H")))
     
 @app.route("/partyhome/new", methods = ['GET', 'POST'])
 def newParty():

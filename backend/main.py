@@ -136,6 +136,13 @@ def modifyParty():
     
     if request.method == "POST":
         
+        partyid = request.form["PartyID"]
+        date = request.form["PartyDate"]
+        time = request.form["PartyTime"]
+        #partytype = request.form["PartyType"]
+        firstchildname = request.form["FirstName"]
+        secondchildname = request.form["SecondName"]
+        age = request.form["Age"]
         
         search_query = "SELECT * FROM Parties WHERE "
         search_params = []

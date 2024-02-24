@@ -17,12 +17,11 @@
 <body>
     <div class="topbar">
         <ul>
-            <a href="https://benmercer.pythonanywhere.com/"><li>Home</li></a>
-            <a href="https://benmercer.pythonanywhere.com/#services"><li>Services</li></a>
-            <a href="https://benmercer.pythonanywhere.com/#skills"><li>Skills</li></a>
-            <a href="https://benmercer.pythonanywhere.com/projects"><li>Projects</li></a>
-            <!-- <li><a href="#portfolio">Portfolio</a></li> -->
-            <a href="https://benmercer.pythonanywhere.com/#contact"><li>Contact</li></a>
+            <a href="https://benmercer.pythonanywhere.com/partyhome"><li>Home</li></a>
+            <a href="https://benmercer.pythonanywhere.com/new"><li>Add new Party</li></a>
+            <a href="https://benmercer.pythonanywhere.com/modify"><li>Modify a party</li></a>
+            <a href="https://benmercer.pythonanywhere.com/room1"><li>ROOM TVs</li></a>
+            <a href="https://benmercer.pythonanywhere.com/logout"><li>Logout</li></a> 
         </ul>
     </div>
     <div class="sidebar">
@@ -30,12 +29,11 @@
             <img src="{{ url_for('static', filename='images/FullLogo.png') }}" alt="My Logo - A BM with a small 'Designs' text">
         </div>
         <ul>
-            <a href="#home"><li>Home</li></a>
-            <a href="#services"><li>Services</li></a>
-            <a href="#skills"><li>Skills</li></a>
-            <a href="https://benmercer.pythonanywhere.com/projects"><li>Projects</li></a>
-            <!-- <li><a href="#portfolio">Portfolio</a></li> -->
-            <a href="#contact"><li>Contact</li></a>
+            <a href="https://benmercer.pythonanywhere.com/partyhome"><li>Home</li></a>
+            <a href="https://benmercer.pythonanywhere.com/new"><li>Add new Party</li></a>
+            <a href="https://benmercer.pythonanywhere.com/modify"><li>Modify a party</li></a>
+            <a href="https://benmercer.pythonanywhere.com/room1"><li>ROOM TVs</li></a>
+            <a href="https://benmercer.pythonanywhere.com/logout"><li>Logout</li></a>
         </ul>
     </div>
     <div class="content">
@@ -43,9 +41,19 @@
             <div class="login">
                 <h1>Login</h1>
                 <form action="#" method="post">
-                    <input type="text" name="username" placeholder="Username" required>
-                    <input type="password" name="password" placeholder="Password" required>
-                    <input type="submit" value="Login">
+                    <select id="PartyType" name="PartyType" required>
+                        <option value="AdPlay">Adventure Play</option>
+                        <option value="AdPlayLaser">Adventure Play + Laser</option>
+                        <option value="Pizza">Pizza Party</option>
+                        <option value="PizzaLaser">Pizza Party + Laser</option>
+                        <option value="TinyTots">Tiny Tots</option>
+                        <option value="Nerf">Nerf</option>
+                    </select>
+                    <input type="text" name="FirstChildName" placeholder="First Child First Name" required>
+                    <input type="text" name="SecondChildName" placeholder="Second Child First Name">
+                    <input type="number" name="NumChildren" placeholder="Number of Children" required>
+                    <input type="number" name="Age" placeholder="Child's Age" required>
+                    <input type="submit" value="Create">
                     {% with messages = get_flashed_messages() %}
                     {% if messages %}
                         <div class="popup">

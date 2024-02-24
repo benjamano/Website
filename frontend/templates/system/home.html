@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Login</title>
+    <script src="https://kit.fontawesome.com/9d35a24d36.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="icon" href="/static/images/SmallLogo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,12 +17,16 @@
 <body>
     <div class="topbar">
         <ul>
-            <a href="https://benmercer.pythonanywhere.com/"><li>Home</li></a>
-            <a href="https://benmercer.pythonanywhere.com/#services"><li>Services</li></a>
-            <a href="https://benmercer.pythonanywhere.com/#skills"><li>Skills</li></a>
-            <a href="https://benmercer.pythonanywhere.com/projects"><li>Projects</li></a>
-            <!-- <li><a href="#portfolio">Portfolio</a></li> -->
-            <a href="https://benmercer.pythonanywhere.com/#contact"><li>Contact</li></a>
+            <a href="https://benmercer.pythonanywhere.com/partyhome"><li>Home</li></a>
+            <a href="https://benmercer.pythonanywhere.com/new"><li>Add new Party</li></a>
+            <a href="https://benmercer.pythonanywhere.com/modify"><li>Modify a party</li></a>
+            <a href="https://benmercer.pythonanywhere.com/room1"><li>ROOM TVs</li></a>
+            <a href="https://benmercer.pythonanywhere.com/logout"><li>Logout</li></a> 
+            <!--
+            <a href="https://benmercer.pythonanywhere.com/room1"><li>Room 1 TV</li></a>
+            <a href="https://benmercer.pythonanywhere.com/room2"><li>Room 2 TV</li></a>
+            <a href="https://benmercer.pythonanywhere.com/lasertag"><li>Laser Tag TV</li></a>
+            <a href="https://benmercer.pythonanywhere.com/kitchen"><li>Kitchen TV</li></a> -->
         </ul>
     </div>
     <div class="sidebar">
@@ -29,36 +34,48 @@
             <img src="{{ url_for('static', filename='images/FullLogo.png') }}" alt="My Logo - A BM with a small 'Designs' text">
         </div>
         <ul>
-            <a href="#home"><li>Home</li></a>
-            <a href="#services"><li>Services</li></a>
-            <a href="#skills"><li>Skills</li></a>
-            <a href="https://benmercer.pythonanywhere.com/projects"><li>Projects</li></a>
-            <!-- <li><a href="#portfolio">Portfolio</a></li> -->
-            <a href="#contact"><li>Contact</li></a>
+            <a href="https://benmercer.pythonanywhere.com/partyhome"><li>Home</li></a>
+            <a href="https://benmercer.pythonanywhere.com/new"><li>Add new Party</li></a>
+            <a href="https://benmercer.pythonanywhere.com/modify"><li>Modify a party</li></a>
+            <a href="https://benmercer.pythonanywhere.com/room1"><li>ROOM TVs</li></a>
+            <a href="https://benmercer.pythonanywhere.com/logout"><li>Logout</li></a>
         </ul>
     </div>
     <div class="content">
-        <div style="display:flex; justify-content:center;">
-            <div class="login">
-                <h1>You've succesfully logged in!</h1>
-                <form action="#" method="post">
-                    <input type="text" name="username" placeholder="Username" required>
-                    <input type="password" name="password" placeholder="Password" required>
-                    <input type="submit" value="Login">
-                    {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                        <div class="popup">
-                            {% for message in messages %}
-                                {{ message }}
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                    {% endwith %}
-                </form>
+        {% if time < 12 %}
+            <h1>Good morning, what would you like to do?</h1>
+        {% else %}
+            <h1>Good evening, what would you like to do?</h1>
+        {% endif %}
+    
+        <div class="button-container">
+                    
+            <a href="https://benmercer.pythonanywhere.com/new">
+            <div class="fancybutton" href="https://benmercer.pythonanywhere.com/new">
+                    <h1 style="font-size: 4rem;">+</h1>
+                    <br>
+                    <span><h2>My Services</h2></span>
             </div>
+            </a>
+
+            <a href="#contact">
+            <div class="fancybutton" href="#contact">
+                    <img src="{{ url_for('static', filename='images/icons/buttons/EmailAeroplane.png') }}" alt="An icon of an @ symbol">
+                    <br>
+                    <span><h2>Contact Me</h2></span>
+            </div>
+            </a>
+
+            <a href="https://benmercer.pythonanywhere.com/projects">
+            <div class="fancybutton" href="https://benmercer.pythonanywhere.com/projects">
+                    <img src="{{ url_for('static', filename='images/icons/buttons/Projects.png') }}" alt="A set of icons showing a laser gun, computer and speaker">
+                    <br>
+                    <span><h2>Projects / Portfolio</h2></span>
+            </div>
+            </a>
         </div>
-    </div>
-    
+</div>
+
 </body>
-    
+
 </html>

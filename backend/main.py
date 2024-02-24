@@ -84,11 +84,12 @@ def newParty():
     if request.method == "POST":
         
         partytype = request.form["PartyType"]
-        childname = ("'"+{request.form["FirstChildName"]}+"'", "'"+{request.form["SecondChildName"]}+"'")
+        firstchildname = request.form["FirstChildName"]
+        secondchildname = request.form["SecondChildName"]
         childnum = request.form["NumChildren"]
         age = request.form["Age"]
         
-        flash(f"{partytype}, {childname}, {childnum}, {age}")
+        flash(f"{partytype}, {firstchildname}, {secondchildname}, {childnum}, {age}")
             
     else:
         return render_template("/system/newparty.html")

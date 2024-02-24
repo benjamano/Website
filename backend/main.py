@@ -52,7 +52,7 @@ def login():
         
         if username == "ben" and password == "B3n1sCool":
             session["loggedin"] = True
-            return redirect(url_for("partyhome"))
+            return redirect(url_for("partyHome"))
         
         else:
             flash("Invalid username or password")

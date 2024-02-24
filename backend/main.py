@@ -23,10 +23,10 @@ def onStart():
         tblFoodOrder = "CREATE TABLE IF NOT EXISTS PartyFoodOrder (FoodOrderID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, PartyID INTEGER NOT NULL, FoodID INTEGER NOT NULL, Quantity INT NOT NULL, FOREIGN KEY (PartyID) REFERENCES Parties(PartyID), FOREIGN KEY (FoodID) REFERENCES Food(FoodID))"
 
         q.execute(tblRoom)
-        q.execute(tblPartyType)
-        q.execute(tblParties)
         q.execute(tblFood)
+        q.execute(tblPartyType)
         q.execute(tblFoodOrder)
+        q.execute(tblParties)
 
     except Exception as error:
         app.logger.info(f"Error while creating tables: {error}")

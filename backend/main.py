@@ -24,10 +24,10 @@ def onStart():
 
         q.execute(tblRoom)
         q.execute(tblFood)
-        q.execute(tblPartyType)
         q.execute(tblFoodOrder)
         q.execute(tblParties)
-
+        q.execute(tblPartyType)
+        
     except Exception as error:
         app.logger.info(f"Error while creating tables: {error}")
 

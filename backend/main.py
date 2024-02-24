@@ -6,7 +6,7 @@ app = Flask(__name__, template_folder='../frontend/templates', static_folder='..
 
 app.secret_key = "rfwef65657eo234w223fh33HI2UhuhgR7YG"
 
-sql = sqlite3.connect("/home/benjamano/backend/Parties.db", check_same_thread=False)
+sql = sqlite3.connect("/home/BenMercer/backend/Parties.db", check_same_thread=False)
 q = sql.cursor()
 
 def onStart():

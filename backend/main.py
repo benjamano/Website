@@ -136,13 +136,13 @@ def modifyParty():
     
     if request.method == "POST":
         
-        partyid = request.form.get("PartyID")
-        date = request.form.get("Date")
-        time = request.form.get("Time")
-        partytype = request.form.get("PartyType")
-        firstchildname = request.form.get("FirstChildName")
-        secondchildname = request.form.get("SecondChildName")
-        age = request.form.get("Age")
+        partyid = request.form("PartyID")
+        date = request.form("Date")
+        time = request.form("Time")
+        partytype = request.form("PartyType")
+        firstchildname = request.form("FirstChildName")
+        secondchildname = request.form("SecondChildName")
+        age = request.form("Age")
         
         search_query = "SELECT * FROM Parties WHERE "
         search_params = []
@@ -176,6 +176,7 @@ def modifyParty():
             search_params.append(age)
             
         if not age and not firstchildname and not partytype and not time and not date and not partyid:
+            app.logger.info("No search parameters entered")
             flash("Please enter a value for atleast one field")
         
         search_query = search_query.rstrip("AND ")

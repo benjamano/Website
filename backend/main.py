@@ -159,9 +159,9 @@ def modifyParty():
             search_query += "Time = ? AND "
             search_params.append(time)
         
-        if partytype:
-            search_query += "PartyType = ? AND "
-            search_params.append(partytype)
+        #if partytype:
+            #search_query += "PartyType = ? AND "
+            #search_params.append(partytype)
         
         if firstchildname:
             search_query += "FirstChildName = ? AND "

@@ -17,6 +17,10 @@ body {
     position: relative;
 }
 
+label{
+    color: white;
+}
+
 li{
     padding-bottom: 8px;
     font-weight: 400;
@@ -506,7 +510,10 @@ footer{
 }
 
 .login input[type="text"],
-.login input[type="password"] {
+.login input[type="password"],
+.login input[type="number"],
+.login select,
+.login option {
     font-family: "Roboto Mono";
     font-size: 1rem;
     width: 20vw;

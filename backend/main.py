@@ -168,14 +168,12 @@ def newParty():
             isopen[i] = {}
             for time in times:
                 q.execute(partyexists, [date, i, time])
-                noofparties = q.fetchall()
+                noofparties = q.fetchone()
                 app.logger.info(f"Party type: {i}, Time: {time}, No of parties: {noofparties}, Max parties: {max_parties[i]}, date: {date}")
                 if noofparties[0][0] <= max_parties[i]:
                     isopen[i][time] = True
                 else:
                     isopen[i][time] = False
-
-        app.logger.info(f"\n\nIs open: {isopen}\n\n{isopen[1]['10:30']}\n\n{isopen[5]['16:00']}")
 
         return render_template("/system/newparty.html", isopen = isopen)
 

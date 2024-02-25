@@ -123,7 +123,7 @@ def newParty():
         createParty = "INSERT INTO Parties (PartyTypeID, FirstChildName, RoomID, Date, Time, BookedAdults, BookedChildren) VALUES (?, ?, ?, ?, ?, ?, ?)"
         q.execute(createParty, [partytype, firstchildname, Room, "24/02/2024", "15:00", 0, childnum])
         
-        flash(f"{partytype}, {firstchildname}, {secondchildname}, {childnum}, {age}, {largestparty[0]}, {Room}")
+        flash(f"{partytype}, {firstchildname}, {secondchildname}, {childnum}, {age}, {largestparty}, {Room}")
         
         return render_template("/system/newparty.html")
             

@@ -56,18 +56,19 @@
                         <h1>{{isopen[1, "10:30"]}}</h1>
                     </select>
                     {% if PartyType == "AdPlayLaser" or PartyType == "PizzaLaser" %}
-                        <select id="PartyTime" name="PartyTime" required>
-                            <option selected disabled>* Party Time</option>
-                            {% for key, value in isopen.items() %}
-                                {% for time, availability in value.items() %}
-                                    {% if availability %}
-                                        <option value="{{ key }}:{{ time }}">{{ time }} - {{ time + 2 hours }}</option>
-                                    {% else %}
-                                        <option value="{{ key }}:{{ time }}" disabled>{{ time }} - {{ time + 2 hours }}</option>
-                                    {% endif %}
-                                {% endfor %}
+                    <select id="PartyTime" name="PartyTime" required>
+                        <option selected disabled>* Party Time</option>
+                        {% for key, value in isopen.items() %}
+                            {% for time, availability in value.items() %}
+                                {% set end_time = (datetime.datetime.strptime(time, '%H:%M') + datetime.timedelta(hours=2)).strftime('%H:%M') %}
+                                {% if availability %}
+                                    <option value="{{ key }}:{{ time }}">{{ time }} - {{ end_time }}</option>
+                                {% else %}
+                                    <option value="{{ key }}:{{ time }}" disabled>{{ time }} - {{ end_time }}</option>
+                                {% endif %}
                             {% endfor %}
-                        </select>
+                        {% endfor %}
+                    </select>
                     {% else %}
                         <select id="PartyTime" name="PartyTime" required>
                             <option selected disabled>* Party Time</option>

@@ -80,12 +80,6 @@ def partyHome():
     
 @app.route("/new", methods = ['GET', 'POST'])
 def newParty():
-
-    addroom = "INSERT INTO Room (Name, Capacity) VALUES (?, ?)"
-    q.execute(addroom, ["Room 1", 20])
-    
-    q.execute(addroom, ["Room 2", 35])
-        
     
     if session["loggedin"] == False:
         return redirect(url_for("login"))

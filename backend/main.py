@@ -96,6 +96,7 @@ def newParty():
         childnum = request.form["NumChildren"]
         age = request.form["Age"]
         time= request.form["PartyTime"]
+        largestparty = []
         
         app.logger.info(f"Party type: {partytype}, First child: {firstchildname}, Second child: {secondchildname}, Number of children: {childnum}, Age: {age}, Time: {time}")
         
@@ -117,6 +118,7 @@ def newParty():
         except Exception as error:
             app.logger.info(f"Error while getting largest party: {error}")
             Room = 2
+        
         
         createParty = "INSERT INTO Parties (PartyTypeID, FirstChildName, RoomID, Date, Time, BookedAdults, BookedChildren) VALUES (?, ?, ?, ?, ?, ?, ?)"
         q.execute(createParty, [partytype, firstchildname, Room, "24/02/2024", "15:00", 0, childnum])

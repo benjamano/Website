@@ -80,8 +80,7 @@ def partyHome():
     
 @app.route("/new", methods = ['GET', 'POST'])
 def newParty():
-    
-    
+
     addroom = "INSERT INTO Room (Name, Capacity) VALUES (?, ?)"
     q.execute(addroom, ["Room 1", 20])
     
@@ -128,6 +127,44 @@ def newParty():
     else:
         return render_template("/system/newparty.html")
 
+    
+@app.route("/newdate", methods = ['GET', 'POST'])
+def newPartyDate():
+    
+    if request.method == "POST":
+        
+        date = request.form["PartyDate"]
+        
+        if date:
+            
+            partyexists = "SELECT Count(*) FROM Parties WHERE Date = ? AND PartyTypeID = ? AND Time = ?"
+            
+            max_parties = {1: 2, 3: 2, 5: 2, 2: 1, 4: 1, 6: 1}
+            
+            isopen = {1: False, 2: False, 3: False, 4: False, 5: False, 6: False}
+            
+            times = ["10:30", "11:30", "15:00", "16:00"]
+            
+            for i in range(1, 7):
+                
+                for time in times:
+                    
+                    q.execute(partyexists, [date, i, time])
+                    
+                    noofparties = q.fetchall()
+                    
+                    if noofparties[0][0] < max_parties[i]:
+                        
+                        isopen[(i, time)] = True
+        
+            return render_template("/system/newpartydate.html", isopen=isopen) 
+        
+        else:
+            flash("Please enter a date")
+            
+    return render_template("/system/newpartydate.html")
+    
+    
 @app.route("/modify", methods = ['GET', 'POST'])
 def modifyParty():
     

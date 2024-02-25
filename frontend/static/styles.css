@@ -538,6 +538,10 @@ footer{
     background-color: #45a049;
 }
 
+.login option[disabled] {
+    color: rgb(197, 60, 60);
+}
+
 .popup {
     position: fixed;
     bottom: 0px;

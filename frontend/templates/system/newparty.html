@@ -42,7 +42,7 @@
                 <h1>New Party</h1>
                 <form action="#" method="post">
                     <select id="PartyType" name="PartyType" required>
-                        <option selected disabled>Party Type</option>
+                        <option selected disabled>* Party Type</option>
                         <option value="AdPlay">Adventure Play</option>
                         <option value="AdPlayLaser">Adventure Play + Laser</option>
                         <option value="Pizza">Pizza Party</option>
@@ -50,10 +50,59 @@
                         <option value="TinyTots">Tiny Tots</option>
                         <option value="Nerf">Nerf</option>
                     </select>
-                    <input type="text" name="FirstChildName" placeholder="First Child First Name" required>
+                    {% if PartyType == "AdPlayLaser" or PartyType == "PizzaLaser" %}
+                        <select id="PartyTime" name="PartyTime" required>
+                            <option selected disabled>* Party Time</option>
+                            {% if isopen[1, "10:00"] == True %}
+                            <option value="10:00" disabled>10:30 - 12:30</option>
+                            {% else %}
+                            <option value="10:00">10:30 - 12:30</option>
+                            {% endif %}
+                            {% if isopen[3, "11:00"] == True %}
+                            <option value="11:00" disabled>11:30 - 13:30</option>
+                            {% else %}
+                            <option value="11:00">11:30 - 13:30</option>
+                            {% endif %}
+                            {% if isopen[5, "15:00"] == True %}
+                            <option value="15:00" disabled>15:00 - 17:00</option>
+                            {% else %}
+                            <option value="15:00">15:00 - 17:00</option>
+                            {% endif %}
+                            {% if isopen[5, "16:00"] == True %}
+                            <option value="16:00" disabled>16:00 - 18:00</option>
+                            {% else %}
+                            <option value="16:00">16:00 - 18:00</option>
+                            {% endif %}
+                        </select>
+                    {% else %}
+                        <select id="PartyTime" name="PartyTime" required>
+                            <option selected disabled>* Party Time</option>
+                            {% if party10booked == True %}
+                            <option value="10:00" disabled>10:30 - 13:00</option>
+                            {% else %}
+                            <option value="10:00">10:30 - 12:30</option>
+                            {% endif %}
+                            {% if party11booked == True %}
+                            <option value="11:00" disabled>11:30 - 13:30</option>
+                            {% else %}
+                            <option value="11:00">11:30 - 13:30</option>
+                            {% endif %}
+                            {% if party15booked == True %}
+                            <option value="15:00" disabled>15:00 - 17:00</option>
+                            {% else %}
+                            <option value="15:00">15:00 - 17:00</option>
+                            {% endif %}
+                            {% if party13booked == True %}
+                            <option value="16:00" disabled>16:00 - 18:00</option>
+                            {% else %}
+                            <option value="16:00">16:00 - 18:00</option>
+                            {% endif %}
+                        </select>
+                    {% endif %}
+                    <input type="text" name="FirstChildName" placeholder="* First Child First Name" required>
                     <input type="text" name="SecondChildName" placeholder="Second Child First Name">
-                    <input type="number" name="NumChildren" placeholder="Number of Children" required>
-                    <input type="number" name="Age" placeholder="Child's Age" required>
+                    <input type="number" name="NumChildren" placeholder="* Number of Children" required>
+                    <input type="number" name="Age" placeholder="* Child's Age" required>
                     <input type="submit" value="Create">
                     {% with messages = get_flashed_messages() %}
                     {% if messages %}

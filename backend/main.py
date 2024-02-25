@@ -180,10 +180,10 @@ def newParty():
                 if noofparties[0][0] < max_parties[i]:
                     
                     isopen[(i, time)] = True
-        
+
         app.logger.info(f"\n\nIs open: {isopen}\n\n{isopen[(1, '10:30')]}\n\n{isopen[(5, '16:00')]}")
-        
-        return render_template("/system/newparty.html", isopen="Hello")
+
+        return render_template("/system/newparty.html", isopen = isopen)
 
     
 @app.route("/newdate", methods = ['GET', 'POST'])

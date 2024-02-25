@@ -91,7 +91,7 @@ def newParty():
         secondchildname = request.form["SecondChildName"]
         childnum = request.form["NumChildren"]
         age = request.form["Age"]
-        #time= request.form["PartyTime"]
+        time= request.form["PartyTime"]
         
         app.logger.info(f"Party type: {partytype}, First child: {firstchildname}, Second child: {secondchildname}, Number of children: {childnum}, Age: {age}, Time: {time}")
         

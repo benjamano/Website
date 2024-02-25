@@ -102,7 +102,7 @@ def partyHome():
         return render_template("/system/home.html", time=int(datetime.datetime.now().strftime("%H")))
     
 @app.route("/new", methods = ['GET', 'POST'])
-def newParty(isopen):
+def newParty():
     
     if session["loggedin"] == False:
         return redirect(url_for("login"))
@@ -153,6 +153,33 @@ def newParty(isopen):
         return redirect(url_for("partyHome"))
             
     else:
+        partyexists = "SELECT Count(*) FROM Parties WHERE Date = ? AND PartyTypeID = ? AND Time = ?"
+        
+        max_parties = {1: 2, 3: 2, 5: 2, 2: 1, 4: 1, 6: 1}
+        
+        isopen = {(1, "10:30"): False, (1, "11:30"): False, (1, "15:00"): False, (1, "16:00"): False,
+                    (2, "10:30"): False, (2, "11:30"): False, (2, "15:00"): False, (2, "16:00"): False,
+                    (3, "10:30"): False, (3, "11:30"): False, (3, "15:00"): False, (3, "16:00"): False,
+                    (4, "10:30"): False, (4, "11:30"): False, (4, "15:00"): False, (4, "16:00"): False,
+                    (5, "10:30"): False, (5, "11:30"): False, (5, "15:00"): False, (5, "16:00"): False,
+                    (6, "10:30"): False, (6, "11:30"): False, (6, "15:00"): False, (6, "16:00"): False}
+        
+        times = ["10:30", "11:30", "15:00", "16:00"]
+        
+        for i in range(1, 7):
+            
+            for time in times:
+                
+                q.execute(partyexists, [date, i, time])
+                
+                noofparties = q.fetchall()
+                
+                if noofparties[0][0] < max_parties[i]:
+                    
+                    isopen[(i, time)] = True
+        
+        app.logger.info(f"\n\nIs open: {isopen}\n\n{isopen[(1, '10:30')]}\n\n{isopen[(5, '16:00')]}")
+        
         return render_template("/system/newparty.html", isopen=isopen)
 
     
@@ -165,35 +192,8 @@ def newPartyDate():
         session["date"] = date
         
         if date:
-            
-            partyexists = "SELECT Count(*) FROM Parties WHERE Date = ? AND PartyTypeID = ? AND Time = ?"
-            
-            max_parties = {1: 2, 3: 2, 5: 2, 2: 1, 4: 1, 6: 1}
-            
-            isopen = {(1, "10:30"): False, (1, "11:30"): False, (1, "15:00"): False, (1, "16:00"): False,
-                      (2, "10:30"): False, (2, "11:30"): False, (2, "15:00"): False, (2, "16:00"): False,
-                      (3, "10:30"): False, (3, "11:30"): False, (3, "15:00"): False, (3, "16:00"): False,
-                      (4, "10:30"): False, (4, "11:30"): False, (4, "15:00"): False, (4, "16:00"): False,
-                      (5, "10:30"): False, (5, "11:30"): False, (5, "15:00"): False, (5, "16:00"): False,
-                      (6, "10:30"): False, (6, "11:30"): False, (6, "15:00"): False, (6, "16:00"): False}
-            
-            times = ["10:30", "11:30", "15:00", "16:00"]
-            
-            for i in range(1, 7):
-                
-                for time in times:
-                    
-                    q.execute(partyexists, [date, i, time])
-                    
-                    noofparties = q.fetchall()
-                    
-                    if noofparties[0][0] < max_parties[i]:
-                        
-                        isopen[(i, time)] = True
-            
-            app.logger.info(f"\n\nIs open: {isopen}\n\n{isopen[(1, '10:30')]}\n\n{isopen[(5, '16:00')]}")
         
-            return redirect(url_for("newParty", isopen=isopen))
+            return redirect(url_for("newParty"))
         
         else:
             flash("Please enter a date")

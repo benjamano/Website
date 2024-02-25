@@ -118,6 +118,7 @@ def newParty():
         largestparty = []
         date = session["date"]
         
+        
         app.logger.info(f"Party type: {partytype}, First child: {firstchildname}, Second child: {secondchildname}, Number of children: {childnum}, Age: {age}, Time: {time}")
         
         parties = "SELECT BookedChildren, PartyID FROM Parties WHERE Date = ? AND Time = ? ORDER BY BookedChildren DESC"
@@ -152,7 +153,8 @@ def newParty():
         return redirect(url_for("partyHome"))
             
     else:
-        return render_template("/system/newparty.html")
+        isopen = session["isopen"]
+        return render_template("/system/newparty.html", isopen=isopen)
 
     
 @app.route("/newdate", methods = ['GET', 'POST'])
@@ -191,8 +193,10 @@ def newPartyDate():
                         isopen[(i, time)] = True
             
             app.logger.info(f"\n\nIs open: {isopen}\n\n{isopen[(1, '10:30')]}\n\n{isopen[(5, '16:00')]}")
+            
+            session["isopen"] = isopen
         
-            return render_template("/system/newparty.html", isopen=isopen) 
+            return redirect(url_for("newParty")) 
         
         else:
             flash("Please enter a date")

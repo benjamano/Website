@@ -156,9 +156,9 @@ def newPartyDate():
                         
                         isopen[(i, time)] = True
             
-            app.logger.info(f"Is open: {isopen}")
+            app.logger.info(f"\n\nIs open: {isopen}\n\n{isopen[(1, '10:30')]}\n\n{isopen[(5, "16:00")]}")
         
-            return render_template("/system/newpartydate.html", isopen=isopen) 
+            return render_template("/system/newparty.html", isopen=isopen) 
         
         else:
             flash("Please enter a date")

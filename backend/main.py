@@ -120,7 +120,7 @@ def newParty():
             app.logger.info(f"Error while getting largest party: {error}")
             Room = 2
         
-        createParty = "INSERT INTO Parties (PartyTypeID, FirstChildName, RoomID, Date, Time, BookedChildren) VALUES (?, ?, ?, ?, ?, ?, ?)"
+        createParty = "INSERT INTO Parties (PartyTypeID, FirstChildName, RoomID, Date, Time, BookedChildren) VALUES (?, ?, ?, ?, ?, ?)"
         q.execute(createParty, [partytype, firstchildname, Room, date, time, childnum])
         
         flash(f"{partytype}, {firstchildname}, {secondchildname}, {childnum}, {age}, {largestparty}, {Room}")

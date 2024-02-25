@@ -128,7 +128,7 @@ def newParty():
             
             largestparty = q.fetchone()
             
-            if largestparty[0] < childnum:
+            if int(largestparty[0]) < int(childnum):
                 Room = 2
             else:
                 Room = 1

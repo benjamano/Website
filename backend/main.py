@@ -1,8 +1,6 @@
 import datetime, sqlite3
 
 from flask import Flask, render_template, redirect, request, url_for, session, flash
-import datetime
-import sqlite3
 
 app = Flask(__name__, template_folder='../frontend/templates', static_folder='../frontend/static')
 

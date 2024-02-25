@@ -32,23 +32,23 @@ def onStart():
         q.execute(tblPartyType)
         
         
-        addrooms = "INSERT INTO Room (Name, Capacity) VALUES (?, ?)"
-        q.execute(addrooms, ["Room 1", 20])
-        q.execute(addrooms, ["Room 2", 35])
+        # addrooms = "INSERT INTO Room (Name, Capacity) VALUES (?, ?)"
+        # q.execute(addrooms, ["Room 1", 20])
+        # q.execute(addrooms, ["Room 2", 35])
         
-        addside = "INSERT INTO Side (Name) VALUES (?)"
-        q.execute(addside, ["Beans"])
-        q.execute(addside, ["Peas"])
-        q.execute(addside, ["Sweetcorn"])
+        # addside = "INSERT INTO Side (Name) VALUES (?)"
+        # q.execute(addside, ["Beans"])
+        # q.execute(addside, ["Peas"])
+        # q.execute(addside, ["Sweetcorn"])
         
-        addfood = "INSERT INTO Food (Name) VALUES (?)"
-        q.execute(addfood, ["Sausage"])
-        q.execute(addfood, ["Nuggets"])
-        q.execute(addfood, ["Burger"])
-        q.execute(addfood, ["FishFingers"])
-        q.execute(addfood, ["GFSausage"])
+        # addfood = "INSERT INTO Food (Name) VALUES (?)"
+        # q.execute(addfood, ["Sausage"])
+        # q.execute(addfood, ["Nuggets"])
+        # q.execute(addfood, ["Burger"])
+        # q.execute(addfood, ["FishFingers"])
+        # q.execute(addfood, ["GFSausage"])
         
-        sql.commit()
+        # sql.commit()
         
         
     except Exception as error:
@@ -124,6 +124,7 @@ def newParty():
         
         try:
             q.execute(parties, [date, time])
+            largestparty = q.fetchone()
             
             if largestparty[0] < childnum:
                 Room = 2
@@ -132,8 +133,6 @@ def newParty():
                 editParty = "UPDATE Parties SET RoomID = 1 WHERE PartyID = ?"
             
             q.execute(editParty, [largestparty[1]])
-            
-            largestparty = q.fetchone()
         
         except Exception as error:
             app.logger.info(f"Error while getting largest party: {error}")
@@ -146,7 +145,7 @@ def newParty():
         
         flash(f"{partytype}, {firstchildname}, {secondchildname}, {childnum}, {age}, {largestparty}, {Room}")
         
-        return render_template("/system/newparty.html")
+        return redirect(url_for("partyHome"))
             
     else:
         return render_template("/system/newparty.html")

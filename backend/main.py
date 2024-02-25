@@ -131,10 +131,11 @@ def newParty():
                 Room = 2
             else:
                 Room = 1
+                
                 editParty = "UPDATE Parties SET RoomID = 1 WHERE PartyID = ?"
-                app.logger.info(f"PartyID: {largestparty[1]}")
-                app.logger.info(f"Booked: {largestparty[0]}")
+                
                 q.execute(editParty, [largestparty[1]])
+                
                 sql.commit()
         
         except Exception as error:

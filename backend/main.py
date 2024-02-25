@@ -153,6 +153,9 @@ def newParty():
         return redirect(url_for("partyHome"))
             
     else:
+        
+        date = session["date"]
+        
         partyexists = "SELECT Count(*) FROM Parties WHERE Date = ? AND PartyTypeID = ? AND Time = ?"
         
         max_parties = {1: 2, 3: 2, 5: 2, 2: 1, 4: 1, 6: 1}

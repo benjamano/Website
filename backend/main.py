@@ -34,19 +34,19 @@ def onStart():
         
         addrooms = "INSERT INTO Room (Name, Capacity) VALUES (?, ?)"
         q.execute(addrooms, ["Room 1", 20])
-        q.execute(addrooms, ["Room 2", 30])
+        q.execute(addrooms, ["Room 2", 35])
         
         addside = "INSERT INTO Side (Name) VALUES (?)"
         q.execute(addside, ["Beans"])
         q.execute(addside, ["Peas"])
         q.execute(addside, ["Sweetcorn"])
         
-        addfood = "INSERT INTO Food (Name, SideID) VALUES (?, ?)"
-        q.execute(addfood, ["Sausage", 1])
-        q.execute(addfood, ["Nuggets", 1])
-        q.execute(addfood, ["Burger", 1])
-        q.execute(addfood, ["FishFingers", 1])
-        q.execute(addfood, ["GFSausage", 1])
+        addfood = "INSERT INTO Food (Name) VALUES (?)"
+        q.execute(addfood, ["Sausage"])
+        q.execute(addfood, ["Nuggets"])
+        q.execute(addfood, ["Burger"])
+        q.execute(addfood, ["FishFingers"])
+        q.execute(addfood, ["GFSausage"])
         
         sql.commit()
         

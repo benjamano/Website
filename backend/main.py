@@ -102,7 +102,7 @@ def partyHome():
         return render_template("/system/home.html", time=int(datetime.datetime.now().strftime("%H")))
     
 @app.route("/new", methods = ['GET', 'POST'])
-def newParty():
+def newParty(isopen):
     
     if session["loggedin"] == False:
         return redirect(url_for("login"))
@@ -153,7 +153,6 @@ def newParty():
         return redirect(url_for("partyHome"))
             
     else:
-        isopen = session["isopen"]
         return render_template("/system/newparty.html", isopen=isopen)
 
     
@@ -196,7 +195,7 @@ def newPartyDate():
             
             session["isopen"] = isopen
         
-            return redirect(url_for("newParty")) 
+            return redirect(url_for(f"newParty({isopen})")) 
         
         else:
             flash("Please enter a date")

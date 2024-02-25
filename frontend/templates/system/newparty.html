@@ -56,13 +56,13 @@
                     {% if PartyType == "AdPlayLaser" or PartyType == "PizzaLaser" %}
                         <select id="PartyTime" name="PartyTime" required>
                             <option selected disabled>* Party Time</option>
-                            {% if isopen[1, "10:00"] == False %}
-                            <option value="10:00" disabled>10:30 - 12:30</option>
+                            {% if isopen[1, "10:30"] == False %}
+                            <option value="10:30" disabled>10:30 - 12:30</option>
                             {% else %}
                             <option value="10:00">10:30 - 12:30</option>
                             {% endif %}
-                            {% if isopen[3, "11:00"] == False %}
-                            <option value="11:00" disabled>11:30 - 13:30</option>
+                            {% if isopen[3, "11:30"] == False %}
+                            <option value="11:30" disabled>11:30 - 13:30</option>
                             {% else %}
                             <option value="11:00">11:30 - 13:30</option>
                             {% endif %}
@@ -81,14 +81,14 @@
                         <select id="PartyTime" name="PartyTime" required>
                             <option selected disabled>* Party Time</option>
                             {% if party10booked == False %}
-                            <option value="10:00" disabled>10:30 - 13:00</option>
+                            <option value="10:30" disabled>10:30 - 13:00</option>
                             {% else %}
-                            <option value="10:00">10:30 - 12:30</option>
+                            <option value="10:30">10:30 - 12:30</option>
                             {% endif %}
                             {% if party11booked == False %}
-                            <option value="11:00" disabled>11:30 - 13:30</option>
+                            <option value="11:30" disabled>11:30 - 13:30</option>
                             {% else %}
-                            <option value="11:00">11:30 - 13:30</option>
+                            <option value="11:30">11:30 - 13:30</option>
                             {% endif %}
                             {% if party15booked == False %}
                             <option value="15:00" disabled>15:00 - 17:00</option>

@@ -28,6 +28,10 @@ def onStart():
         q.execute(tblParties)
         q.execute(tblPartyType)
         
+        addrooms = "INSERT INTO Room (Name, Capacity) VALUES (?, ?)"
+        q.execute(addrooms, ["Room 1", 20])
+        q.execute(addrooms, ["Room 2", 30])
+        
     except Exception as error:
         app.logger.info(f"Error while creating tables: {error}")
 

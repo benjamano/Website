@@ -25,10 +25,12 @@ def onStart():
         tblFoodOrder = "CREATE TABLE IF NOT EXISTS PartyFoodOrder (FoodOrderID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, PartyID INTEGER NOT NULL, FoodID INTEGER NOT NULL, Quantity INT NOT NULL, FOREIGN KEY (PartyID) REFERENCES Parties(PartyID), FOREIGN KEY (FoodID) REFERENCES Food(FoodID))"
 
         q.execute(tblRoom)
+        q.execute(tblSide)
         q.execute(tblFood)
         q.execute(tblFoodOrder)
         q.execute(tblParties)
         q.execute(tblPartyType)
+        
         
         addrooms = "INSERT INTO Room (Name, Capacity) VALUES (?, ?)"
         q.execute(addrooms, ["Room 1", 20])

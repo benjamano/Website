@@ -124,6 +124,7 @@ def newParty():
         
         try:
             q.execute(parties, [date, time])
+            
             largestparty = q.fetchone()
             
             if largestparty[0] < childnum:
@@ -131,8 +132,9 @@ def newParty():
             else:
                 Room = 1
                 editParty = "UPDATE Parties SET RoomID = 1 WHERE PartyID = ?"
-            
-            q.execute(editParty, [largestparty[1]])
+                app.logger.info(f"PartyID: {largestparty[1]}")
+                app.logger.info(f"Booked: {largestparty[0]}")
+                q.execute(editParty, [largestparty[1]])
         
         except Exception as error:
             app.logger.info(f"Error while getting largest party: {error}")

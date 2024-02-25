@@ -45,20 +45,10 @@ def onStart():
         
         addfood = "INSERT INTO Food (Name, SideID) VALUES (?, ?)"
         q.execute(addfood, ["Sausage", 1])
-        q.execute(addfood, ["Sausage", 2])
-        q.execute(addfood, ["Sausage", 3])
         q.execute(addfood, ["Nuggets", 1])
-        q.execute(addfood, ["Nuggets", 2])
-        q.execute(addfood, ["Nuggets", 3])
         q.execute(addfood, ["Burger", 1])
-        q.execute(addfood, ["Burger", 2])
-        q.execute(addfood, ["Burger", 3])
         q.execute(addfood, ["FishFingers", 1])
-        q.execute(addfood, ["FishFingers", 2])
-        q.execute(addfood, ["FishFingers", 3])
         q.execute(addfood, ["GFSausage", 1])
-        q.execute(addfood, ["GFSausage", 2])
-        q.execute(addfood, ["GFSausage", 3])
         
         sql.commit()
         

@@ -58,26 +58,15 @@
                     {% if PartyType == "AdPlayLaser" or PartyType == "PizzaLaser" %}
                         <select id="PartyTime" name="PartyTime" required>
                             <option selected disabled>* Party Time</option>
-                            {% if isopen[1, "10:30"] == False %}
-                            <option value="10:30" disabled>10:30 - 12:30</option>
-                            {% else %}
-                            <option value="10:00">10:30 - 12:30</option>
-                            {% endif %}
-                            {% if isopen[3, "11:30"] == False %}
-                            <option value="11:30" disabled>11:30 - 13:30</option>
-                            {% else %}
-                            <option value="11:00">11:30 - 13:30</option>
-                            {% endif %}
-                            {% if isopen[5, "15:00"] == False %}
-                            <option value="15:00" disabled>15:00 - 17:00</option>
-                            {% else %}
-                            <option value="15:00">15:00 - 17:00</option>
-                            {% endif %}
-                            {% if isopen[5, "16:00"] == False %}
-                            <option value="16:00" disabled>16:00 - 18:00</option>
-                            {% else %}
-                            <option value="16:00">16:00 - 18:00</option>
-                            {% endif %}
+                            {% for key, value in isopen.items() %}
+                                {% for time, availability in value.items() %}
+                                    {% if availability %}
+                                        <option value="{{ key }}:{{ time }}">{{ time }} - {{ time + 2 hours }}</option>
+                                    {% else %}
+                                        <option value="{{ key }}:{{ time }}" disabled>{{ time }} - {{ time + 2 hours }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
                         </select>
                     {% else %}
                         <select id="PartyTime" name="PartyTime" required>

@@ -193,7 +193,7 @@ def newPartyDate():
             
             app.logger.info(f"\n\nIs open: {isopen}\n\n{isopen[(1, '10:30')]}\n\n{isopen[(5, '16:00')]}")
         
-            return redirect(url_for(f"newParty({isopen})")) 
+            return redirect(url_for("newParty", isopen=isopen))
         
         else:
             flash("Please enter a date")

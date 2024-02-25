@@ -135,7 +135,12 @@ def newPartyDate():
             
             max_parties = {1: 2, 3: 2, 5: 2, 2: 1, 4: 1, 6: 1}
             
-            isopen = {1: False, 2: False, 3: False, 4: False, 5: False, 6: False}
+            isopen = {(1, "10:30"): False, (1, "11:30"): False, (1, "15:00"): False, (1, "16:00"): False,
+                      (2, "10:30"): False, (2, "11:30"): False, (2, "15:00"): False, (2, "16:00"): False,
+                      (3, "10:30"): False, (3, "11:30"): False, (3, "15:00"): False, (3, "16:00"): False,
+                      (4, "10:30"): False, (4, "11:30"): False, (4, "15:00"): False, (4, "16:00"): False,
+                      (5, "10:30"): False, (5, "11:30"): False, (5, "15:00"): False, (5, "16:00"): False,
+                      (6, "10:30"): False, (6, "11:30"): False, (6, "15:00"): False, (6, "16:00"): False}
             
             times = ["10:30", "11:30", "15:00", "16:00"]
             

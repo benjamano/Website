@@ -150,6 +150,8 @@ def newPartyDate():
                     if noofparties[0][0] < max_parties[i]:
                         
                         isopen[(i, time)] = True
+            
+            app.logger.info(f"Is open: {isopen}")
         
             return render_template("/system/newpartydate.html", isopen=isopen) 
         

@@ -18,7 +18,9 @@ def onStart():
 
         tblParties = "CREATE TABLE IF NOT EXISTS Parties (PartyID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, FoodOrderID INTEGER, PartyTypeID INT NOT NULL, RoomID INTEGER NOT NULL, Date DATE NOT NULL, Time TIME NOT NULL, BookedChildren INT NOT NULL, FirstChildName TEXT NOT NULL, SecondChildName TEXT, LasertagTime TEXT, FOREIGN KEY (PartyTypeID) REFERENCES PartyType(PartyTypeID), FOREIGN KEY (RoomID) REFERENCES Room(RoomID), FOREIGN KEY (FoodOrderID) REFERENCES PartyFoodOrder(FoodOrderID))"
 
-        tblFood = "CREATE TABLE IF NOT EXISTS Food (FoodID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, Name TEXT NOT NULL)"
+        tblFood = "CREATE TABLE IF NOT EXISTS Food (FoodID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, Name TEXT NOT NULL, SideID INTEGER, FOREIGN KEY (SideID) REFERENCES Side(SideID)"
+        
+        tblSide = "CREATE TABLE IF NOT EXISTS Side (SideID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, Name TEXT NOT NULL)"
         
         tblFoodOrder = "CREATE TABLE IF NOT EXISTS PartyFoodOrder (FoodOrderID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, PartyID INTEGER NOT NULL, FoodID INTEGER NOT NULL, Quantity INT NOT NULL, FOREIGN KEY (PartyID) REFERENCES Parties(PartyID), FOREIGN KEY (FoodID) REFERENCES Food(FoodID))"
 
@@ -28,9 +30,34 @@ def onStart():
         q.execute(tblParties)
         q.execute(tblPartyType)
         
-        #addrooms = "INSERT INTO Room (Name, Capacity) VALUES (?, ?)"
-        #q.execute(addrooms, ["Room 1", 20])
-        #q.execute(addrooms, ["Room 2", 30])
+        addrooms = "INSERT INTO Room (Name, Capacity) VALUES (?, ?)"
+        q.execute(addrooms, ["Room 1", 20])
+        q.execute(addrooms, ["Room 2", 30])
+        
+        addside = "INSERT INTO Side (Name) VALUES (?)"
+        q.execute(addside, ["Beans"])
+        q.execute(addside, ["Peas"])
+        q.execute(addside, ["Sweetcorn"])
+        
+        addfood = "INSERT INTO Food (Name, SideID) VALUES (?, ?)"
+        q.execute(addfood, ["Sausage", 1])
+        q.execute(addfood, ["Sausage", 2])
+        q.execute(addfood, ["Sausage", 3])
+        q.execute(addfood, ["Nuggets", 1])
+        q.execute(addfood, ["Nuggets", 2])
+        q.execute(addfood, ["Nuggets", 3])
+        q.execute(addfood, ["Burger", 1])
+        q.execute(addfood, ["Burger", 2])
+        q.execute(addfood, ["Burger", 3])
+        q.execute(addfood, ["FishFingers", 1])
+        q.execute(addfood, ["FishFingers", 2])
+        q.execute(addfood, ["FishFingers", 3])
+        q.execute(addfood, ["GFSausage", 1])
+        q.execute(addfood, ["GFSausage", 2])
+        q.execute(addfood, ["GFSausage", 3])
+        
+        sql.commit()
+        
         
     except Exception as error:
         app.logger.info(f"Error while creating tables: {error}")

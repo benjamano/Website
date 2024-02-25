@@ -16,7 +16,7 @@ def onStart():
         
         tblPartyType = "CREATE TABLE IF NOT EXISTS PartyType (PartyTypeID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, Name TEXT NOT NULL, PriceChild DECIMAL(5,2) NOT NULL, PriceAdult DECIMAL(5,2) NOT NULL, Duration INTEGER NOT NULL, LasertagTime TEXT)"
 
-        tblParties = "CREATE TABLE IF NOT EXISTS Parties (PartyID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, FoodOrderID INTEGER, PartyTypeID INT NOT NULL, RoomID INTEGER NOT NULL, Date DATE NOT NULL, Time TIME NOT NULL, BookedAdults INT NOT NULL, BookedChildren INT NOT NULL, FirstChildName TEXT NOT NULL, SecondChildName TEXT, FOREIGN KEY (PartyTypeID) REFERENCES PartyType(PartyTypeID), FOREIGN KEY (RoomID) REFERENCES Room(RoomID), FOREIGN KEY (FoodOrderID) REFERENCES PartyFoodOrder(FoodOrderID))"
+        tblParties = "CREATE TABLE IF NOT EXISTS Parties (PartyID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, FoodOrderID INTEGER, PartyTypeID INT NOT NULL, RoomID INTEGER NOT NULL, Date DATE NOT NULL, Time TIME NOT NULL, BookedChildren INT NOT NULL, FirstChildName TEXT NOT NULL, SecondChildName TEXT, FOREIGN KEY (PartyTypeID) REFERENCES PartyType(PartyTypeID), FOREIGN KEY (RoomID) REFERENCES Room(RoomID), FOREIGN KEY (FoodOrderID) REFERENCES PartyFoodOrder(FoodOrderID))"
 
         tblFood = "CREATE TABLE IF NOT EXISTS Food (FoodID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, Name TEXT NOT NULL)"
         
@@ -97,13 +97,14 @@ def newParty():
         age = request.form["Age"]
         time= request.form["PartyTime"]
         largestparty = []
+        date = session["date"]
         
         app.logger.info(f"Party type: {partytype}, First child: {firstchildname}, Second child: {secondchildname}, Number of children: {childnum}, Age: {age}, Time: {time}")
         
         parties = "SELECT BookedChildren, PartyID FROM Parties ORDER BY BookedChildren DESC WHERE Date = ? AND Time = ?"
         
         try:
-            q.execute(parties, ["24/02/2024", "15:00"])
+            q.execute(parties, [date, time])
             
             if largestparty[0] < childnum:
                 Room = 2
@@ -119,9 +120,8 @@ def newParty():
             app.logger.info(f"Error while getting largest party: {error}")
             Room = 2
         
-        
-        createParty = "INSERT INTO Parties (PartyTypeID, FirstChildName, RoomID, Date, Time, BookedAdults, BookedChildren) VALUES (?, ?, ?, ?, ?, ?, ?)"
-        q.execute(createParty, [partytype, firstchildname, Room, "24/02/2024", "15:00", 0, childnum])
+        createParty = "INSERT INTO Parties (PartyTypeID, FirstChildName, RoomID, Date, Time, BookedChildren) VALUES (?, ?, ?, ?, ?, ?, ?)"
+        q.execute(createParty, [partytype, firstchildname, Room, date, time, childnum])
         
         flash(f"{partytype}, {firstchildname}, {secondchildname}, {childnum}, {age}, {largestparty}, {Room}")
         
@@ -137,6 +137,7 @@ def newPartyDate():
     if request.method == "POST":
         
         date = request.form["PartyDate"]
+        session["date"] = date
         
         if date:
             

@@ -120,7 +120,7 @@ def newParty():
         
         app.logger.info(f"Party type: {partytype}, First child: {firstchildname}, Second child: {secondchildname}, Number of children: {childnum}, Age: {age}, Time: {time}")
         
-        parties = "SELECT BookedChildren, PartyID FROM Parties ORDER BY BookedChildren DESC WHERE Date = ? AND Time = ?"
+        parties = "SELECT BookedChildren, PartyID FROM Parties WHERE Date = ? AND Time = ? ORDER BY BookedChildren DESC"
         
         try:
             q.execute(parties, [date, time])
@@ -135,6 +135,7 @@ def newParty():
                 app.logger.info(f"PartyID: {largestparty[1]}")
                 app.logger.info(f"Booked: {largestparty[0]}")
                 q.execute(editParty, [largestparty[1]])
+                sql.commit()
         
         except Exception as error:
             app.logger.info(f"Error while getting largest party: {error}")

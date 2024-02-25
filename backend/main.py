@@ -183,7 +183,7 @@ def newParty():
         
         app.logger.info(f"\n\nIs open: {isopen}\n\n{isopen[(1, '10:30')]}\n\n{isopen[(5, '16:00')]}")
         
-        return render_template("/system/newparty.html", isopen=isopen)
+        return render_template("/system/newparty.html", isopen="Hello")
 
     
 @app.route("/newdate", methods = ['GET', 'POST'])

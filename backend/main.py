@@ -86,12 +86,12 @@ def newParty():
     
     if request.method == "POST":
         
-        partytype = request.form["PartyType"]
+        partytype = request.form.get["PartyType"]
         firstchildname = request.form["FirstChildName"]
         secondchildname = request.form["SecondChildName"]
         childnum = request.form["NumChildren"]
         age = request.form["Age"]
-        time= request.form["PartyTime"]
+        time= request.form.get["PartyTime"]
         
         app.logger.info(f"Party type: {partytype}, First child: {firstchildname}, Second child: {secondchildname}, Number of children: {childnum}, Age: {age}, Time: {time}")
         

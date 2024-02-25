@@ -192,8 +192,6 @@ def newPartyDate():
                         isopen[(i, time)] = True
             
             app.logger.info(f"\n\nIs open: {isopen}\n\n{isopen[(1, '10:30')]}\n\n{isopen[(5, '16:00')]}")
-            
-            session["isopen"] = isopen
         
             return redirect(url_for(f"newParty({isopen})")) 
         

@@ -43,12 +43,12 @@
                 <form action="/new" method="post">
                     <select id="PartyType" name="PartyType" required>
                         <option selected disabled>* Party Type</option>
-                        <option value="AdPlay">Adventure Play</option>
-                        <option value="AdPlayLaser">Adventure Play + Laser</option>
-                        <option value="Pizza">Pizza Party</option>
-                        <option value="PizzaLaser">Pizza Party + Laser</option>
-                        <option value="TinyTots">Tiny Tots</option>
-                        <option value="Nerf">Nerf</option>
+                        <option value="1">Adventure Play</option>
+                        <option value="2">Adventure Play + Laser</option>
+                        <option value="3">Pizza Party</option>
+                        <option value="4">Pizza Party + Laser</option>
+                        <option value="5">Tiny Tots</option>
+                        <option value="6">Nerf</option>
                     </select>
                     {% if PartyType == "AdPlayLaser" or PartyType == "PizzaLaser" %}
                         <select id="PartyTime" name="PartyTime" required>

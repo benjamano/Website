@@ -86,7 +86,7 @@ def newParty():
     
     if request.method == "POST":
         
-        #partytype = request.form["PartyType"]
+        partytype = request.form["PartyType"]
         firstchildname = request.form["FirstChildName"]
         secondchildname = request.form["SecondChildName"]
         childnum = request.form["NumChildren"]

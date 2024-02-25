@@ -170,7 +170,7 @@ def newParty():
                 q.execute(partyexists, [date, i, time])
                 noofparties = q.fetchone()[0]
                 app.logger.info(f"Party type: {i}, Time: {time}, No of parties: {noofparties}, Max parties: {max_parties[i]}, date: {date}")
-                if noofparties[0] <= max_parties[i]:
+                if noofparties <= max_parties[i]:
                     isopen[i][time] = True
                 else:
                     isopen[i][time] = False

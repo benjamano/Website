@@ -156,7 +156,7 @@ def newParty():
         
         date = session["date"]
         
-        partyexists = "SELECT Count(*) FROM Parties WHERE Date = ? AND PartyTypeID = ? AND Time = ?"
+        partyexists = "SELECT Count() FROM Parties WHERE Date = ? AND PartyTypeID = ? AND Time = ?"
         
         max_parties = {1: 2, 3: 2, 5: 2, 2: 1, 4: 1, 6: 1}
         
@@ -169,7 +169,7 @@ def newParty():
             for time in times:
                 q.execute(partyexists, [date, i, time])
                 noofparties = q.fetchall()
-                app.logger.info(f"Party type: {i}, Time: {time}, No of parties: {noofparties}, Max parties: {max_parties[i]}")
+                app.logger.info(f"Party type: {i}, Time: {time}, No of parties: {noofparties}, Max parties: {max_parties[i]}, date: {date}")
                 if noofparties[0][0] <= max_parties[i]:
                     isopen[i][time] = True
                 else:

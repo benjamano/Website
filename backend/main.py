@@ -244,12 +244,11 @@ def modifyParty():
             search_params.append(age)
             
         if not age and not firstchildname and not time and not date and not partyid:
-            app.logger.info("No search parameters entered")
             flash("Please enter a value for atleast one field")
         
         search_query = search_query.rstrip("AND ")
         
-        app.logger.info(f"Search query: {search_query}, ({search_params})")
+        #app.logger.info(f"Search query: {search_query}, ({search_params})")
     
         q.execute(search_query, search_params)
         

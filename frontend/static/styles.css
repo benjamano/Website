@@ -269,6 +269,7 @@ section {
     min-height: 30px;
     height: 40px; */
     text-decoration: none;
+    transition: all .2s ease-in-out;
 }
 
 .fancybutton img {
@@ -295,6 +296,7 @@ section {
 .fancybutton:hover {
     background-color: #1d1d1d;
     text-decoration: none;
+    transform: scale(1.1);
 }
 footer{
     bottom: 0;

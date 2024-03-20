@@ -1,90 +1,99 @@
-// window.addEventListener('DOMContentLoaded', (event) => {
-//     const footerWidth = document.getElementById('footer').offsetWidth;
-//     const canvas = document.getElementById('pongCanvas');
-//     canvas.width = footerWidth;
-// });
-
-// window.addEventListener('DOMContentLoaded', (event) => {
-//     const footerHeight = document.getElementById('footer').offsetHeight;
-//     const canvas = document.getElementById('pongCanvas');
-//     canvas.height = footerHeight;
-// });
-
 let canvas = document.getElementById('pongCanvas');
 let ctx = canvas.getContext('2d');
-let ballRadius = 1;
+let ballRadius = 2;
 let x = canvas.width / 2;
 let y = canvas.height / 2;
-let dx = 0.5;
-let dy = 0.1;
-let paddleHeight = canvas.height / 2;
-let paddleWidth = canvas.width / 240;
-let paddle1Y = canvas.height /2 - paddleHeight / 2;
-let paddle2Y = canvas.height /2 - paddleHeight / 2;
-let aiSpeed = 1;
+let dx = 1;
+let dy = 1;
+let paddleHeight = (canvas.height / 3 )
+let paddleWidth = 2 * (canvas.width / 100);
+let paddle1Y = (canvas.height / 2) - (paddleHeight / 2);
+let paddle2Y = (canvas.height / 2) - (paddleHeight / 2);
+let aiSpeed = 0.5;
 
-function drawBall(){
-    ctx.beginPath();
-    ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
-    ctx.fillStyle = "white";
-    ctx.fill();
-    ctx.closePath();
+// Function to set canvas size based on viewport dimensions
+function resizeCanvas() {
+    canvas.width = window.innerWidth * 0.99;
+    canvas.height = window.innerHeight * 0.10;
 }
 
-function drawPaddle1(){
-    ctx.beginPath();
-    ctx.rect(0, paddle1Y, paddleWidth, paddleHeight);
-    ctx.fillStyle = "white";
-    ctx.fill();
-    ctx.closePath();
-}
+// Call resizeCanvas initially and on window resize
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
 
-function drawPaddle2(){
-    ctx.beginPath();
-    ctx.rect(canvas.width - paddleWidth, paddle2Y, paddleWidth, paddleHeight);
-    ctx.fillStyle = "white";
-    ctx.fill();
-    ctx.closePath();
-}
-
-
+// AI control for both paddles
 function aiControl() {
-
-    let paddle1Center = paddle1Y + paddleHeight / 2;
-    let paddle2Center = paddle2Y + paddleHeight / 2;
-    if (paddle1Center < y - 2) {
+    let paddle1Center = paddle1Y + (paddleHeight / 2);
+    let paddle2Center = paddle2Y + (paddleHeight / 2);
+    if (paddle1Center < y - (canvas.height * 0.0583)) { // Scale AI control threshold
         paddle1Y += aiSpeed;
-    } else if (paddle1Center > y + 5) {
+    } else if (paddle1Center > y + (canvas.height * 0.0583)) {
         paddle1Y -= aiSpeed;
     }
-    if (paddle2Center < y - 1) {
+    if (paddle2Center < y - (canvas.height * 0.0583)) {
         paddle2Y += aiSpeed;
-    } else if (paddle2Center > y + 5) {
+    } else if (paddle2Center > y + (canvas.height * 0.0583)) {
         paddle2Y -= aiSpeed;
     }
 }
 
-function draw(){
+// Drawing functions
+function drawBall() {
+    ctx.beginPath();
+    ctx.arc(x, y, (ballRadius) * (canvas.width / 800), 0, Math.PI * 2); // Scale ball radius
+    ctx.fillStyle = 'white';
+    ctx.fill();
+    ctx.closePath();
+}
+
+function drawPaddle1() {
+    ctx.beginPath();
+    ctx.rect(0, paddle1Y, paddleWidth, paddleHeight);
+    ctx.fillStyle = 'white';
+    ctx.fill();
+    ctx.closePath();
+}
+
+function drawPaddle2() {
+    ctx.beginPath();
+    ctx.rect(canvas.width - paddleWidth, paddle2Y, paddleWidth, paddleHeight);
+    ctx.fillStyle = 'white';
+    ctx.fill();
+    ctx.closePath();
+}
+
+function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBall();
     drawPaddle1();
     drawPaddle2();
     aiControl();
 
-    if (y + dy > canvas.height - ballRadius || y + dy < ballRadius){
+    // Ball collision with top and bottom walls
+    if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
         dy = -dy;
     }
-
-    if (x + dx > canvas.width - ballRadius - paddleWidth && y > paddle2Y && y < paddle2Y + paddleHeight ||
-        x + dx < ballRadius + paddleWidth && y > paddle1Y && y < paddle1Y + paddleHeight) {
-        dx = -dx;
+    // Ball collision with paddles
+    if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
+        dy = -dy; // Reverse the vertical direction
+    
+        // Adjust the ball's position to ensure it stays within the canvas boundaries
+        if (y + dy > canvas.height - ballRadius) {
+            y = canvas.height - ballRadius;
+        } else if (y + dy < ballRadius) {
+            y = ballRadius;
+        }
     }
 
-    if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+    // Ball goes out of bounds
+    if (x + dx > canvas.width - (canvas.width * 0.005) || x + dx < (canvas.width * 0.005)) { // Scale out of bounds threshold
+        // Reset ball position
         x = canvas.width / 2;
         y = canvas.height / 2;
-        paddle1Y = canvas.height / 2 - paddleHeight / 2;
-        paddle2Y = canvas.height / 2 - paddleHeight / 2;
+        // Reset paddle positions
+        paddle1Y = (canvas.height / 2) - (paddleHeight / 2);
+        paddle2Y = (canvas.height / 2) - (paddleHeight / 2);
+        // Reverse ball direction
         dx = -dx;
     }
 
@@ -92,7 +101,6 @@ function draw(){
     y += dy;
 
     requestAnimationFrame(draw);
-
 }
 
 draw();

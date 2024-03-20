@@ -22,7 +22,6 @@ canvas {
     display: block;
     z-index: 2;
     position: absolute;
-    width: 98.8vw;
     margin-left: 0;
     margin-right: 0;
 }
@@ -108,7 +107,7 @@ a:hover {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: -1;
     overflow: hidden;
     border-right: solid 0.5px rgb(70, 70, 70);
     background-color: inherit;
@@ -311,11 +310,12 @@ section {
 footer{
     bottom: 0;
     width: 100%;
-    height: 7vh;
+    height: 10vh;
     background-color: #2f3033;
     padding-top: 0.5vh;
     color: white;
     text-align: center;
+    z-index: 999;
 }
 
 .footer h1{

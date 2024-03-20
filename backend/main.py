@@ -258,6 +258,14 @@ def modifyParty():
         
     else:
         return render_template("/system/modifyparty.html")
+    
+@app.route("/ICTHome" , methods = ['GET', 'POST'])
+def ICTHome():
+        
+        if session["loggedin"] == False:
+            return redirect(url_for("login"))
+        
+        return render_template("/ICTWork/ICTHome.html")
 
 if __name__ == '__main__':
     app.run()

@@ -3,8 +3,8 @@ let ctx = canvas.getContext('2d');
 let ballRadius = 2;
 let x = canvas.width / 2;
 let y = canvas.height / 2;
-let dx = 1;
-let dy = 1;
+let dx = 2;
+let dy = 0.2;
 let paddleHeight = (canvas.height / 3 )
 let paddleWidth = 2 * (canvas.width / 100);
 let paddle1Y = (canvas.height / 2) - (paddleHeight / 2);
@@ -86,13 +86,7 @@ function draw() {
     }
 
     // Ball goes out of bounds
-    if (x + dx > canvas.width - (canvas.width * 0.005) || x + dx < (canvas.width * 0.005)) { // Scale out of bounds threshold
-        // Reset ball position
-        x = canvas.width / 2;
-        y = canvas.height / 2;
-        // Reset paddle positions
-        paddle1Y = (canvas.height / 2) - (paddleHeight / 2);
-        paddle2Y = (canvas.height / 2) - (paddleHeight / 2);
+    if (x + dx > canvas.width - (canvas.width * 0.001) || x + dx < (canvas.width * 0.001)) { // 
         // Reverse ball direction
         dx = -dx;
     }

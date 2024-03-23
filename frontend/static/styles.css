@@ -47,7 +47,7 @@ h1{
 h2{
     font-family: "Roboto Mono";
     color: white;
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 h3{
@@ -226,8 +226,6 @@ a:hover {
 }
 
 section {
-    padding: 20px;
-    margin-bottom: 30px 0;
     text-align: left;
 }
 
@@ -236,6 +234,9 @@ section {
     text-align: center;
 }
 
+.gencont{
+    padding: 1.5rem;
+}
 
 .button-container {
     display: flex;
@@ -320,13 +321,15 @@ footer{
 }
 
 .footer h1{
+    margin: 0;
     color: white;
-    font-size: 1.5vw;
+    font-size: 20px;
 }
 
 .footer h2{
-    font-size: 1vw;
+    font-size: 1rem; 
     color: white;
+    font-weight: light;
     overflow: hidden;
 }
 

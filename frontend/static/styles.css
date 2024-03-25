@@ -6,6 +6,10 @@ html {
     scroll-behavior: smooth;
 }
 
+html::-webkit-scrollbar {
+    display: none;
+}
+
 body {
     background-color: #121212;
     font-family: Arial, sans-serif;
@@ -419,6 +423,8 @@ footer{
     opacity: 1;
     transform: translateY(20px);
     transition: opacity 0.8s, transform 0.8s;
+    transition-property: all;
+    transition-duration: 0.8s;
 }
 
 .service-box.reveal {
@@ -428,8 +434,6 @@ footer{
 
 .service-box.reveal:hover{
     transform: translateY(-20px);
-    transition-property: all;
-    transition-duration: 0.8s;
     filter: brightness(1.3);
 }
 
@@ -645,7 +649,7 @@ footer{
 
     .content {
         margin-left: 0px;
-        flex-direction: column; /* Stack content vertically in portrait mode */
+        flex-direction: column; 
     }
 
     .button-container {
@@ -655,13 +659,13 @@ footer{
     }
 
     .service-container {
-        flex-direction: column; /* Stack service boxes vertically in portrait mode */
-        align-items: center; /* Center service boxes in portrait mode */
+        flex-direction: column; 
+        align-items: center;
     }
 
     .service-box {
-        margin-bottom: 20px; /* Add some spacing between stacked service boxes */
-        width: 100%; /* Make service boxes take full width in portrait mode */
+        margin-bottom: 20px;
+        width: auto;
     }
 
     .desktop-container{

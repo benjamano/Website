@@ -9,12 +9,12 @@ let paddleHeight = 40;
 let paddleWidth = 7;
 let paddle1Y = (canvas.height - paddleHeight) / 2;
 let paddle2Y = (canvas.height - paddleHeight) / 2;
-let paddle1aiSpeed = Math.random(-10, 10);
-let paddle2aiSpeed = Math.random(-10, 10);
+let paddle1aiSpeed = Math.random() * (10 - (-10)) + (-10);
+let paddle2aiSpeed = Math.random() * (10 - (-10)) + (-10);
 
 // Function to set canvas size based on viewport dimensions
 function resizeCanvas() {
-    canvas.width = window.innerWidth * 0.99;
+    canvas.width = window.innerWidth * 0.997;
     canvas.height = window.innerHeight * 0.10;
     paddle1Y = Math.min(paddle1Y, canvas.height - paddleHeight); // Ensure paddle 1 stays within canvas
     paddle2Y = Math.min(paddle2Y, canvas.height - paddleHeight); // Ensure paddle 2 stays within canvas
@@ -89,8 +89,8 @@ function draw() {
     if ((x + dx > canvas.width - paddleWidth - ballRadius) && (y > paddle2Y && y < paddle2Y + paddleHeight) ||
         (x + dx < paddleWidth + ballRadius) && (y > paddle1Y && y < paddle1Y + paddleHeight)) {
         dx = -dx;
-        paddle1aiSpeed = Math.random(-10, 10);
-        paddle2aiSpeed = Math.random(-10, 10);
+        paddle1aiSpeed = Math.random() * (10 - (-10)) + (-10);
+        paddle2aiSpeed = Math.random() * (10 - (-10)) + (-10);
     }
 
     // Ball goes out of bounds
@@ -103,8 +103,8 @@ function draw() {
         paddle2Y = (canvas.height - paddleHeight) / 2;
         // Reverse ball direction
         dx = -dx;
-        paddle1aiSpeed = Math.random(-10, 10);
-        paddle2aiSpeed = Math.random(-10, 10);
+        paddle1aiSpeed = Math.random() * (10 - (-10)) + (-10);
+        paddle2aiSpeed = Math.random() * (10 - (-10)) + (-10);
     }
 
     x += dx;

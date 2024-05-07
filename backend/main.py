@@ -2,6 +2,8 @@ import datetime, sqlite3
 
 from flask import Flask, render_template, redirect, request, url_for, session, flash
 
+from odsclient import get_whole_dataset
+
 app = Flask(__name__, template_folder='../frontend/templates', static_folder='../frontend/static')
 
 app.secret_key = "rfwef65657eo234w223fh33HI2UhuhgR7YG"
@@ -60,6 +62,16 @@ onStart()
 
 @app.route("/")
 def home():
+    
+    try:
+
+        dataset_id = "respect-des-delais-dacheminement-courrier"
+        csv_str = get_whole_dataset(dataset_id, platform_id='public')
+
+        print(csv_str)
+        
+    except Exception as error:
+        app.logger.info(f"Error while getting dataset: {error}")
     
     return render_template("index.html")
 

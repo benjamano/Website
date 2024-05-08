@@ -665,6 +665,11 @@ footer{
     margin: auto;
     width: 90%;
     cursor: pointer;
+    pointer-events: all;
+}
+
+.lasertagpreview:hover{
+    transform: translateY(-15px);
 }
 
 .textimageinfront{

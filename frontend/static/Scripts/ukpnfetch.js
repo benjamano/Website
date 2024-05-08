@@ -12,16 +12,14 @@ function fetchDataFromServer() {
     fetch('/getfaultdata')
         .then(response => {
             if (response.ok) {
-                // No need to parse JSON here since we are redirecting to another route
-                return response.text();
+                return response.json(); // Parse the response as JSON
             } else {
                 throw new Error('Failed to fetch fault data');
             }
         })
-        .then(() => {
-            // Redirected to another route, no need to handle the response here
+        .then(data => {
             console.log('Fault data fetched successfully');
-            handleFaultData(data=response.text())
+            handleFaultData(data); // Pass the data to the handleFaultData function
         })
         .catch(error => {
             console.error('Error fetching fault data:', error);

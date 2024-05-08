@@ -85,15 +85,15 @@ def home():
             print("Total count:", total_count)
             print("Results:")
             print(len(results))
-            for record in results:
-                print("-----------------------------------------------------------\n")
-                print(f"Power Cut Type: {record["powercuttype"]}")
-                postcodes = record["postcodesaffected"].split(";")
-                print("Post Codes effected:")
-                for postcode in postcodes:
-                    print(postcode)
+            # for record in results:
+            #     print("-----------------------------------------------------------\n")
+            #     print(f"Power Cut Type: {record["powercuttype"]}")
+            #     postcodes = record["postcodesaffected"].split(";")
+            #     print("Post Codes effected:")
+            #     for postcode in postcodes:
+            #         print(postcode)
                 
-                print(f"Decription: {record["incidentcategorycustomerfriendlydescription"]}\n\n")
+            #     print(f"Decription: {record["incidentcategorycustomerfriendlydescription"]}\n\n")
                 
         else:
             print("Failed to retrieve data. Status code:", response.status_code)

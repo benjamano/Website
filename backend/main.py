@@ -93,14 +93,7 @@ def faultdataapi():
         # Check if request was successful
         if response.status_code == 200:
             data = response.json()
-            total_count = str(data["total_count"])
             results = data["results"]
-            
-            app.logger.info("Total count:", total_count)
-            app.logger.info("Results:")
-            for record in results:
-                app.logger.info("-----------------------------------------------------------\n")
-                app.logger.info(record)
                 
         else:
             app.logger.info("Failed to retrieve data. Status code:", response.status_code)

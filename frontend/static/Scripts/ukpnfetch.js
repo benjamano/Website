@@ -37,13 +37,12 @@ function handleFaultData(data) {
     resultsContainer.innerHTML = ''; // Clear previous results
 
     if (data.length > 0) {
-        const ul = document.createElement('ul');
         data.forEach(record => {
-            const li = document.createElement('li');
-            li.textContent = `Power Cut Type: ${record.powercuttype}, Post Codes Affected: ${record.postcodesaffected}`;
-            ul.appendChild(li);
+            console.log(`Power Cut Type: ${record.powercuttype}, Post Codes Affected: ${record.postcodesaffected}`);
         });
-        resultsContainer.appendChild(ul);
+    } else {
+        console.log('No fault data available.');
+    }
     } else {
         resultsContainer.textContent = 'No fault data available.';
     }

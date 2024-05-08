@@ -86,6 +86,7 @@ def faultdataapi():
 def home():
     try:
         results = faultData
+        app.logger.info(results)
     except:
         results = []
     return render_template("index.html", results=results)

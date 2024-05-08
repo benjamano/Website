@@ -12,14 +12,19 @@ function fetchDataFromServer() {
     fetch('/getfaultdata')
         .then(response => {
             if (response.ok) {
-                return response.json(); // Parse the response as JSON
+                return response.text(); // Parse the response as text
             } else {
                 throw new Error('Failed to fetch fault data');
             }
         })
         .then(data => {
             console.log('Fault data fetched successfully');
-            handleFaultData(data); // Pass the data to the handleFaultData function
+            try {
+                const jsonData = JSON.parse(data); // Manually parse the response as JSON
+                handleFaultData(jsonData); // Pass the parsed data to the handleFaultData function
+            } catch (error) {
+                console.error('Error parsing fault data:', error);
+            }
         })
         .catch(error => {
             console.error('Error fetching fault data:', error);

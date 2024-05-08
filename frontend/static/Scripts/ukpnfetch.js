@@ -43,9 +43,6 @@ function handleFaultData(data) {
     } else {
         console.log('No fault data available.');
     }
-    } else {
-        resultsContainer.textContent = 'No fault data available.';
-    }
 }
 
 // Call the function to fetch data when the page loads

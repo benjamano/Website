@@ -8,17 +8,15 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function fetchDataFromServer() {
-    // Make a request to the Flask endpoint to fetch fault data
     fetch('/getfaultdata')
         .then(response => {
             if (response.ok) {
-                return response.json(); // Parse the response as JSON
+                return response.json();
             } else {
                 throw new Error('Failed to fetch fault data');
             }
         })
         .then(data => {
-            // Data fetched successfully, handle it
             handleFaultData(data);
         })
         .catch(error => {
@@ -26,23 +24,11 @@ function fetchDataFromServer() {
         });
 }
 
-// Function to handle the fetched fault data
 function handleFaultData(data) {
-    // Assuming data is an array of fault records
     console.log('Received fault data:', data);
-
-    // Example: Display the data on the webpage
-    const resultsContainer = document.getElementById('results-container');
-    resultsContainer.innerHTML = ''; // Clear previous results
-
-    if (data.length > 0) {
-        data.forEach(record => {
-            console.log(`Power Cut Type: ${record.powercuttype}, Post Codes Affected: ${record.postcodesaffected}`);
-        });
-    } else {
-        console.log('No fault data available.');
-    }
+    
+    const creationDateTime = data.creationdatetime;
+    console.log('Creation Date Time:', creationDateTime);
 }
 
-// Call the function to fetch data when the page loads
 window.onload = fetchDataFromServer();

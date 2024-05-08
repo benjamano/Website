@@ -93,7 +93,7 @@ def faultdataapi():
         # Check if request was successful
         if response.status_code == 200:
             data = response.json()
-            total_count = data["total_count"]
+            total_count = str(data["total_count"])
             results = data["results"]
             
             app.logger.info("Total count:", total_count)

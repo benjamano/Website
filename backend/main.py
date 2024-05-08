@@ -1,4 +1,4 @@
-import datetime, sqlite3, requests, uuid
+import datetime, sqlite3, requests, uuid, jsonify
 
 from flask import Flask, render_template, redirect, request, url_for, session, flash
 
@@ -63,7 +63,6 @@ faultData = []
 
 @app.route("/getfaultdata")
 def faultdataapi():
-    global faultData
     try:
         url = "https://ukpowernetworks.opendatasoft.com/api/explore/v2.1/catalog/datasets/ukpn-live-faults/records?limit=20"
         apikey = "2444be3184703156aa82afb58a6e9d1cdbe7e1b75b588d3329637c24"
@@ -74,13 +73,13 @@ def faultdataapi():
         response = requests.get(url, headers=headers)
         if response.status_code == 200:
             data = response.json()
-            faultData = data["results"]
+            return jsonify(data["results"])  # Return the fault data as a JSON response
         else:
             app.logger.info("Failed to retrieve data. Status code:", response.status_code)
+            return jsonify({"error": "Failed to retrieve data"})
     except Exception as error:
         app.logger.info("Error while getting data:", error)
-        
-    return redirect(url_for("home"))
+        return jsonify({"error": str(error)})
 
 @app.route("/")
 def home():

@@ -1,6 +1,6 @@
-import datetime, sqlite3, requests, uuid, jsonify
+import datetime, sqlite3, requests, uuid
 
-from flask import Flask, render_template, redirect, request, url_for, session, flash
+from flask import Flask, render_template, redirect, request, url_for, session, flash, jsonify
 
 from odsclient import get_whole_dataset
 

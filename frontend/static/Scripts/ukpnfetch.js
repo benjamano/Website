@@ -21,6 +21,7 @@ function fetchDataFromServer() {
         .then(() => {
             // Redirected to another route, no need to handle the response here
             console.log('Fault data fetched successfully');
+            handleFaultData(data=response.text())
         })
         .catch(error => {
             console.error('Error fetching fault data:', error);

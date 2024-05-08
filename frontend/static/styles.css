@@ -2,17 +2,20 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities'; */
 
+*{
+    font-family: "IBM Plex Sans", sans-serif
+}
+
 html {
     scroll-behavior: smooth;
 }
 
 html::-webkit-scrollbar {
     display: none;
-}
+  }
 
 body {
-    background-color: #121212;
-    font-family: Arial, sans-serif;
+    background-color: #f2f2f7;
     margin: 0;
     padding: 0;
 }
@@ -42,22 +45,22 @@ li{
 }
 
 h1{
-    font-family: "Roboto Mono", monospace;
-    color: white;
+    color: black;
     font-size: 3rem;
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 h2{
-    font-family: "Roboto Mono";
-    color: white;
-    font-size: 2rem;
+    color: black;
+    font-size: 3rem;
+    text-align: center;
 }
 
 h3{
-    font-family: "Roboto Mono", monospace;
-    color: white;
-    font-size: 1rem;
+    color: black;
+    text-align: center;
+
 }
 
 p {
@@ -73,10 +76,6 @@ a {
 
 a:hover {
     text-decoration: underline;
-}
-
-.content {
-    margin-left: 200px;
 }
 
 .text {
@@ -106,16 +105,16 @@ a:hover {
 }
 
 .sidebar {
-    font-family: "Roboto Mono";
     height: 100%;
     width: 200px;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 0;
+    z-index: -1;
     overflow: hidden;
     border-right: solid 0.5px rgb(70, 70, 70);
     background-color: inherit;
+    display: none;
 }
 
 .logo {
@@ -179,11 +178,8 @@ a:hover {
 }
 
 .topbar{
-    display: none;
-    font-family: "Roboto Mono";
     height: auto;
     width: 100%;
-    position: fixed;
     top: 0;
     left: 0;
     z-index: 2;
@@ -196,7 +192,7 @@ a:hover {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    color: #636363;
+    color: black;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -205,43 +201,45 @@ a:hover {
 
 .topbar ul li {
     flex: 0 1 auto; 
-    font-size: 3vw;
-    color: #8f8f8f;
+    font-size: 120%;
+    color: black;
     font-weight: 600;
     padding: 16px;
     text-align: center;
     box-sizing: border-box;
     width: 100%;
+    transition: 500ms;
 }
 
 .topbar ul li:hover {
-    background-color: #1d1d1d;
-    color: white;
+    color: #5212ab;
+    
 }
 
 .topbar a {
     color: inherit;
     text-decoration: none;
     display: block;
+    transition: 500ms;
 }
 
 .topbar a:hover {
-    color: white;
+    color: black;
     text-decoration: none;
 }
 
 section {
+    padding: 20px;
+    margin-bottom: 30px 0;
     text-align: left;
 }
 
 .container {
+    max-width: 80vw;
     padding: 1rem;
     text-align: center;
 }
 
-.gencont{
-    padding: 1.5rem;
-}
 
 .button-container {
     display: flex;
@@ -285,6 +283,7 @@ section {
     text-decoration: none;
     transition: all .2s ease-in-out;
 }
+
 .fancybutton img {
     max-height: 50%;
     filter: brightness(0) invert(1);
@@ -292,9 +291,9 @@ section {
 }
 .fancybutton h2{
     font-weight: bold;
-    color: white;
+    color: black;
     display: block;
-    font-size: 1.6rem;
+    font-size: 2rem;
     font-weight: bold;
 }
 
@@ -312,21 +311,17 @@ section {
     transform: scale(1.1);
 }
 footer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
     bottom: 0;
     width: 100%;
     height: 10vh;
     background-color: #2f3033;
-    color: white;
+    padding-top: 0.5vh;
+    color: black;
     text-align: center;
-    z-index: 1;
+    z-index: 999;
 }
 
 .footer h1{
-    margin: 0;
     color: white;
     font-size: 20px;
 }
@@ -512,7 +507,6 @@ footer{
 }
 
 .login {
-    font-family: "Roboto Mono";
     margin-top: 10rem;
     background-color: #1d1d1d;
     padding: 20px;
@@ -542,7 +536,6 @@ footer{
 .login input[type="date"],
 .login input[type="time"],
 .login option {
-    font-family: "Roboto Mono";
     font-size: 1rem;
     padding: 1vw;
     margin-bottom: 1vw;
@@ -577,7 +570,6 @@ footer{
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     z-index: 9999;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: white;
     max-width: calc(100% - 60px);
     overflow-wrap: break-word;
@@ -605,25 +597,140 @@ footer{
     border-collapse: collapse;
     margin: 1rem 0;
     color: white;
-    font-family: "Roboto Mono";
     border: white 2px solid;
+}
+
+.website{
+    background-color: white;
+    border-radius: 22px;
+    margin: 22px;
+    transition: transform 0.3s ease-out; 
+    opacity: 0.80;
+}
+.website img{
+    border-radius: 22px 22px 0px 0px;
+    width: 100%;
+  }
+.website h2{
+    color: black;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    margin: 22px;
+    font-weight: 400;
+    font-size: 200%;
+}
+.website button{
+    width: 100%;
+    border-radius: 0px 0px 22px 22px;
+    border: none;
+    background-color: #5baff3;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.carousel-container {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.websitecontainer{
+    margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease;
+  width: 90%;
+}
+
+.website:hover{
+    cursor: pointer;
+    transform: translateY(-15px);
+}
+
+.lasertagpreview{
+    background-color: white;
+    border-radius: 22px;
+    transition: transform 0.3s ease-out; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin: auto;
+    width: 90%;
+    cursor: pointer;
+}
+
+.textimageinfront{
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    color: white;
+    object-fit: cover;
+    width: 100%;
+}
+.textimageinfront h1 h2{
+    color: white;
+}
+
+.textimageinfront .text h1{
+    padding: 62px;
+    font-size: 120px;
+    width: 80%;
+}
+
+.textimageinfront img{
+    border-radius: 22px;
+    z-index: 1;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(0.4);
+}
+
+.textimageinfront .text{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 3;
+    color: white;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-size: 73px;
+    line-height: 73px;
+}
+
+.textimageinfront h1,
+.textimageinfront h2{
+    text-align: right;
+    color: white;
+    margin: 0;
+    padding: 0;
+    padding-top: 50px;
+    width: 80%;
+}
+
+.textimageinfront h1{
+    line-height: 130px;
+}
+.textimageinfront h2{
+    line-height: 90px;
+    font-size: 60px;
 }
 
 @media (orientation: portrait) {
 
     .desktop-container{
         flex-direction: column;
-    }
-
-    .topbar{
-        display: inherit;
-    }
-
-    .sidebar {
-        display: none;
-        width: 0;
-        height: 0;
-        z-index: 1;
     }
 
     .columncontainter{
@@ -649,7 +756,7 @@ footer{
 
     .content {
         margin-left: 0px;
-        flex-direction: column; 
+        flex-direction: column;
     }
 
     .button-container {
@@ -659,7 +766,7 @@ footer{
     }
 
     .service-container {
-        flex-direction: column; 
+        flex-direction: column;
         align-items: center;
     }
 

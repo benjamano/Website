@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Full Stack Web Dev</title>
     <script src="https://kit.fontawesome.com/9d35a24d36.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <link rel="icon" href="/static/images/SmallLogo.png">
+    <link rel="stylesheet" href="/frontend/static/styles.css">
+    <link rel="icon" href="/frontend/static/images/FullLogo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="Ben Mercer, Full Stack Web Developer, Web Developer, Web Design, Web, Design, Developer, Full Stack, Full, Stack, Ben, Mercer, Ben Mercer Designs, Ben Mercer Web Design, Ben Mercer Web Developer, Ben Mercer Full Stack Web Developer, Ben Mercer Full Stack Web Design, Ben Mercer Full Stack Developer, Ben Mercer Web, Ben Mercer Web Dev, Ben Mercer Web Development, Ben Mercer Web Design, Ben Mercer Web Designer, Ben Mercer Web Developer, Ben Mercer Web Development, Free, Free Web Design, Free Web Development">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,6 +30,19 @@
             <a href="https://benmercer.pythonanywhere.com/login"><li>Login</li></a>
         </ul>
     </div>
+
+    <div class="topbar">
+
+        <ul>
+            <a href="https://benmercer.pythonanywhere.com/"><li>Home</li></a>
+            <a href="https://benmercer.pythonanywhere.com/#services"><li>Services</li></a>
+            <a href="https://benmercer.pythonanywhere.com/#skills"><li>Skills</li></a>
+            <a href="https://benmercer.pythonanywhere.com/projects"><li>Projects</li></a>
+            <!-- <li><a href="#portfolio">Portfolio</a></li> -->
+            <a href="https://benmercer.pythonanywhere.com/#contact"><li>Contact</li></a>
+        </ul>
+    
+    </div>
     <div class="content">
         <div class="text">
             <section id="home" style="display: flex; justify-content: center;">
@@ -38,6 +51,45 @@
                 <h3>Full Stack Web Developer</h3>
             </div>
             </section>
+
+            <div class="websitecontainer">
+
+                <div class="website">
+
+                    <img src="/hotbeanspreview.png" alt="A preview for the Hot Beans page">
+
+                    <h2>Web Development Company Website</h2>
+
+                </div>
+
+                <div class="website">
+
+                    <img src="/P2DBooking Preview.png" alt="">
+
+                    <h2>Play Centre booking website</h2>
+
+                </div>
+                
+            </div>
+
+            <div class="lasertagpreview">
+
+                <div class="textimageinfront">
+
+                    <img src="/LaserTagPrev.png">
+
+                    <div class="text">
+
+                        <h1>Laser Tag <br> Gun Repairs</h1>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+            <!--
 
             <div class="button-container">
                 
@@ -117,7 +169,7 @@
                         <h3>Finnaly we will go through a summary to make sure overall you're happy with the project and know how to correctly deploy it.</h3>
                     </li>
                 </ol> 
-                <h3>Then you're done and dusted! Easy Peasy, Lemon Squeezy! </h3> -->
+                <h3>Then you're done and dusted! Easy Peasy, Lemon Squeezy! </h3> 
             </section>
 
             <section id="skills">
@@ -132,11 +184,11 @@
                         <li>Flask</li>
                         <li>SQLite 3</li>
                         <li>Git / GitHub</li>
-                        <!-- <li>React.js</li> -->
+                        <li>React.js</li> 
                         <li>Kotlin</li>
                     </ul>
                 </div>
-            </section>
+            </section> -->
 
             <section id="contact">
                 <div class="gencont">
@@ -146,7 +198,6 @@
                         <h2>Full Stack Web Developer</h2>
                     </div> -->
                     <h2>Contact</h2>
-                    <h3>Please, do not hesitate contact me by email for any questions @</h3>
                     <h2 style="font-size:3.5vw; overflow:hidden;"><a href=mailto:"benmercer76@btinternet.com">benmercer76@btinternet.com</a><h2>
                 </div>
             </section>
@@ -160,32 +211,5 @@
     </footer>
 </body>
 <script src="{{ url_for('static', filename='/Scripts/pong.js') }}"></script>
-<script>
-    const serviceBoxes = document.querySelectorAll('.service-box');
-
-    let lastScrollY = window.scrollY;
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach((entry, index) => {
-            const isScrollingDown = window.scrollY > lastScrollY;
-
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.classList.add('reveal');
-                }, index * 200);
-                observer.unobserve(entry.target);
-            }
-
-            if (!entry.isIntersecting && !isScrollingDown) {
-                entry.target.classList.remove('reveal');
-            }
-        });
-
-        lastScrollY = window.scrollY;
-    }, { threshold: 0.5 });
-
-    serviceBoxes.forEach(box => {
-        observer.observe(box);
-    });
-</script>
+<script src="{{ url_for('static', filename='/Scripts/scroll.js') }}"></script>
 </html>

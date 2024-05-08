@@ -177,7 +177,7 @@
         </div>
     </div>
 
-    <h1>{{results}}</h1>>
+    <button href="https://benmercer.pythonanywhere.com//getfaultdata">Refresh</button>
 
     <footer class="footer">
         <canvas id="pongCanvas" style="z-index: 2"></canvas>
@@ -187,6 +187,7 @@
         </div>
     </footer>
 </body>
+<script>console.log(results)</script>
 <script src="{{ url_for('static', filename='/Scripts/pong.js') }}"></script>
 <script src="{{ url_for('static', filename='/Scripts/ukpnfetch.js') }}"></script>
 </html>

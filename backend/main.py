@@ -61,9 +61,15 @@ onStart()
 
 
 @app.route("/")
-def home():
+def home(results = None):
+    
+    return render_template("index.html", results=results)
+
+@app.route("/getfaultdata")
+def faultdataapi():
     
     try:
+        
         url="https://ukpowernetworks.opendatasoft.com/api/explore/v2.1/catalog/datasets/ukpn-live-faults/records?limit=20"
 
         apikey = "2444be3184703156aa82afb58a6e9d1cdbe7e1b75b588d3329637c24"
@@ -90,11 +96,13 @@ def home():
                 
         else:
             print("Failed to retrieve data. Status code:", response.status_code)
-    
+            
+        home(results)
+        
+        
     except Exception as error:
         print("Error while getting data:", error)
     
-    return render_template("index.html", results=results)
 
 @app.route("/projects")
 def laserTag():

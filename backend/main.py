@@ -107,6 +107,8 @@ def faultdataapi():
             
         session["FaultData"] = results
         
+        return redirect(url_for("home"))
+        
         
     except Exception as error:
         print("Error while getting data:", error)

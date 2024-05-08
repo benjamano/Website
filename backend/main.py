@@ -61,7 +61,9 @@ onStart()
 
 
 @app.route("/")
-def home(results = None):
+def home():
+    
+    results = session["FaultData"]
     
     return render_template("index.html", results=results)
 
@@ -97,7 +99,7 @@ def faultdataapi():
         else:
             print("Failed to retrieve data. Status code:", response.status_code)
             
-        home(results)
+        session["FaultData"] = results
         
         
     except Exception as error:

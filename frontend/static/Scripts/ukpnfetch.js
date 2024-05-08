@@ -26,9 +26,19 @@ function fetchDataFromServer() {
 
 function handleFaultData(data) {
     console.log('Received fault data:', data);
-    
-    const creationDateTime = data.creationdatetime;
-    console.log('Creation Date Time:', creationDateTime);
+
+    for (const record of data) {
+        const creationDateTime = record.creationdatetime;
+        console.log('Creation Date Time:', creationDateTime);
+    }
 }
 
-window.onload = fetchDataFromServer();
+document.addEventListener("DOMContentLoaded", function() {
+    const fetchButton = document.getElementById("fetchButton");
+
+    fetchButton.addEventListener("click", function() {
+        fetchDataFromServer();
+    });
+
+    fetchDataFromServer();
+});

@@ -1,4 +1,4 @@
-import datetime, sqlite3
+import datetime, sqlite3, requests
 
 from flask import Flask, render_template, redirect, request, url_for, session, flash
 
@@ -64,14 +64,42 @@ onStart()
 def home():
     
     try:
+        url="https://ukpowernetworks.opendatasoft.com/api/explore/v2.1/catalog/datasets/ukpn-live-faults/records?limit=20"
 
-        dataset_id = "respect-des-delais-dacheminement-courrier"
-        csv_str = get_whole_dataset(dataset_id, platform_id='public')
+        apikey = "2444be3184703156aa82afb58a6e9d1cdbe7e1b75b588d3329637c24"
 
-        print(csv_str)
-        
+        # Make GET request
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Apikey {apikey}"
+        }
+
+        response = requests.get(url, headers=headers)
+
+        # Check if request was successful
+        if response.status_code == 200:
+            data = response.json()
+            total_count = data["total_count"]
+            results = data["results"]
+            
+            print("Total count:", total_count)
+            print("Results:")
+            print(len(results))
+            for record in results:
+                print("-----------------------------------------------------------\n")
+                print(f"Power Cut Type: {record["powercuttype"]}")
+                postcodes = record["postcodesaffected"].split(";")
+                print("Post Codes effected:")
+                for postcode in postcodes:
+                    print(postcode)
+                
+                print(f"Decription: {record["incidentcategorycustomerfriendlydescription"]}\n\n")
+                
+        else:
+            print("Failed to retrieve data. Status code:", response.status_code)
+    
     except Exception as error:
-        app.logger.info(f"Error while getting dataset: {error}")
+        print("Error while getting data:", error)
     
     return render_template("index.html")
 

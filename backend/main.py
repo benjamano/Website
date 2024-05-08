@@ -82,9 +82,9 @@ def home():
             total_count = data["total_count"]
             results = data["results"]
             
-            print("Total count:", total_count)
-            print("Results:")
-            print(len(results))
+            app.logger.info("Total count:", total_count)
+            app.logger.info("Results:")
+            app.logger.info(len(results))
             # for record in results:
             #     print("-----------------------------------------------------------\n")
             #     print(f"Power Cut Type: {record["powercuttype"]}")

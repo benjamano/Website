@@ -94,7 +94,7 @@ def home():
     except Exception as error:
         print("Error while getting data:", error)
     
-    return render_template("index.html")
+    return render_template("index.html", results=results)
 
 @app.route("/projects")
 def laserTag():

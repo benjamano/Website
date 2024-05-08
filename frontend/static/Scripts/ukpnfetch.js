@@ -2,42 +2,51 @@ document.addEventListener("DOMContentLoaded", function() {
     const fetchButton = document.getElementById("fetchButton");
 
     fetchButton.addEventListener("click", function() {
-        const url = "https://ukpowernetworks.opendatasoft.com/api/explore/v2.1/catalog/datasets/ukpn-live-faults/records?limit=20";
-        const apikey = "2444be3184703156aa82afb58a6e9d1cdbe7e1b75b588d3329637c24";
 
-        const headers = {
-            "Content-Type": "application/json",
-            "Authorization": `Apikey ${apikey}`
-        };
-
-        fetch(url, { headers })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error(`Failed to retrieve data. Status code: ${response.status}`);
-                }
-            })
-            .then(data => {
-                const total_count = data.total_count;
-                const results = data.results;
-
-                console.log("Total count:", total_count);
-                console.log("Results:");
-                console.log(results.length);
-                results.forEach(record => {
-                    console.log("-----------------------------------------------------------\n");
-                    console.log(`Power Cut Type: ${record.powercuttype}`);
-                    const postcodes = record.postcodesaffected.split(";");
-                    console.log("Post Codes effected:");
-                    postcodes.forEach(postcode => {
-                        console.log(postcode);
-                    });
-                    console.log(`Description: ${record.incidentcategorycustomerfriendlydescription}\n\n`);
-                });
-            })
-            .catch(error => {
-                console.error(error.message);
-            });
+        fetchDataFromServer();
     });
 });
+
+function fetchDataFromServer() {
+    // Make a request to the Flask endpoint to fetch fault data
+    fetch('/getfaultdata')
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Failed to fetch fault data');
+            }
+        })
+        .then(data => {
+            // Call another function to handle the fetched data
+            handleFaultData(data);
+        })
+        .catch(error => {
+            console.error('Error fetching fault data:', error);
+        });
+}
+
+// Function to handle the fetched fault data
+function handleFaultData(data) {
+    // Assuming data is an array of fault records
+    console.log('Received fault data:', data);
+
+    // Example: Display the data on the webpage
+    const resultsContainer = document.getElementById('results-container');
+    resultsContainer.innerHTML = ''; // Clear previous results
+
+    if (data.length > 0) {
+        const ul = document.createElement('ul');
+        data.forEach(record => {
+            const li = document.createElement('li');
+            li.textContent = `Power Cut Type: ${record.powercuttype}, Post Codes Affected: ${record.postcodesaffected}`;
+            ul.appendChild(li);
+        });
+        resultsContainer.appendChild(ul);
+    } else {
+        resultsContainer.textContent = 'No fault data available.';
+    }
+}
+
+// Call the function to fetch data when the page loads
+window.onload = fetchDataFromServer();

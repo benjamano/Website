@@ -99,17 +99,17 @@ def faultdataapi():
             app.logger.info("Total count:", total_count)
             app.logger.info("Results:")
             for record in results:
-                print("-----------------------------------------------------------\n")
-                print(record)
+                app.logger.info("-----------------------------------------------------------\n")
+                app.logger.info(record)
                 
         else:
-            print("Failed to retrieve data. Status code:", response.status_code)
+            app.logger.info("Failed to retrieve data. Status code:", response.status_code)
             
         session["FaultData"] = results
         
         
     except Exception as error:
-        print("Error while getting data:", error)
+        app.logger.info("Error while getting data:", error)
         
     return redirect(url_for("home"))
     

@@ -1,4 +1,4 @@
-import datetime, sqlite3, requests
+import datetime, sqlite3, requests, uuid
 
 from flask import Flask, render_template, redirect, request, url_for, session, flash
 

@@ -59,53 +59,44 @@ def onStart():
 
 onStart()
 
-
-@app.route("/")
-def home():
-    
-    try:
-    
-        results = session["FaultData"]
-        
-    except:
-        
-        results = []
-    
-    return render_template("index.html", results=results)
-
 @app.route("/getfaultdata")
 def faultdataapi():
-    
     try:
-        
         url="https://ukpowernetworks.opendatasoft.com/api/explore/v2.1/catalog/datasets/ukpn-live-faults/records?limit=20"
-
         apikey = "2444be3184703156aa82afb58a6e9d1cdbe7e1b75b588d3329637c24"
-
-        # Make GET request
         headers = {
             "Content-Type": "application/json",
             "Authorization": f"Apikey {apikey}"
         }
-
         response = requests.get(url, headers=headers)
-
-        # Check if request was successful
         if response.status_code == 200:
             data = response.json()
             results = data["results"]
-                
+            # Generate a unique identifier for the dataset
+            dataset_id = str(uuid.uuid4())
+            # Store the dataset in the session using the unique identifier
+            session[dataset_id] = results
+            # Store the dataset identifier in the session
+            session["dataset_id"] = dataset_id
         else:
             app.logger.info("Failed to retrieve data. Status code:", response.status_code)
-            
-        session["FaultData"] = results
-        
-        
     except Exception as error:
         app.logger.info("Error while getting data:", error)
-        
     return redirect(url_for("home"))
-    
+
+@app.route("/")
+def home():
+    try:
+        # Retrieve the dataset identifier from the session
+        dataset_id = session.get("dataset_id")
+        if dataset_id:
+            # Retrieve the dataset using the identifier
+            results = session.get(dataset_id, [])
+        else:
+            results = []
+    except:
+        results = []
+    return render_template("index.html", results=results)
 
 @app.route("/projects")
 def laserTag():

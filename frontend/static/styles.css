@@ -52,26 +52,15 @@ h1{
 }
 
 h2{
-<<<<<<< HEAD
-    font-family: "Roboto Mono";
-    color: white;
-    font-size: 3rem;
-=======
     color: black;
     font-size: 3rem;
     text-align: center;
->>>>>>> 070f4967ccf8b56b811f953414cb83b4ca16afec
 }
 
 h3{
-<<<<<<< HEAD
-    font-family: "Roboto Mono", monospace;
-    color: white;
-=======
     color: black;
     text-align: center;
 
->>>>>>> 070f4967ccf8b56b811f953414cb83b4ca16afec
 }
 
 p {
@@ -116,11 +105,6 @@ a:hover {
 }
 
 .sidebar {
-<<<<<<< HEAD
-    display: none;
-    font-family: "Roboto Mono";
-=======
->>>>>>> 070f4967ccf8b56b811f953414cb83b4ca16afec
     height: 100%;
     width: 200px;
     position: fixed;
@@ -194,11 +178,6 @@ a:hover {
 }
 
 .topbar{
-<<<<<<< HEAD
-    display: flex;
-    font-family: "Roboto Mono";
-=======
->>>>>>> 070f4967ccf8b56b811f953414cb83b4ca16afec
     height: auto;
     width: 100%;
     top: 0;
@@ -222,13 +201,8 @@ a:hover {
 
 .topbar ul li {
     flex: 0 1 auto; 
-<<<<<<< HEAD
-    font-size: 15px;
-    color: #8f8f8f;
-=======
-    font-size: 120%;
+    font-size: 160%;
     color: black;
->>>>>>> 070f4967ccf8b56b811f953414cb83b4ca16afec
     font-weight: 600;
     padding: 16px;
     text-align: center;
@@ -761,16 +735,6 @@ footer{
         flex-direction: column;
     }
 
-<<<<<<< HEAD
-    .sidebar {
-        display: none;
-        width: 0;
-        height: 0;
-        z-index: 1;
-    }
-
-=======
->>>>>>> 070f4967ccf8b56b811f953414cb83b4ca16afec
     .columncontainter{
         padding: 1rem;
         flex-direction: column;

@@ -63,7 +63,13 @@ onStart()
 @app.route("/")
 def home():
     
-    results = session["FaultData"]
+    try:
+    
+        results = session["FaultData"]
+        
+    except:
+        
+        results = []
     
     return render_template("index.html", results=results)
 

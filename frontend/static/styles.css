@@ -483,9 +483,10 @@ footer{
     height: auto;
 }
 
-.portrait-button h2 {
+.portrait-button .button-content h2 {
     font-size: 2rem;
     margin: 0;
+    color: white;
 }
 
 .button-content {
@@ -640,11 +641,12 @@ footer{
 
 .websitecontainer{
     margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.5s ease;
-  width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease;
+    width: 90%;
+    margin-bottom: 16px;
 }
 
 .website:hover{

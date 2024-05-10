@@ -6,6 +6,9 @@
     font-family: "IBM Plex Sans", sans-serif
 }
 
+.content{
+    margin-left: 200px;
+}
 html {
     scroll-behavior: smooth;
 }
@@ -34,7 +37,7 @@ canvas {
 }
 
 label{
-    color: black;
+    color: white;
 }
 
 li{
@@ -45,20 +48,20 @@ li{
 }
 
 h1{
-    color: black;
+    color: white;
     font-size: 3rem;
     margin-bottom: 1rem;
     text-align: center;
 }
 
 h2{
-    color: black;
+    color: white;
     font-size: 3rem;
     text-align: center;
 }
 
 h3{
-    color: black;
+    color: white;
     text-align: center;
 
 }
@@ -323,6 +326,7 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 200px;
 
 }
 

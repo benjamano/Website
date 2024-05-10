@@ -685,6 +685,7 @@ footer{
     color: white;
     object-fit: cover;
     width: 90%;
+    margin: auto;
 }
 .textimageinfront h1 h2{
     color: white;

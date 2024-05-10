@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     styleSwitch.addEventListener('change', function() {
         if (styleSwitch.checked) {
-            stylesheet.href = '/frontend/static/nostalgia.css';
+            stylesheet.href = '/static/nostalgia.css';
         } else {
-            stylesheet.href = '/frontend/static/stylea.css';
+            stylesheet.href = '/static/styles.css';
         }
     });
 });

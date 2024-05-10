@@ -34,7 +34,7 @@ canvas {
 }
 
 label{
-    color: white;
+    color: black;
 }
 
 li{
@@ -114,7 +114,7 @@ a:hover {
     overflow: hidden;
     border-right: solid 0.5px rgb(70, 70, 70);
     background-color: inherit;
-    display: none;
+    display: unset;
 }
 
 .logo {
@@ -156,7 +156,7 @@ a:hover {
 .sidebar ul li:hover {
     transition: 300ms;
     background-color: #1d1d1d;
-    color: white;
+    color: black;
 }
 
 .sidebar a {
@@ -186,6 +186,7 @@ a:hover {
     overflow: hidden;
     border-bottom: solid 0.5px rgb(70, 70, 70);
     background-color: inherit;
+    display: none;
 }
 
 .topbar ul {
@@ -499,7 +500,7 @@ footer{
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: white;
+    color: black;
     z-index: 1;
     /* backdrop-filter: blur(8px); */
     border-radius: 16px;

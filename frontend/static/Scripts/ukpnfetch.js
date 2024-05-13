@@ -46,7 +46,7 @@ function fetchlctDataFromServer() {
             }
         })
         .then(data => {
-            handlelctFetchedtData(data);
+            handleFetchedData(data);
         })
         .catch(error => {
             console.error('Error fetching fault data:', error);

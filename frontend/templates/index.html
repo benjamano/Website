@@ -16,6 +16,7 @@
 </style>
 
 <body>
+    <!---
     <div class="topbar">
 
         <ul>
@@ -23,11 +24,13 @@
             <a href="https://benmercer.pythonanywhere.com/#services"><li>Services</li></a>
             <a href="https://benmercer.pythonanywhere.com/#skills"><li>Skills</li></a>
             <a href="https://benmercer.pythonanywhere.com/projects"><li>Projects</li></a>
-            <!-- <li><a href="#portfolio">Portfolio</a></li> -->
+            <li><a href="#portfolio">Portfolio</a></li>
             <a href="https://benmercer.pythonanywhere.com/#contact"><li>Contact</li></a>
         </ul>
     
     </div>
+
+    
     <div class="sidebar">
         <div class="logo">
             <img src="{{ url_for('static', filename='images/FullLogo.png') }}" alt="My Logo - A BM with a small 'Designs' text">
@@ -37,10 +40,11 @@
             <a href="#services"><li>Services</li></a>
             <a href="#skills"><li>Skills</li></a>
             <a href="https://benmercer.pythonanywhere.com/projects"><li>Projects</li></a>
-            <!-- <li><a href="#portfolio">Portfolio</a></li> -->
+            <!-- <li><a href="#portfolio">Portfolio</a></li> 
             <a href="#contact"><li>Contact</li></a>
         </ul>
     </div>
+    -->
     <div class="content">
         <div class="text">
             <section id="home" style="display: flex; justify-content: center;">
@@ -72,13 +76,13 @@
 
             <div class="lasertagpreview" onclick="window.location.href='https://benmercer.pythonanywhere.com/projects'"></div>
 
-                <div class="textimageinfront" href="https://benmercer.pythonanywhere.com/projects">
+                <div class="textimageinfront" href="https://benmercer.pythonanywhere.com/projects" onclick="window.location.href='https://benmercer.pythonanywhere.com/projects'">
 
-                    <img src="{{ url_for('static', filename='/images/LaserTagPrev.png') }}" href="https://benmercer.pythonanywhere.com/projects">
+                    <img src="{{ url_for('static', filename='/images/LaserTagPrev.png') }}" href="https://benmercer.pythonanywhere.com/projects" onclick="window.location.href='https://benmercer.pythonanywhere.com/projects'">
 
-                    <div class="text" href="https://benmercer.pythonanywhere.com/projects">
+                    <div class="text" href="https://benmercer.pythonanywhere.com/projects" onclick="window.location.href='https://benmercer.pythonanywhere.com/projects'">
 
-                        <h1 href="https://benmercer.pythonanywhere.com/projects">Laser Tag <br> Gun Repairs</h1>
+                        <h1 href="https://benmercer.pythonanywhere.com/projects" onclick="window.location.href='https://benmercer.pythonanywhere.com/projects'">Laser Tag <br> Gun Repairs</h1>
 
                     </div>
                 </div>

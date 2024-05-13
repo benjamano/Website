@@ -11,11 +11,12 @@ let paddle1Y = (canvas.height - paddleHeight) / 2;
 let paddle2Y = (canvas.height - paddleHeight) / 2;
 let paddle1aiSpeed = Math.random() * (10 - (-10)) + (-10);
 let paddle2aiSpeed = Math.random() * (10 - (-10)) + (-10);
+let footer = document.getElementById('footer');
 
 // Function to set canvas size based on viewport dimensions
 function resizeCanvas() {
     canvas.width = window.innerWidth * 0.997;
-    canvas.height = window.innerHeight;
+    canvas.height = footer.style.height;
     paddle1Y = Math.min(paddle1Y, canvas.height - paddleHeight); // Ensure paddle 1 stays within canvas
     paddle2Y = Math.min(paddle2Y, canvas.height - paddleHeight); // Ensure paddle 2 stays within canvas
 }

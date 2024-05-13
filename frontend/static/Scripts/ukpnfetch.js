@@ -1,19 +1,3 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const fetchfaultButton = document.getElementById("fetchFaultButton");
-    const fetchlctButton = document.getElementById("fetchLctButton");
-
-    fetchfaultButton.addEventListener("click", function() {
-
-        fetchfaultDataFromServer(mode="fault");
-    });
-
-    fetchlctButton.addEventListener("click", function(){
-
-        fetchlctDataFromServer(mode="lct");
-
-    });
-});
-
 function fetchfaultDataFromServer() {
     fetch('/getfaultdata')
         .then(response => {
@@ -24,14 +8,14 @@ function fetchfaultDataFromServer() {
             }
         })
         .then(data => {
-            handleFaultData(data);
+            handleFetchedData(data);
         })
         .catch(error => {
             console.error('Error fetching fault data:', error);
         });
 }
 
-function handleFaultData(data, mode) {
+function handleFetchedData(data, mode) {
     console.log('Received fault data:', data);
 
     if (mode == "fault") {
@@ -62,9 +46,25 @@ function fetchlctDataFromServer() {
             }
         })
         .then(data => {
-            handlelctFaultData(data);
+            handlelctFetchedtData(data);
         })
         .catch(error => {
             console.error('Error fetching fault data:', error);
         });
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    const fetchfaultButton = document.getElementById("fetchFaultButton");
+    const fetchlctButton = document.getElementById("fetchLctButton");
+
+    fetchfaultButton.addEventListener("click", function() {
+
+        fetchfaultDataFromServer(mode="fault");
+    });
+
+    fetchlctButton.addEventListener("click", function(){
+
+        fetchlctDataFromServer(mode="lct");
+
+    });
+});

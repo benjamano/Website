@@ -113,7 +113,7 @@ a:hover {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: -1;
+    z-index: unset;
     overflow: hidden;
     border-right: solid 0.5px rgb(70, 70, 70);
     background-color: inherit;
@@ -314,7 +314,8 @@ section {
     text-decoration: none;
     transform: scale(1.1);
 }
-footer{
+
+footer {
     bottom: 0;
     width: 100%;
     background-color: #2f3033;
@@ -325,8 +326,8 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 200px;
-
+    /* margin-left: 200px; */
+    position: relative;
 }
 
 .footer h1{
@@ -655,6 +656,7 @@ footer{
     transition: transform 0.5s ease;
     width: 90%;
     margin-bottom: 16px;
+    align-items: flex-start;
 }
 
 .website:hover{

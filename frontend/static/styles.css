@@ -310,6 +310,7 @@ section {
     text-decoration: none;
     transform: scale(1.1);
 }
+
 footer{
     bottom: 0;
     width: 100%;
@@ -321,7 +322,8 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-
+    /* margin-left: 200px; */
+    position: relative;
 }
 
 .footer h1{
@@ -650,6 +652,7 @@ footer{
     transition: transform 0.5s ease;
     width: 90%;
     margin-bottom: 16px;
+    align-items: flex-start;
 }
 
 .website:hover{

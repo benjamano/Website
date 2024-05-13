@@ -320,9 +320,9 @@ footer{
     z-index: 999;
     display: flex;
     justify-content: center;
-    align-items: center;
     /* margin-left: 200px; */
     position: relative;
+    margin-top: 48px;
 }
 
 .footer h1{

@@ -194,10 +194,6 @@
         </div>
     </div>-->
 
-    <button id="fetchFaultButton" href="https://benmercer.pythonanywhere.com/getfaultdata">Refresh</button>
-    <button id="fetchLctButton" href="https://benmercer.pythonanywhere.com/getlctdata">Refresh</button>
-    <label for="styleSwitch">Switch Styles:</label>
-    <input type="checkbox" id="styleSwitch">
 </body>
 
 <footer class="footer">
@@ -205,10 +201,11 @@
     <div class="content" style="z-index: 9999; margin-left:0;">
         <h1>Benjamin Mercer</h1>
         <h2>Email: <a style="overflow:hidden;" href="mailto:benmercer76@btinternet.com">benmercer76@btinternet.com</a></h2>
-        <button class="refreshData" id="fetchButton" href="https://benmercer.pythonanywhere.com/getfaultdata">Refresh</button>
+        <button id="fetchFaultButton" href="https://benmercer.pythonanywhere.com/getfaultdata">Refresh</button>
+        <button id="fetchLctButton" href="https://benmercer.pythonanywhere.com/getlctdata">Refresh</button>
         <label for="styleSwitch">Switch Styles:</label>
-        <label class="switch" id="styleSwitch">
-            <input type="checkbox">
+        <label class="switch">
+            <input type="checkbox" id="styleSwitch">
             <span class="slider round"></span>
           </label>
     </div>

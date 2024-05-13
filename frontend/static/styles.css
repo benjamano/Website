@@ -34,7 +34,7 @@ canvas {
 }
 
 label{
-    color: white;
+    color: black;
 }
 
 li{
@@ -314,8 +314,7 @@ section {
 footer{
     bottom: 0;
     width: 100%;
-    background-color: #f1f4f7;
-    padding-top: 0.5vh;
+    background-color: #e5e5e5;
     color: black;
     text-align: center;
     z-index: 999;

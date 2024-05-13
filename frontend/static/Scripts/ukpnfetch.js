@@ -33,7 +33,8 @@ function handleFaultData(data) {
         const customersaffected = record.nocustomeraffected;
         const powerCutType = record.powercuttype;
         const noCallsReported = record.nocallsreported;
-        console.log('Record:', creationDateTime, mainMessage, customersaffected, powerCutType, noCallsReported);
+        const postCodesAffected = record.postcodesaffected;
+        console.log('Record:', creationDateTime, mainMessage, customersaffected, powerCutType, noCallsReported, postCodesAffected);
     }
 }
 

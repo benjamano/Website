@@ -56,39 +56,55 @@ def onStart():
     except Exception as error:
         app.logger.info(f"Error while creating tables: {error}")
 
-
-onStart()
-
-faultData = []
+def fetchApiData(mode):
+    url = "https://ukpowernetworks.opendatasoft.com/api/explore/v2.1/catalog/datasets/"
+    apikey = "2444be3184703156aa82afb58a6e9d1cdbe7e1b75b588d3329637c24"
+    headers = { "Content-Type": "application/json",
+                "Authorization": f"Apikey {apikey}" }
+    
+    if mode == "faults":
+        url += "ukpn-live-faults/records"
+    
+    elif mode == "lct":
+        url += "low-carbon-technologies/records"
+        
+    with requests.get(url, headers=headers) as response:
+        if response.status_code == 200:
+            return response.json()
+        else:
+            app.logger.info(f"Failed to retrieve data. Status code: {response.status_code}")
+            return {"error": "Failed to retrieve data"}
 
 @app.route("/getfaultdata")
 def faultdataapi():
     try:
-        url = "https://ukpowernetworks.opendatasoft.com/api/explore/v2.1/catalog/datasets/ukpn-live-faults/records?limit=20"
-        apikey = "2444be3184703156aa82afb58a6e9d1cdbe7e1b75b588d3329637c24"
-        headers = {
-            "Content-Type": "application/json",
-            "Authorization": f"Apikey {apikey}"
-        }
-        response = requests.get(url, headers=headers)
-        if response.status_code == 200:
-            data = response.json()
-            return jsonify(data["results"])  # Return the fault data as a JSON response
-        else:
-            app.logger.info("Failed to retrieve data. Status code:", response.status_code)
-            return jsonify({"error": "Failed to retrieve data"})
+
+        response = fetchApiData("faults")
+        
+        data = response.json()
+        return jsonify(data["results"])  # Return the fault data as a JSON response
+    
+    except Exception as error:
+        app.logger.info("Error while getting data:", error)
+        return jsonify({"error": str(error)})
+    
+@app.route("/getlctdata")
+# Low carbon
+def energylctapi():
+    try:
+        response = fetchApiData("lct")
+        
+        data = response.json()
+        return jsonify(data["results"])  # Return the fault data as a JSON response
+    
     except Exception as error:
         app.logger.info("Error while getting data:", error)
         return jsonify({"error": str(error)})
 
 @app.route("/")
 def home():
-    try:
-        results = faultData
-        app.logger.info(results)
-    except:
-        results = []
-    return render_template("index.html", results=results)
+
+    return render_template("index.html")
 
 @app.route("/projects")
 def laserTag():
@@ -288,3 +304,4 @@ def modifyParty():
     
 if __name__ == '__main__':
     app.run()
+    onStart()

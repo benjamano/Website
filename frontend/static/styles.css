@@ -688,6 +688,7 @@ footer{
     object-fit: cover;
     width: 90%;
     margin: auto;
+    cursor: pointer;
 }
 .textimageinfront h1 h2{
     color: white;
@@ -721,6 +722,7 @@ footer{
     font-weight: 700;
     font-size: 73px;
     line-height: 73px;
+    cursor: pointer;
 }
 
 .textimageinfront h1,

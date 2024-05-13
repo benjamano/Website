@@ -30,7 +30,7 @@ canvas {
     z-index: 2;
     position: absolute;
     margin-left: 0;
-    margin-right: 0;
+    filter: invert(1);
 }
 
 label{
@@ -314,7 +314,7 @@ section {
 footer{
     bottom: 0;
     width: 100%;
-    background-color: #2f3033;
+    background-color: #f1f4f7;
     padding-top: 0.5vh;
     color: black;
     text-align: center;
@@ -327,13 +327,13 @@ footer{
 }
 
 .footer h1{
-    color: white;
+    color: black;
     font-size: 20px;
 }
 
 .footer h2{
     font-size: 1rem; 
-    color: white;
+    color: black;
     font-weight: light;
     overflow: hidden;
 }

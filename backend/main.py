@@ -82,7 +82,7 @@ def faultdataapi():
         response = fetchApiData("faults")
         
         data = response.json()
-        return jsonify(data["results"])  # Return the fault data as a JSON response
+        return jsonify(data["results"])  
     
     except Exception as error:
         app.logger.info("Error while getting data:", error)
@@ -94,8 +94,7 @@ def energylctapi():
     try:
         response = fetchApiData("lct")
         
-        data = response.json()
-        return jsonify(data["results"])  # Return the fault data as a JSON response
+        return jsonify(response["results"])  
     
     except Exception as error:
         app.logger.info("Error while getting data:", error)

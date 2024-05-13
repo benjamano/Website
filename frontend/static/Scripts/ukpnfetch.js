@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const fetchfaultButton = document.getElementById("fetchButton");
+    const fetchfaultButton = document.getElementById("fetchFaultButton");
+    const fetchlctButton = document.getElementById("fetchLctButton");
 
     fetchfaultButton.addEventListener("click", function() {
 

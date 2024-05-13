@@ -319,15 +319,14 @@ footer {
     bottom: 0;
     width: 100%;
     background-color: #2f3033;
-    padding-top: 0.5vh;
     color: black;
     text-align: center;
     z-index: 999;
     display: flex;
     justify-content: center;
-    align-items: center;
     /* margin-left: 200px; */
     position: relative;
+    margin-top: 48px;
 }
 
 .footer h1{

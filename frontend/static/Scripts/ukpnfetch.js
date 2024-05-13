@@ -16,7 +16,7 @@ function fetchfaultDataFromServer() {
 }
 
 function handleFetchedData(data, mode) {
-    console.log('Received fault data:', data);
+    console.log('Received', mode, 'data:', data);
 
     if (mode == "fault") {
 

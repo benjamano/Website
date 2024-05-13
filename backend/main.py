@@ -81,8 +81,7 @@ def faultdataapi():
 
         response = fetchApiData("faults")
         
-        data = response.json()
-        return jsonify(data["results"])  
+        return jsonify(response["results"])  
     
     except Exception as error:
         app.logger.info("Error while getting data:", error)

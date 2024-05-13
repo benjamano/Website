@@ -29,7 +29,11 @@ function handleFaultData(data) {
 
     for (const record of data) {
         const creationDateTime = record.creationdatetime;
-        console.log('Creation Date Time:', creationDateTime);
+        const mainMessage = record.mainmessage;
+        const customersaffected = record.nocustomeraffected;
+        const powerCutType = record.powercuttype;
+        const noCallsReported = record.nocallsreported;
+        console.log('Record:', creationDateTime, mainMessage, customersaffected, powerCutType, noCallsReported);
     }
 }
 

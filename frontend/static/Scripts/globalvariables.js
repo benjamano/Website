@@ -1,2 +1,0 @@
-var faultData = "";
-var lctData = "";

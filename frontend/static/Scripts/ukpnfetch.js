@@ -10,7 +10,6 @@ function fetchfaultDataFromServer() {
         .then(data => {
             faultData = data;
             handleFetchedData(data, mode="fault");
-            return data;
         })
         .catch(error => {
             console.error('Error fetching fault data:', error);
@@ -50,7 +49,6 @@ function fetchlctDataFromServer() {
         .then(data => {
             lctData = data;
             handleFetchedData(data, mode="lct");
-            return data;
         })
         .catch(error => {
             console.error('Error fetching fault data:', error);

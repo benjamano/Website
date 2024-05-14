@@ -1,21 +1,20 @@
-console.log("Hello from turbines.js", lctData);
-console.log(faultData);
+let lctData = "";
 
-let localLctData = "";
-
-function fetchAndStoreLctData() {
-    if (window.fetchlctDataFromServer) {
-        window.fetchlctDataFromServer()
-            .then(data => {
-                localLctData = data;
-                console.log('Stored LCT Data:', localLctData);
-            })
-            .catch(error => {
-                console.error('Error fetching LCT data:', error);
-            });
-    } else {
-        console.error('fetchlctDataFromServer is not defined');
-    }
+function fetchlctDataFromServer() {
+    fetch('/getlctdata')
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Failed to fetch fault data');
+            }
+        })
+        .then(data => {
+            lctData = data;
+            console.log('Fetched fault data:', lctData);
+        })
+        .catch(error => {
+            console.error('Error fetching fault data:', error);
+        });
 }
 
-fetchAndStoreLctData();

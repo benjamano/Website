@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let footer = document.getElementById('footer');
 
     function resizeCanvas() {
-        canvas.width = footer.clientWidth;
+        canvas.width = footer.clientWidth / 50;
         canvas.height = footer.clientHeight;
     }
 
@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function drawTurbineBlades(angle) {
         let centerX = canvas.width / 2;
-        let centerY = canvas.height - (canvas.height * 0.4);
-        let bladeLength = 100;
+        let centerY = canvas.height - (canvas.height * 0.2);
+        let bladeLength = 50;
 
         ctx.save();
         ctx.translate(centerX, centerY);

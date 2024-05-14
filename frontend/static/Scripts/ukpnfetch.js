@@ -72,4 +72,6 @@ document.addEventListener("DOMContentLoaded", function() {
         fetchlctDataFromServer(mode="lct");
 
     });
+
+    fetchlctDataFromServer(mode="lct");
 });

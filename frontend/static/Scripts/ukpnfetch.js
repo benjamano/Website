@@ -1,6 +1,3 @@
-var faultData = null;
-var lctData = null;
-
 function fetchfaultDataFromServer() {
     fetch('/getfaultdata')
         .then(response => {

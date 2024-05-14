@@ -1,14 +1,10 @@
 let canvas = document.getElementById('turbineCanvas');
 let ctx = canvas.getContext('2d');
-let stemHeight = canvas.height * 0.4;
-
-let lctData = "";
-
 let footer = document.getElementById('footer');
 
 function resizeCanvas() {
-    canvas.width = footer.clientWidth;
-    canvas.height = footer.clientHeight;
+    canvas.width = window.innerWidth * 0.997;
+    canvas.height = window.innerHeight - footer.clientHeight;
 }
 
 window.addEventListener('resize', resizeCanvas);
@@ -33,18 +29,43 @@ function fetchLCTData() {
 }
 
 function drawTurbineStem() {
-    ctx.beginPath();
-    ctx.rect(canvas.width - stemHeight);
+    let stemHeight = canvas.height * 0.4;
     ctx.fillStyle = 'white';
-    ctx.fill();
-    ctx.closePath();
+    ctx.fillRect(canvas.width / 2 - 5, canvas.height - stemHeight, 10, stemHeight);
 }
 
-function draw(){
+function drawTurbineBlades(angle) {
+    let centerX = canvas.width / 2;
+    let centerY = canvas.height - (canvas.height * 0.4);
+    let bladeLength = 100;
+
+    ctx.save();
+    ctx.translate(centerX, centerY);
+    ctx.rotate(angle);
+    ctx.fillStyle = 'white';
+
+    for (let i = 0; i < 3; i++) {
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(bladeLength, 10);
+        ctx.lineTo(bladeLength, -10);
+        ctx.closePath();
+        ctx.fill();
+        ctx.rotate((2 * Math.PI) / 3); // Rotate 120 degrees for each blade
+    }
+
+    ctx.restore();
+}
+
+let angle = 0;
+const rotationSpeed = 0.02; // Adjust to change the speed of rotation
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawTurbineStem();
-    
+    drawTurbineBlades(angle);
+    angle += rotationSpeed;
     requestAnimationFrame(draw);
 }
-
 
 draw();

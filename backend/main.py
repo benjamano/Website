@@ -334,7 +334,7 @@ def hotbeansportfolio():
 def hotbeansservice():
     
     return render_template("/ICTWebsite/ICTService.html")    
-    
+
 
 if __name__ == '__main__':
     app.run()

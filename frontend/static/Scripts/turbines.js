@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let footer = document.getElementById('footer');
 
     function resizeCanvas() {
-        canvas.width = window.innerWidth * 0.997;
-        canvas.height = window.innerHeight - footer.clientHeight;
+        canvas.width = footer.clientWidth;
+        canvas.height = footer.clientHeight;
     }
 
     window.addEventListener('resize', resizeCanvas);

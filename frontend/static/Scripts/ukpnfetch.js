@@ -72,8 +72,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     });
 
-    fetchlctDataFromServer(mode="lct");
-
     window.fetchfaultDataFromServer = fetchfaultDataFromServer;
     window.fetchlctDataFromServer = fetchlctDataFromServer;
 });

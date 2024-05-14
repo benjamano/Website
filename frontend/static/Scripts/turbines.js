@@ -7,7 +7,7 @@ function fetchAndStoreLctData() {
     if (window.fetchlctDataFromServer) {
         window.fetchlctDataFromServer()
             .then(data => {
-                localLctData = data; // Store the fetched data locally
+                localLctData = data;
                 console.log('Stored LCT Data:', localLctData);
             })
             .catch(error => {

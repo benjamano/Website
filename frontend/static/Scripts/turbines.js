@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
             .then(data => {
-                console.log('Fetched lct data:', lctData);
+                console.log('Fetched lct data:', data);
                 return data;
             })
             .catch(error => {

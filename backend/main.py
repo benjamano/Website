@@ -306,6 +306,36 @@ def modifyParty():
     else:
         return render_template("/system/modifyparty.html")
     
+    
+    
+# ------------------------------------------------- ICT WEBSITE ------------------------------------------------- #
+
+@app.route("/hotbeanshome")
+def hotbeanshome():
+    
+    return render_template("/ICTWebsite/ICTHome.html")
+
+@app.route("/hotbeanscareers")
+def hotbeanscareers():
+    
+    return render_template("/ICTWebsite/ICTCareers.html")
+
+@app.route("/hotbeanscontact")
+def hotbeanscontact():
+    
+    return render_template("/ICTWebsite/ICTContact.html")
+
+@app.route("/hotbeansportfolio")
+def hotbeansportfolio():
+    
+    return render_template("/ICTWebsite/ICTPortfolio.html")
+
+@app.route("/hotbeansservice")
+def hotbeansservice():
+    
+    return render_template("/ICTWebsite/ICTService.html")    
+    
+
 if __name__ == '__main__':
     app.run()
     onStart()

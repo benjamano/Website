@@ -1,0 +1,148 @@
+.applicationform form{
+    justify-content: center;
+    margin:auto;
+    width: 100%;
+    background-color: white;
+    border-radius: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 0px;
+    padding: 0px;
+    padding-bottom: 0px;
+    box-shadow: none;
+    height: 100%;
+}
+
+.applicationform {
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+    background-color: rgba(242, 242, 247, 0.9);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 999;
+    backdrop-filter: blur(0px);
+}
+
+.applicationform label.cvupload, label.letterupload{
+    background-color: #8fc64d;
+    padding: 16px;
+    cursor: pointer;
+    color: white;
+    border-radius: 18px;
+    margin: 20px;
+    left: 0;
+    opacity: 0;
+    display: none;
+}
+
+.applicationform .close {
+    display: none;
+    z-index: 999;
+    background-color: #5baff3;
+    border: none;
+    right: 0;
+    top: 0;
+    position: absolute;
+    color: white;
+    width: 100%;
+    font-size: 25px;
+    height: auto;
+    pointer-events: all;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.applicationform form input[type=submit],
+.applicationform .printbtn{
+    background-color: #8fc64d;
+    border: none;
+    color: white;
+    margin: 32px;
+    padding: 10px;
+    width: 30%;
+    font-size: 20px;
+    border-radius: 10px;
+    left: 0;
+    font-weight: 500;
+    opacity: 0;
+    display: none;
+}
+
+.textimageinfront{
+    display: none;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    color: white;
+    object-fit: cover;
+    width: 100%;
+}
+
+.topbar{
+    display: none;
+}
+
+footer{
+    display: none;
+}
+
+.applicationform .datesigning{
+    display: block;
+}
+
+.applicationform .label.printonly{
+    display: block;
+}
+
+.applicationform form input[type=text], 
+.applicationform form input[type=phone], 
+.applicationform form input[type=email] {
+    height: 100px;
+    padding-top: 64px;
+    margin: 50px 32px 0px 32px;
+}
+
+.applicationform form span{
+    margin-top: 30px;
+}
+
+.applicationform p.printonly{
+    display: block;
+
+}
+
+@page  
+{ 
+    size: 0; 
+}
+
+footer, .textimageinfront, .topbar {
+    display: none !important;
+}
+
+/* Ensure the application form remains visible */
+.applicationform {
+    display: block !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Ensure the form fields and submit button are visible */
+.applicationform form input[type=text],
+.applicationform form input[type=phone],
+.applicationform form input[type=email],
+.applicationform .datesigning{
+    display: block !important;
+    opacity: 1 !important;
+}
+
+/* Hide non-printable elements */
+.non-printable {
+    display: none !important;
+}

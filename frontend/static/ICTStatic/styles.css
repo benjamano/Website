@@ -1,0 +1,1350 @@
+*{
+    font-family: "IBM Plex Sans", sans-serif
+}
+
+html::-webkit-scrollbar {
+    display: none;
+  }
+
+body{
+    background-color: #f2f2f7;
+    margin: 0;
+}
+
+.leftmain{
+    float:left;
+}
+
+.rightmain{
+    float:right;
+}
+
+.topbar{
+    transition: all 3s ease !important;
+    font-family: "Roboto Mono";
+    height: auto;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    overflow: hidden;
+    background-color: inherit;
+    border-bottom: solid #5212ab 1px;
+    top: 0;
+    height: fit-content;
+    transition: height 3s ease;
+}
+
+.topbar ul {
+    transition: all 3s ease  !important;
+    transition: height 0.3s ease;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    color: black;
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+    align-items: center;
+    height:fit-content;
+} 
+
+.topbar ul li {
+    flex: 0 1 auto; 
+    font-size: 120%;
+    color: black;
+    font-weight: 500;
+    padding: 16px;
+    text-align: center;
+    box-sizing: border-box;
+    height: 100%;
+    transition: color 0.4s;
+}
+
+.topbar ul li:hover {
+    color: rgb(21, 139, 212);
+}
+
+.topbar a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+}
+
+.topbar i{
+    margin-left: 8px
+}
+
+.topbar a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.topbar a active{
+    color: white;
+
+}
+
+.topbar logo{
+    float: left;
+    padding-right: 36px;
+    padding-left: 16px;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.topbar logo img{
+    width: auto;
+    height: 9vh;
+    padding: 4px;
+}
+
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.spin-anticlockwise {
+    animation: spin-anticlockwise 0.5s ease-out forwards;
+    transform-origin: center;
+}
+
+@keyframes spin-anticlockwise {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-180deg);
+    }
+}
+
+@keyframes underline-scroll {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+h1{
+    color: black;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    margin-top: 22px;
+}
+
+h2{
+    color:black;
+    text-align: center;
+    padding: 0;
+    margin: auto;
+    align-items: center;
+    width: 85%;
+}
+
+h3{
+    color:black;
+}
+
+dl{
+    color: black;
+}
+
+dt{
+    color: black;
+    font-weight: 500;
+    padding-bottom: 20px;
+    font-size: 2vw;
+}
+
+.contactholdermain i{
+    padding-right: 8px;
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    border: none;
+    transition: opacity 0.5s ease-out;
+}
+
+.main h1{
+    width: 100%;
+}
+
+.leftmain {
+    width: 70%;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.rightmain {
+    width: 30%;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.submain {
+    height: auto;
+    
+}
+
+/* .rightsubmain{
+    height: 50vh;
+} */
+
+.leftmain{
+    border-right: solid #5212ab 1px;
+}
+
+.leftsubmain{
+    display: flex;
+    height: auto;
+}
+
+.lowersubmain{
+    height: auto;
+}
+
+.textimg{
+    box-shadow: #949494 0px 0px 7px;
+    width: 60vw;
+    height: auto;
+    box-sizing: border-box;
+    background-color: white;
+    margin: auto;
+    margin-top: 4vh;
+    margin-bottom: 4vh;    
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 12px;
+}
+
+.textimg img{
+    width: 25vw;
+    height: fit-content;
+    padding: 16px;
+    float: left;
+    
+}
+
+.textimg h3{
+    color:black;
+    margin-top: 3vh;
+    margin-right: auto;
+}
+
+.projects{
+    display: flex;
+    flex-direction: column;
+    width: inherit;
+    justify-content: center;
+    align-items: center;
+}
+
+.projectholder {
+    box-shadow: #949494 0px 0px 7px;
+    width: 80%;
+    height: 250px;
+    box-sizing: border-box;
+    background-color: white;
+    margin: auto;
+    margin-top: 4vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    margin-left: 32px;
+    margin-right: 32px;
+}
+
+.projectholder img{
+    padding: 16px;
+    float: left;
+    width: 12%;
+    height: fit-content;
+}
+
+.projectholder li{
+    color: black;
+    font-weight: 400;
+}
+
+.careers{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    padding: 16px;
+}
+
+.careerholder{
+    box-shadow: #949494 0px 0px 5px;
+    width: 25vw;
+    height: auto;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.careerholder h2{
+    background-color: white;
+    width: 100%;
+    padding-top: 16;
+    margin: 0;
+    font-weight: 500;
+    font-size: 1.6vw;
+    padding-bottom: 24px;
+}
+
+.careerholder h3{
+    padding: 12px;
+    font-size: 1vw;
+}
+.careerholder li{
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.careerholder button{
+    background-color: white;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 16px;
+    transition: transform 0.3s ease-out, border-radius 0.5s ease-out;
+    margin-top: 24px;
+}
+
+.careerholder button:hover{
+    transform: scale(1.2);
+    border-radius: 20px;
+}
+
+.contactssmholder{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: #949494 0px 0px 7px;
+    width: 90%;
+    background-color: white;
+    margin-top: 5vh;
+
+}
+
+.contactssmholder h2{
+    padding: 16px;
+    margin: 0;
+    font-size: 1.5vw;
+    background-color: transparent;
+
+}
+
+.contacts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    background-color: white;
+    width: 100%
+}
+
+.contactholder i{
+    padding-right: 1vw;
+}
+
+.smholder{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    height: auto;
+    padding: 16px;
+    background-color: transparent;
+}
+
+.sm{
+    
+    height: auto;
+    background-color: rgb(230, 230, 230);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    border-radius: 2vw;
+    width: 5%;
+    height: 10%;
+    transition: transform 0.3s ease-out;
+}
+
+.sm i{
+    scale: 1.5;
+    filter: brightness(0);
+}
+
+.sm:hover{
+    transform: scale(1.2);
+}
+
+
+footer{
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    background-color: #2f3033;
+    padding-top: 0.5vh;
+    color: white;
+    text-align: center;
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+footer h3{
+    font-size: 1rem; 
+    color: white;
+    font-weight: light;
+    overflow: hidden;
+}
+
+footer .smholder{
+    display: flex;
+    background-color: transparent;
+    float:right;
+    width: auto;
+    position: absolute;
+    right:0;
+    width: 20vw;
+}
+
+footer .sm{
+    background-color: #8e8e8e;
+    width: 20px;
+    height: 20px;
+}
+
+footer .text{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+footer .text h3{
+    padding: 12px;
+    margin: 0;
+}
+
+.languageselector{
+    float:left;
+    position: absolute;
+    left:0;
+    width: 20vw;
+}
+
+.languageselector select{
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    margin: 16px;
+    background-color: #d2d2d2;
+    color: black;
+    border: none;
+    border-radius: 1vw;
+}
+
+.contact{
+    display: flex;
+    position: relative;
+    height: auto;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10vh;
+    margin-top: 25vh;
+}
+
+.contactholdermain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+    width: 100%;
+    background-color: transparent;
+    border-radius: 1vw;
+}
+
+.contactholder{
+    display: flex;
+    flex-direction: column;
+    justify-content: top;    
+    width: 65vw;
+    margin: 16px;
+    background-color: white;
+    border-radius: 1vw;
+    box-shadow: #949494 0px 0px 8px;
+    padding: 16px;
+}
+
+.buttoncontainer{
+    display: flex;
+    justify-content: space-evenly;
+    width: 45%;
+    margin-top: 64px;
+    margin-bottom: 82px;
+    align-items: center;
+}
+
+.buttoncontainer button{
+    display: inline-block;
+    background-color: #00baff;
+    color: white;
+    font-size: larger;
+    font-weight: 900;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    width: 12vw;
+    border-radius: 10px;
+
+}
+
+.contactholder h1{
+    margin-top: 120px;
+    background-color: transparent;
+    color: black;
+    font-weight: 500;
+}
+
+.contactholder h3{
+    font-weight: 400;
+    font-size: 16px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.contactimg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 100%;
+    position: absolute;
+    top: -220px;
+    width: 350px;
+    height: 350px;
+    padding: 32px;
+    scale: 0.7;
+    box-shadow: #949494 0px -10px 16px -5px;
+}
+
+.contactimg img{
+    width: auto;
+    height: auto;
+}
+
+.formtext{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 12px;
+    width: 50%;
+}
+
+.formtext label{
+    margin-left: 0;
+    text-align: left;
+    width: 100%;
+    margin-bottom:8px;
+    font-weight: 300;
+    margin-top: 32px
+}
+
+.contactform{
+    display: flex;
+    margin: 0;
+    padding: 32px;
+    background-color: white;
+    justify-content: center;
+}
+
+.contactformholder{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+    margin: 16px;
+    border-radius: 1vw;
+    margin-left: 32px;
+    justify-content: center;
+}
+
+.contactformholder .row{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 16px;
+}
+
+.contactformholder button{
+    margin-top: 32px;
+    background-color: #00baff;
+    color: white;
+    font-size: larger;
+    font-weight: 900;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+}
+
+.contactformholder input[type=text], input[type=email]{
+    width: 45%;
+    height: 3vh;
+    border: none;
+    border-bottom: #1d1d1d solid 0.5px;
+}
+
+
+.services{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.services h1{
+    font-size: 190%;
+    font-weight: 500;
+    margin-bottom: 24px;
+    margin-top: 24px;
+
+}
+
+.services h3{
+    font-size: 120%;
+    font-weight: 300;
+    text-align: center;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.serviceholder{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    width: 30vw;
+    margin: 32px;
+    margin-top: 8px;
+    border-radius: 25px;
+    box-shadow: #949494 0px 0px 8px;
+    min-height: 650px;
+    height: 500px;
+    max-width: 500px;
+    transition-property: all;
+    transition-duration: 0.8s;
+    overflow: hidden;
+}
+
+.serviceholder img {
+    transition: opacity 0.8s ease;
+}
+
+.serviceholder:hover {
+    transform: translateY(-20px);
+}
+
+.serviceholder img.androidred{
+    display: none;
+    opacity: 0;
+}
+
+.serviceholder:hover img.android {
+    opacity: 0;
+    display: none;
+}
+
+.serviceholder:hover img.androidred {
+    opacity: 1;
+    display: block;
+}
+
+.imgcontainer{
+    display: flex;
+    justify-content: center;
+    height: 20%;
+    width: 100%;
+}
+
+.textimageinfront{
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    color: white;
+    object-fit: cover;
+    width: 100%;
+}
+.textimageinfront h1 h2{
+    color: white;
+}
+
+.textimageinfront .text h1{
+    padding: 62px;
+    font-size: 120px;
+    width: 70%;
+}
+
+.textimageinfront img{
+    z-index: 1;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(0.4);
+}
+
+.textimageinfront .text{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 3;
+    color: white;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-size: 73px;
+    line-height: 73px;
+}
+
+.textimageinfront h1 h2{
+    color: white;
+    margin: 0;
+    padding: 0;
+    padding-top: 50px;
+    width: 80%;
+}
+
+.textimageinfront h1{
+    line-height: 130px;
+}
+.textimageinfront h2{
+    line-height: 90px;
+    font-size: 60px;
+}
+
+.carousel-container {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+  
+  .carousel,
+  .traineecarousel {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .job,
+  .trainee{
+    background-color: white;
+    border-radius: 22px;
+    margin: 22px;
+    transition: transform 0.3s ease-out; 
+    opacity: 0.80;
+}
+
+  .job img{
+    border-radius: 22px 22px 0px 0px;
+  }
+  .job h2{
+    color: black;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    margin: 22px;
+    font-weight: 400;
+  }
+  .job button{
+    width: 100%;
+    border-radius: 0px 0px 22px 22px;
+    border: none;
+    background-color: #5baff3;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .custom-highlight {
+    background-image: linear-gradient(120deg, #ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .job.active,
+  .trainee.active{
+    opacity: 1;
+    transform: translateY(-20px);
+  }
+
+  .careersbuttonholder{
+    display: flex;
+    justify-content: center;
+  }
+
+  .careersbuttonholder button{
+    margin:22px;
+    border: none;
+    padding: 8px;
+    background-color: #5baff3;
+    width: 30px;
+    height: 30px;
+    border-radius: 22px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    transition: opacity 0.6s ease-out, background-color 0.6s ease-out;
+    opacity: 1;
+    
+  }
+
+  .careersbuttonholder button.disabled{
+    transition: opacity 0.6s ease-out, background-color 0.6s ease-out;
+    pointer-events: none;
+    opacity: 0.6;
+    background-color: #bdbdbd;
+  }
+.job-dialog {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out, scale 0.3s ease-in-out;
+    color: black;
+    z-index: 10;
+    flex-direction: column;
+    align-items: baseline;
+    opacity: 0;
+    z-index: 9;
+}
+
+.job-dialog.open {
+    transform: translateY(0);
+}
+
+.job-dialog:not(.open) {
+    transform: translateY(100%);
+}
+
+.footerdialogcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 999;
+}
+
+.footerdialogcontainer button{
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    background-color: #5baff3;
+    color: white;
+    font-size: 25px;
+}
+
+.footerdialogcontainer .apply{
+    padding: 12px;
+    background-color: #79c64d;
+
+}
+
+.applicationform {
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+    background-color: rgba(242, 242, 247, 0.8);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 999999;
+    backdrop-filter: blur(8px);
+}
+
+.applicationform h1 {
+    margin-top: 52px;
+    font-weight: 500;
+}
+
+.applicationform .datesigning{
+    display: none;
+}
+
+.applicationform .label.printonly{
+    display: none;
+}
+
+.applicationform.open {
+    z-index: 999;
+    transform: translateY(0%);
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.applicationform.closed{
+    transform: translateY(100%);
+}
+
+.applicationform .close {
+    z-index: 999;
+    background-color: #5baff3;
+    border: none;
+    right: 0;
+    top: 0;
+    position: absolute;
+    color: white;
+    width: 100%;
+    font-size: 25px;
+    height: auto;
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.applicationform form{
+    justify-content: center;
+    margin:auto;
+    width: 50%;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 42px;
+    padding: 42px;
+    padding-bottom: 12px;
+    box-shadow: #94949477 0px 0px 8px;
+}
+
+.applicationform form input[type=text], 
+.applicationform form input[type=phone], 
+.applicationform form input[type=email] {
+    width: 45%;
+    font-size: 20px;
+    margin: 30px 32px 0px 32px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    border-bottom: #2f3033 1.5px solid;
+}
+
+.applicationform input[type=phone], 
+.applicationform input[type=email]{
+    width: 90%;
+}
+
+.applicationform p.printonly{
+    display: none;
+
+}
+
+.applicationform form input[type=checkbox]{
+    font-size: 30px;
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
+    margin-left: 12px;
+}
+
+.applicationform form table{
+    width: 100%;
+}
+
+.applicationform table, th, td{
+    border: 1px solid white;
+
+}
+
+.applicationform form h2{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.applicationform form p{
+    font-size: 15px;
+    font-weight: 400;
+    margin-right: 62px;
+}
+
+.applicationform div{
+    padding:8px;
+}
+.applicationform label.cvupload, label.letterupload{
+    background-color: #8fc64d;
+    padding: 16px;
+    cursor: pointer;
+    color: white;
+    border-radius: 18px;
+    margin: 20px;
+    left: 0;
+}
+
+.applicationform label.letterupload{
+    background-color: #00baff;
+}
+
+.applicationform label{
+    width: 60%;
+    height: 20px;
+}
+
+.applicationform form span{
+    height: 80px;
+    display: flex; 
+    align-items:center;
+    width: 100%;
+}
+
+.applicationform form input[type=submit],
+.applicationform .printbtn{
+    background-color: #8fc64d;
+    border: none;
+    color: white;
+    margin: 32px;
+    padding: 10px;
+    width: 30%;
+    font-size: 20px;
+    border-radius: 10px;
+    left: 0;
+    font-weight: 500;
+}
+
+.applicationform .printbtn{
+    background-color: #37bee4;
+    cursor: pointer;
+}
+
+
+.courses{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: rgb(0, 0, 0);
+}
+
+.course{
+    display: flex;
+    background-color: white;
+    align-items: center;
+    flex-direction: column;
+    padding: 52px;
+    padding-top: 22px;
+    border-radius: 12px;
+    width: 20%;
+    height: auto;
+    text-align: center;
+    transition-property: all;
+    transition-duration: 0.8s;
+    opacity: 0.8;
+    margin: 64px;
+}
+
+.course:hover{
+    transform: translateY(-20px);
+    opacity: 1;
+}
+
+.course .video img{
+    height: 100px;
+}
+
+.course h1{
+    font-weight: 400;
+    padding-bottom:22px;
+}
+
+.trainees{
+    width: 100%;
+    display: flex;
+    background-color: transparent;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.trainee{
+    width: auto;
+    margin: 64px;
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0px;
+    justify-content: space-between;
+    height: 40%;
+}
+
+.trainee h1{
+    font-weight: 500;
+}
+
+.trainee h2{
+    font-weight: 300;
+    font-size: 22px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+
+.trainee img{
+    margin: 42px;
+    border-radius: 25px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+.trainee p{
+    text-align: center;
+    background-color: #00baff;
+    color: white;
+    margin-bottom: 0;
+    border-radius: 0 0 25px 25px;
+    padding: 16px;
+}
+
+.trainee .contentholder{
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    
+}
+
+.portfolio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 42px;
+}
+
+.portfolio h1{
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.portfolioholder{
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: center;
+
+}
+
+.portfolioitem{
+    display: flex;
+    min-width: 20%;
+    width: 20%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 22px;
+    border-radius: 16px;
+    justify-content: flex-end;
+}
+
+.portfolioitem h2{
+    margin: 32px;
+    padding: 12px;
+    font-size: 26px;
+}
+
+.portfolioitem img{
+    margin: 32px;
+    width: 50%;
+    height: auto;
+    margin-bottom: 20px;
+
+}
+
+.portfolioitem .learnmore{
+    background-color: #00baff;
+    color: white;
+    width: 100%;
+    border: none;
+    border-radius: 0px 0px 16px 16px;
+    font-size: 15px;
+    cursor: pointer;
+    pointer-events: all;
+}
+    
+
+
+@media (orientation: portrait), (max-width: 1200px) {
+
+    /* This section is called when the orientation is considered to be "Portrait" OR when the width of the page goes below 1200 Pixels.
+    
+    This section is designed to adapt the websiste to smaller screens, such as tablets and mobile phones.
+    */
+
+    .courses{
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        align-items: center;
+
+    }
+
+    .course{
+        width: 60%;
+        margin: 20px;
+    }
+
+    .trainees{
+        justify-content: center;
+        align-items: center;
+
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .trainee{
+        width: 70%;
+        flex-direction: column;
+    }
+
+    .trainee .contentholder{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .main{
+        flex-direction: column;
+    }
+
+    .leftmain{
+        width: 100%;
+        border: none;
+    }
+
+    .rightmain{
+        width: 100%;
+    }
+
+    .careerholder{
+        width: 80%;
+    }
+    .careerholder button{
+        width: 20%;
+        height: 15%;
+    }
+
+    .textimg{
+        width:90%;
+    }
+    .textimg h3{
+        font-size: 2.2vw;
+    }
+    .projectholder{
+        width: 90%;
+        font-size: 1.7vw;
+        margin-left:0px;
+        margin-right:0px;
+    }
+    .contactssmholder{
+        width:100%;
+    }
+    h1{
+        padding-top: 2vh;
+    }
+
+    .careerholder{
+        width: 80%;
+    }
+
+    .services{
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+    .serviceholder{
+        max-width: unset;
+        width: 90%;
+        height: auto;
+        min-height: unset;
+    }
+    .serviceholder h1{
+        font-size: 250%;
+    }
+    .serviceholder h3{
+        font-size: 150%;
+    }
+
+    .imgcontainer{
+        display: none;
+    }
+    .projects{
+        flex-direction: column;
+    }
+    .textimageinfront .text h1{
+        font-size: 70px;
+        line-height: 60px;
+        padding: 0;
+        width: 90%;
+    }
+
+    .textimageinfront .text h2{
+        font-size: 30px;
+    }
+
+    .contactform{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .contactformholder{
+        width: 100%;
+    }
+
+    .portfolioholder{
+        width: 100%;
+    }
+
+    .portfolioitem{
+        width: 40%;
+    }
+}

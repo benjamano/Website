@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search for a Party</title>
+    <script src="https://kit.fontawesome.com/9d35a24d36.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="/static/images/SmallLogo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Ben Mercer, Full Stack Web Developer, Web Developer, Web Design, Web, Design, Developer, Full Stack, Full, Stack, Ben, Mercer, Ben Mercer Designs, Ben Mercer Web Design, Ben Mercer Web Developer, Ben Mercer Full Stack Web Developer, Ben Mercer Full Stack Web Design, Ben Mercer Full Stack Developer, Ben Mercer Web, Ben Mercer Web Dev, Ben Mercer Web Development, Ben Mercer Web Design, Ben Mercer Web Designer, Ben Mercer Web Developer, Ben Mercer Web Development, Free, Free Web Design, Free Web Development">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+</head>
+<style>
+</style>
+<body>
+    <div class="topbar">
+        <ul>
+            <a href="https://benmercer.pythonanywhere.com/partyhome"><li>Home</li></a>
+            <a href="https://benmercer.pythonanywhere.com/new"><li>Add new Party</li></a>
+            <a href="https://benmercer.pythonanywhere.com/modify"><li>Modify a party</li></a>
+            <a href="https://benmercer.pythonanywhere.com/room1"><li>ROOM TVs</li></a>
+            <a href="https://benmercer.pythonanywhere.com/logout"><li>Logout</li></a> 
+        </ul>
+    </div>
+    <div class="sidebar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/FullLogo.png') }}" alt="My Logo - A BM with a small 'Designs' text">
+        </div>
+        <ul>
+            <a href="https://benmercer.pythonanywhere.com/partyhome"><li>Home</li></a>
+            <a href="https://benmercer.pythonanywhere.com/new"><li>Add new Party</li></a>
+            <a href="https://benmercer.pythonanywhere.com/modify"><li>Modify a party</li></a>
+            <a href="https://benmercer.pythonanywhere.com/room1"><li>ROOM TVs</li></a>
+            <a href="https://benmercer.pythonanywhere.com/logout"><li>Logout</li></a>
+        </ul>
+    </div>
+    <div class="content">
+        <div style="display:block;">
+            <div class="login" style="align-items: center; margin-left: auto; margin-right: auto;">
+                <h1>Search for a party</h1>
+                <h3 style="text-align:center">Enter any amount of values</h3>
+                <form action="#" method="post">
+                    <input type="text" name="PartyID" placeholder="Party ID">
+                    <input type="date" name="PartyDate" placeholder="Party Date">
+                    <input type="time" name="PartyTime" placeholder="00:00">
+                    <input type="text" name="FirstName" placeholder="First Child Name">
+                    <input type="text" name="SecondName" placeholder="Second Child Name">
+                    <input type="number" name="Age" placeholder="Child's Age">
+                    <input type="submit" value="Search">
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="popup">
+                            {% for message in messages %}
+                                {{ message }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% endwith %}
+                </form>
+            </div>
+            <div class="container">
+                <div class="searchresults">
+                    <table style="width:90%">
+                        <tr>
+                            <th>Party ID</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>1st Child Name</th>
+                            <th>2nd Child Name</th>
+                            <th>Age</th>
+                        </tr>
+                        {% for party in parties %}
+                            <form action="#" method="POST">
+                                <input type="hidden" name="PartyID" value="{{ party.0 }}">
+                                <input type="hidden" name="Date" value="{{ party.1 }}">
+                                <input type="hidden" name="Time" value="{{ party.2 }}">
+                                <input type="hidden" name="PartyType" value="{{ party.3 }}">
+                                <input type="hidden" name="FirstChildName" value="{{ party.4 }}">
+                                <input type="hidden" name="SecondChildName" value="{{ party.5 }}">
+                                <input type="hidden" name="Age" value="{{ party.6 }}">
+                                <tr>
+                                    <td>{{ party.0 }}</td>
+                                    <td>{{ party.1 }}</td>
+                                    <td>{{ party.2 }}</td>
+                                    <td>{{ party.4 }}</td>
+                                    <td>{{ party.5 }}</td>
+                                    <td>{{ party.6 }}</td>
+                                    <td><button class="select" type="submit">Edit</button></td>
+                                    </form>
+                                </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+    
+</html>

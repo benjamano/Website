@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Careers at Hot Beans</title>
+    <link rel="icon" href="{{ url_for('static', filename='/ICTStatic/Icon.png') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/9d35a24d36.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/ICTStatic/styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/ICTStatic/print.css') }}" type="text/css" media="print" />
+</head>
+<body>
+
+    <div class="topbar">
+        <div class="container" style="
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        vertical-align: middle;
+        flex-wrap: nowrap;
+        flex-direction: row;">
+    
+        <ul>
+    
+            <logo><img href="https://benmercer.pythonanywhere.com/hotbeanshome" src="{{ url_for('static', filename='/ICTStatic/MinimalLogo.png') }}" alt="The Hot Beans Logo"/></logo>
+    
+            <a href="https://benmercer.pythonanywhere.com/hotbeanshome"><li>Who are we</li></a>
+            <a href="https://benmercer.pythonanywhere.com/hotbeanscareers"><li>Our Portfolio</li></a>
+            <a href="https://benmercer.pythonanywhere.com/hotbeanscontact"><li>Our Services</li></a>
+            <a href="https://benmercer.pythonanywhere.com/hotbeansportfolio" ><li>Careers</li></a>
+            <a href="https://benmercer.pythonanywhere.com/hotbeansservice" ><li>Contact Us</li></a>
+        </ul>
+        </div>
+    </div>
+
+<div class="main">
+
+    <div class="applicationform" id="applicationform">
+
+        <h1 id="jobname">404 - Not Found</h1>
+        <form action="#">
+
+            <span style="display:flex;justify-content:space-around; width: 100%;">
+                <input type="text" id="fname" name="firstname" placeholder="First Name *" required>
+                <input type="text" id="lname" name="lastname" placeholder="Last Name *" required>
+            </span>
+
+            <span>
+                <input type="phone" id="phoneno" name="phonenumber" placeholder="Phone Number *" required>
+                <input type="email" id="email" name="email" placeholder="Email *" required>
+            </span>
+
+            <input type="text" id="dateofsigning" class="datesigning" name="dateofsigning" placeholder="Date of Signing *" required>
+
+            <span style="margin-top: 18px;">
+                <label class="cvupload" for="cv">Upload CV *</label>
+                <input type="file" id="cv" name="cv" required hidden>
+                <label class="letterupload" for="cl">Upload Cover Letter *</label>
+                <input type="file" id="cl" name="cl" hidden required>
+            </span>
+
+            <div style="display: flex; flex-direction: row; width: 100%;justify-content: center; margin-top: 22px;">
+
+
+                You will have the grades required below by September 2024 *
+
+            </div>
+
+            <span style="display:flex; justify-content: center">
+            
+                <p style="white-space: pre-line; text-align:left;" id="jobreq">404 - Not Found</p>
+                <input type="checkbox" id="chkrequirements" name="checkboxrequirements" required></span>
+            
+            </span>
+
+            <span style="display: flex; justify-content: center;">
+
+                <input type="submit">
+
+                <button class="printbtn" onclick="window.print();return false;">Print this Template</button>
+
+            </span>
+
+            <p class="printonly">Post this to us @ 4 Pine Bank, Martlesham Heath, Ipswich, Suffolk IP53UP, <br>or scan and email us @ Careers@HotBeans.com</p>
+            <p class="printonly" style="padding-bottom: 16px;">This document may have been modified, If in doubt, view it on the official Hot Beans website.</p>
+        </form>
+
+        <button id="formclosebtn" class="close"><i class="fa-solid fa-chevron-down"></i></button>
+    
+    </div>
+
+    <div class="textimageinfront non-printable">
+
+        <div class="text">
+
+            <h1 style="color:white;">HOT BEANS IS HIRING</h1>
+
+            <h2 style="color:white;">KICK START YOUR CAREER WITH US TODAY</h2>
+
+        </div>
+
+        <img src="{{ url_for('static', filename='/ICTStatic/developers.webp') }}" alt="A background image of a set of developers working on a project">
+
+    </div>
+
+    <div class="careers non-printable" style="margin:0; width: 100%; padding:0px;">
+
+        <h1 style="margin: 32px; padding: 32px;color: #414141;">Ready to unlock <span class="custom-highlight">your</span> potential at Hot Beans?</h1>
+
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="job">
+                    <img src="{{ url_for('static', filename='/ICTStatic/codinglady.png') }}" alt="An image of a woman programming with two monitors">
+                    <h2>Front-End Developer</h2>
+                    <button>Learn More and Apply</button>
+                </div>
+                <div class="job">
+                    <img src="{{ url_for('static', filename='/ICTStatic/Computer.png') }}" alt="An image of a computer with people behind it working as a team">
+                    <h2>Back-End Developer</h2>
+                    <button>Learn More and Apply</button>
+                </div>
+                <div class="job">
+                    <img src="{{ url_for('static', filename='/ICTStatic/codingladyandman.png') }}" alt="Two people working together infront of a computer screen">
+                    <h2>Full Stack Developer</h2>
+                    <button>Learn More and Apply</button>
+                </div>
+                <div class="job">
+                    <img src="{{ url_for('static', filename='/ICTStatic/desktop.jpg') }}" alt="Two people communicating with a laptop infront">
+                    <h2>UI/UX Designer</h2>
+                    <button>Learn More and Apply</button>
+                </div>
+                <div class="job">
+                    <img src="{{ url_for('static', filename='/ICTStatic/Grouptogether.png') }}" alt="A large group of people working together at a table">
+                    <h2>Project Manager</h2>
+                    <button>Learn More and Apply</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="careersbuttonholder non-printable">
+            <button class="prev"><i class="fa-solid fa-chevron-right fa-rotate-180"></i></button>
+            <button class="next"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+</div>
+
+<div class="footerdialogcontainer non-printable">
+
+    <div id="jobDialog" class="job-dialog">
+        <button id="closeDialog"><i class="fa-solid fa-chevron-down"></i></button>
+        <div style="padding: 22px; padding-left: 42px; padding-right: 42px;">
+            <h2 id="jobTitle">404 - Not found</h2>
+            <h3 style="font-weight:500;" id="jobDescription">404 - Not found</h3>
+            <p id="jobRequirements">404 - Not Found</p>
+        </div>
+        <button id='applytojob' class="apply">Apply to this position</button>
+    </div>
+
+</div>
+
+<h1 style="margin-bottom: 32px;">Recommended courses for <span class="custom-highlight">you</span></h1>
+
+<div class="courses non-printable">
+
+    <div class="course">
+        
+        <div class="video">
+
+            <img src="{{ url_for('static', filename='/ICTStatic/w3schools.png') }}" alt="W3 Schools Logo">
+
+        </div>
+
+        <h1>W3 Schools</h1>
+
+        <p> W3Schools offers courses covering many aspects of web development. W3Schools also publishes free HTML templates.</p>
+
+        <p>If you're starting off, try <inline ><a href="https://www.w3schools.com/html/default.asp">this</a></inline>, an intro to web development.</p>
+
+
+    </div>
+
+    <div class="course">
+
+        <div class="video">
+
+            <img src="{{ url_for('static', filename='/ICTStatic/codecademy.png') }}" alt="Code Cademy Logo">
+
+        </div>
+
+        <h1>Code Cademy</h1>
+
+        <p>CodeCademy is a platform that offers free coding classes in 12 different programming languages including Python, Java, Go, JavaScript, Ruby, SQL, C++, C#, and Swift, as well as markup languages HTML and CSS.</p>
+
+        <p>If you're looking for something harder, try <inline ><a href="https://www.codecademy.com/learn/paths/back-end-engineer-career-path">this</a></inline>. </p>
+
+    </div>
+
+    <div class="course">
+
+        <div class="video">
+
+            <img src="{{ url_for('static', filename='/ICTStatic/web dev.png') }}" alt="Web.Dev Logo">
+
+        </div>
+
+        <h1>Web.dev</h1>
+
+        <p>This HTML course for web developers provides a solid overview for developers, from novice to expert level HTML.</p>
+
+        <p>Here's another simpler, beginner-designed course, try it <inline ><a href="https://web.dev/learn/html">here</a></inline>. </p>
+
+    </div>
+
+</div>
+
+<h1>Checkout <span class="custom-highlight">Your</span> future colleagues</h1>
+
+<div class="trainees non-printable">
+
+    <div class="carousel-container">
+
+        <div class="traineecarousel">
+
+            <div class="trainee">
+
+                <div class="contentholder">
+
+                    <h1>Laura</h1>
+
+                    <h2>Proffesional Intern</h2>
+
+                    <img src="{{ url_for('static', filename='/ICTStatic/LMarkwell.png') }}" alt="An image of a smiling lady">
+
+                </div>
+
+                <p>"I love making coffee for my colleagues and cleaning the toilets every day!"</p>
+
+            </div>
+
+            <div class="trainee">
+
+                <div class="contentholder">
+
+                    <h1>Rupert</h1>
+
+                    <h2>Proffesional Complainer</h2>
+
+                    <img src="{{ url_for('static', filename='/ICTStatic/RMarlowe.png') }}" alt="An image of a man with grey hair">
+
+                </div>
+
+                    <p>"After 45 years of work I've ended up here, was it worth it? No.<br>My favourite quote is: 'One problem at a time'"</p>
+
+            </div>
+
+            <div class="trainee">
+
+                <div class="contentholder">
+
+                    <h1>Ryan</h1>
+
+                    <h2>Laser-Tag Coordinator</h2>
+
+                    <img src="{{ url_for('static', filename='/ICTStatic/RCopping.png') }}" alt="An image of a man holding a yellow laser gun with a red background">
+
+                </div>
+
+                    <p>"Laser-Tag always keep the staff moral high, I believe it's the most important part of a career"</p>
+
+            </div>
+
+            <div class="trainee">
+
+                <div class="contentholder">
+
+                    <h1>Jaimie</h1>
+
+                    <h2>Front-End Development Lead</h2>
+
+                    <img src="{{ url_for('static', filename='/ICTStatic/JSummers.png') }}" alt="An image of a smiling lady">
+
+                </div>
+
+                    <p>"Front-End development is my favourite thing to do, working at Hot Beans has proven my love for Web Development!"</p>
+
+            </div>
+
+
+            <div class="trainee">
+
+                <div class="contentholder">
+
+                    <h1>Chris</h1>
+
+                    <h2>Physical Trainer</h2>
+                
+                    <img src="{{ url_for('static', filename='/ICTStatic/CFinch.png') }}" alt="An image of a smiling man">
+
+                </div>
+
+                <p>"At Hot Beans, we spend ALOT of our time sitting down, so my purpose is to make sure we get up and touch some grass every once in a while!"</p>
+
+            </div>
+
+            <div class="trainee" style="margin-bottom: 0; margin-bottom: 0px;">
+
+                <div class="contentholder">
+
+                    <h1>Cadan</h1>
+
+                    <h2>We don't really know what he does, hes just here?</h2>
+                
+                    <img src="{{ url_for('static', filename='/ICTStatic/Cadan.png') }}" alt="An image of a young looking child with ginger coloured hair">
+
+                </div>
+
+                <p>"There needs to be a man to lead the team into battle when the time calls for it, and I AM that man. When the time comes, my War Thunder experience will help carry us into battle, and when my team inevitable overtakes me in skill, I will proudly accept that I am now dead weight and fade into the sunset. I was busy thinking about boys"</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="careersbuttonholder non-printable" style="">
+    <button class="traineeprev"><i class="fa-solid fa-chevron-right fa-rotate-180"></i></button>
+    <button class="traineenext"><i class="fa-solid fa-chevron-right"></i></button>
+</div>
+
+    <footer class="non-printable">
+        <div class="languageselector">
+            <select>
+                <option value="en">English</option>
+                <option value="fr">French</option>
+                <option value="es">Spanish</option>
+                <option value="de">German</option>
+            </select>
+        </div>
+        <div class="text">
+            <h3>Hot Beans</h3>
+            <h3>© 2024 Hot Beans</h3>
+        </div>
+        <div class="smholder">
+            <div class="sm">
+                <a href="https://www.facebook.com/">
+                    <i class="fa fa-facebook"></i>
+                </a>
+            </div>
+            <div class="sm">
+                <a href="https://www.instagram.com/">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </div>
+            <div class="sm">
+                <a href="https://www.twitter.com/">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+<script src="{{ url_for('static', filename='/ICTStatic/scripts/carousel.js') }}"></script>
+<script src="{{ url_for('static', filename='/ICTStatic/scripts/jobinfo.js') }}"></script>
+<script src="{{ url_for('static', filename='/ICTStatic/scripts/jobapply.js') }}"></script>

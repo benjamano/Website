@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <script src="https://kit.fontawesome.com/9d35a24d36.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="/static/images/SmallLogo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Ben Mercer, Full Stack Web Developer, Web Developer, Web Design, Web, Design, Developer, Full Stack, Full, Stack, Ben, Mercer, Ben Mercer Designs, Ben Mercer Web Design, Ben Mercer Web Developer, Ben Mercer Full Stack Web Developer, Ben Mercer Full Stack Web Design, Ben Mercer Full Stack Developer, Ben Mercer Web, Ben Mercer Web Dev, Ben Mercer Web Development, Ben Mercer Web Design, Ben Mercer Web Designer, Ben Mercer Web Developer, Ben Mercer Web Development, Free, Free Web Design, Free Web Development">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+</head>
+<style>
+</style>
+<body>
+    <div class="topbar">
+        <ul>
+            <a href="https://benmercer.pythonanywhere.com/partyhome"><li>Home</li></a>
+            <a href="https://benmercer.pythonanywhere.com/new"><li>Add new Party</li></a>
+            <a href="https://benmercer.pythonanywhere.com/modify"><li>Modify a party</li></a>
+            <a href="https://benmercer.pythonanywhere.com/rooms"><li>ROOM TVs</li></a>
+            <a href="https://benmercer.pythonanywhere.com/logout"><li>Logout</li></a> 
+            <!--
+            <a href="https://benmercer.pythonanywhere.com/room1"><li>Room 1 TV</li></a>
+            <a href="https://benmercer.pythonanywhere.com/room2"><li>Room 2 TV</li></a>
+            <a href="https://benmercer.pythonanywhere.com/lasertag"><li>Laser Tag TV</li></a>
+            <a href="https://benmercer.pythonanywhere.com/kitchen"><li>Kitchen TV</li></a> -->
+        </ul>
+    </div>
+    <div class="sidebar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/FullLogo.png') }}" alt="My Logo - A BM with a small 'Designs' text">
+        </div>
+        <ul>
+            <a href="https://benmercer.pythonanywhere.com/partyhome"><li>Home</li></a>
+            <a href="https://benmercer.pythonanywhere.com/newdate"><li>Add new Party</li></a>
+            <a href="https://benmercer.pythonanywhere.com/modify"><li>Modify a party</li></a>
+            <a href="https://benmercer.pythonanywhere.com/rooms"><li>ROOM TVs</li></a>
+            <a href="https://benmercer.pythonanywhere.com/logout"><li>Logout</li></a>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="text">
+            <div class="container">
+                <h1>Party Booking System</h1>
+                {% if time < 12 %}
+                    <h3>Good morning, what would you like to do?</h3>
+                {% else %}
+                    <h3>Good evening, what would you like to do?</h3>
+                {% endif %}
+            </div>
+    
+        <div class="button-container">
+                    
+            <a href="https://benmercer.pythonanywhere.com/newdate">
+            <div class="fancybutton" href="https://benmercer.pythonanywhere.com/new">
+                <i class="fa-solid fa-plus" style="font-size:6rem; margin-bottom: 2vw; text-decoration: none; color: white"></i>
+                <br>
+                <span><h2>New Party</h2></span>
+            </div>
+            </a>
+
+            <a href="https://benmercer.pythonanywhere.com/modify">
+            <div class="fancybutton" href="https://benmercer.pythonanywhere.com/modify">
+                    <i class="fa-solid fa-pen-to-square" style="font-size:6rem; margin-bottom: 2vw; text-decoration: none; color: white"></i>
+                    <br>
+                    <span><h2>Edit Party Booking</h2></span>
+            </div>
+            </a>
+
+            <a href="https://benmercer.pythonanywhere.com/projects">
+            <div class="fancybutton" href="https://benmercer.pythonanywhere.com/rooms">
+                    <i class="fa-solid fa-tv" style="font-size:6rem; margin-bottom: 2vw; text-decoration: none; color: white"></i>
+                    <br>
+                    <span><h2>ALWAYS ON TV SCREEN</h2></span>
+            </div>
+            </a>
+        </div>
+</div>
+
+</body>
+
+</html>

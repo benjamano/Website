@@ -8,7 +8,6 @@ function fetchfaultDataFromServer() {
             }
         })
         .then(data => {
-            faultData = data;
             handleFetchedData(data, mode="fault");
         })
         .catch(error => {
@@ -47,7 +46,6 @@ function fetchlctDataFromServer() {
             }
         })
         .then(data => {
-            lctData = data;
             handleFetchedData(data, mode="lct");
         })
         .catch(error => {
@@ -70,6 +68,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
     });
 
-    window.fetchfaultDataFromServer = fetchfaultDataFromServer;
-    window.fetchlctDataFromServer = fetchlctDataFromServer;
 });

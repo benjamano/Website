@@ -204,97 +204,23 @@
         </div>
     </section>
     <footer class="footer">
-        <h1>Benjamin Mercer</h1>
-        <h2>Email: <a href=mailto:"benmercer76@btinternet.com">benmercer76@btinternet.com</a></h2>
+        <div class="content" style="z-index: 9999; margin-left:0;">
+            <h1>Benjamin Mercer</h1>
+            <h2>Email: <a style="overflow:hidden;" href="mailto:benmercer76@btinternet.com">benmercer76@btinternet.com</a></h2>
+            <button id="fetchFaultButton" href="https://benmercer.pythonanywhere.com/getfaultdata">Refresh</button>
+            <button id="fetchLctButton" href="https://benmercer.pythonanywhere.com/getlctdata">Refresh</button>
+            <label for="styleSwitch">Switch Styles:</label>
+            <label class="switch">
+                <input type="checkbox" id="styleSwitch">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <canvas id="turbineCanvas" style="z-index: 2"></canvas>  
     </footer>
     </div>
 </body>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const sliders = document.querySelectorAll(".custom-image-slider");
-  
-        sliders.forEach((slider) => {
-          const afterImage = slider.querySelector(".slider-after");
-          const handle = slider.querySelector(".slider-handle");
-  
-          // Set initial handle position and clipPath
-          const initialPercentage = 50;
-          handle.style.left = `${initialPercentage}%`;
-          afterImage.style.clipPath = `inset(0 ${100 - initialPercentage}% 0 0)`;
-  
-          let dragging = false;
-          let lastX = 0;
-  
-          // Add mouse event listeners
-          handle.addEventListener("mousedown", (e) => {
-            dragging = true;
-            lastX = e.clientX;
-            e.preventDefault();
-          });
-  
-          document.addEventListener("mouseup", () => {
-            dragging = false;
-          });
-  
-          document.addEventListener("mouseleave", () => {
-            dragging = false;
-          });
-  
-          document.addEventListener("mousemove", (e) => {
-            if (!dragging) return;
-  
-            const rect = slider.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            let widthPercentage = (x / rect.width) * 100;
-  
-            // Add constraint to keep the handle within 1% of either edge
-            widthPercentage = Math.max(0, Math.min(widthPercentage, 100));
-  
-            // Update handle position using requestAnimationFrame
-            window.requestAnimationFrame(() => {
-              handle.style.left = `${widthPercentage}%`;
-              afterImage.style.clipPath = `inset(0 ${100 - widthPercentage}% 0 0)`;
-            });
-  
-            lastX = x;
-          });
-  
-          // Add touch event listeners
-          handle.addEventListener("touchstart", (e) => {
-            dragging = true;
-            lastX = e.touches[0].clientX;
-            e.preventDefault();
-          });
-  
-          document.addEventListener("touchend", () => {
-            dragging = false;
-          });
-  
-          slider.addEventListener("touchcancel", () => {
-            dragging = false;
-          });
-  
-          slider.addEventListener("touchmove", (e) => {
-            if (!dragging) return;
-  
-            const rect = slider.getBoundingClientRect();
-            const x = e.touches[0].clientX - rect.left;
-            let widthPercentage = (x / rect.width) * 100;
-  
-            // Add constraint to keep the handle within 1% of either edge
-            widthPercentage = Math.max(0, Math.min(widthPercentage, 100));
-  
-            // Update handle position using requestAnimationFrame
-            window.requestAnimationFrame(() => {
-              handle.style.left = `${widthPercentage}%`;
-              afterImage.style.clipPath = `inset(0 ${100 - widthPercentage}% 0 0)`;
-            });
-  
-            lastX = x;
-          });
-        });
-      });
-  </script>
+<script src="{{ url_for('static', filename='/Scripts/turbines.js') }}"></script>
+<script src="{{ url_for('static', filename='/Scripts/imagesliders.js') }}"></script>
 </body>
 </html>

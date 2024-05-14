@@ -9,8 +9,8 @@ let paddleHeight = 40;
 let paddleWidth = 7;
 let paddle1Y = (canvas.height - paddleHeight) / 2;
 let paddle2Y = (canvas.height - paddleHeight) / 2;
-let paddle1aiSpeed = Math.random() * (10 - (-10)) + (-10);
-let paddle2aiSpeed = Math.random() * (10 - (-10)) + (-10);
+let paddle1aiSpeed = Math.random() * 20 - 10;
+let paddle2aiSpeed = Math.random() * 20 - 10;
 let footer = document.getElementById('footer');
 
 // Function to set canvas size based on viewport dimensions

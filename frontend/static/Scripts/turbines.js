@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     for (const record of lctdata) {
         if (record.type == "windturbine") {
             rotationSpeed += (record.ExportRating * 0.001);
+        }
     }
 
     draw();

@@ -1,2 +1,2 @@
 var faultData = "";
-var lctData = null;
+var lctData = "";

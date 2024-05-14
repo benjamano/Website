@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let footer = document.getElementById('footer');
 
     function resizeCanvas() {
-        canvas.width = footer.clientWidth / 50;
+        canvas.width = footer.clientWidth * 0.5;
         canvas.height = footer.clientHeight;
     }
 
@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
             .then(data => {
-                lctData = data;
                 console.log('Fetched lct data:', lctData);
+                return data;
             })
             .catch(error => {
                 console.error('Error fetching fault data:', error);
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     let angle = 0;
-    const rotationSpeed = 0.02; // Adjust to change the speed of rotation
+    let rotationSpeed = 0.001;
 
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -67,6 +67,13 @@ document.addEventListener('DOMContentLoaded', () => {
         drawTurbineBlades(angle);
         angle += rotationSpeed;
         requestAnimationFrame(draw);
+    }
+
+    lctdata = fetchLCTData();
+
+    for (const record of lctdata) {
+        if (record.type == "windturbine") {
+            rotationSpeed += (record.ExportRating * 0.001);
     }
 
     draw();

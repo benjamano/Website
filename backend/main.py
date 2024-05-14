@@ -69,10 +69,10 @@ def fetchApiData(mode):
                 "Authorization": f"Apikey {apikey}" }
     
     if mode == "faults":
-        url += "ukpn-live-faults/records"
+        url += f"ukpn-live-faults/records"
     
     elif mode == "lct":
-        url += "low-carbon-technologies/records"
+        url += f"low-carbon-technologies/records?where=type%20%3D%20%22Wind%22&limit=100"
         
     with requests.get(url, headers=headers) as response:
         if response.status_code == 200:

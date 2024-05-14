@@ -8,8 +8,14 @@ app = Flask(__name__, template_folder='../frontend/templates', static_folder='..
 
 app.secret_key = "rfwef65657eo234w223fh33HI2UhuhgR7YG"
 
-sql = sqlite3.connect("/home/BenMercer/backend/Parties.db", check_same_thread=False)
-q = sql.cursor()
+try:
+
+    sql = sqlite3.connect("/home/BenMercer/backend/Parties.db", check_same_thread=False)
+    
+    q = sql.cursor()
+
+except Exception as error:
+    app.logger.info(f"Error while connecting to database: {error}")
 
 def onStart():
     try:

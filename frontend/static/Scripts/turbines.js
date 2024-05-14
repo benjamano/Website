@@ -1,2 +1,2 @@
-console.log("Hello from turbines.js",lctdata)
-console.log(faultdata)
+console.log("Hello from turbines.js", lctData);
+console.log(faultdata);

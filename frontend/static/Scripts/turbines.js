@@ -89,7 +89,7 @@ function fetchLCTData() {
             }
         })
         .then(data => {
-            console.log('Fetched lct data:', data);
+            //console.log('Fetched lct data:', data);
             return data;
         })
         .catch(error => {

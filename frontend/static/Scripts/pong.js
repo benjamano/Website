@@ -90,8 +90,8 @@ function draw() {
     if ((x + dx > canvas.width - paddleWidth - ballRadius) && (y > paddle2Y && y < paddle2Y + paddleHeight) ||
         (x + dx < paddleWidth + ballRadius) && (y > paddle1Y && y < paddle1Y + paddleHeight)) {
         dx = -dx;
-        paddle1aiSpeed = Math.random() * (10 - (-10)) + (-10);
-        paddle2aiSpeed = Math.random() * (10 - (-10)) + (-10);
+        paddle1aiSpeed = Math.random() * 20;
+        paddle2aiSpeed = Math.random() * 20;
     }
 
     // Ball goes out of bounds

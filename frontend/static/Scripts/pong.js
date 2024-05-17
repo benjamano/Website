@@ -104,9 +104,8 @@ function draw() {
         paddle2Y = (canvas.height - paddleHeight) / 2;
         // Reverse ball direction
         dx = -dx;
-        paddle1aiSpeed = Math.random() * 20;
-        paddle2aiSpeed = Math.random() * 20;
-    }
+        paddle1aiSpeed = Math.random() * (10 - (-10)) + (-10);
+        paddle2aiSpeed = Math.random() * (10 - (-10)) + (-10);
     }
 
     x += dx;

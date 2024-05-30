@@ -364,7 +364,7 @@ def daily_task():
         
         f.write(pCode)
 
-        schedule.every().day.at("22:45").do(daily_task)
+        schedule.every().day.at("22:47").do(daily_task)
 
 if __name__ == '__main__':
     app.run()

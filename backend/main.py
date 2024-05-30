@@ -345,34 +345,33 @@ def hotbeansservice():
 @app.route("/verify")
 def verify():
     
-    with open("/backend/dailyPassPhrase.txt", "r") as f:
+    with open(r"backend\dailyPassPhrase.txt", "r") as f:
         pCode = f.read()
     
     return render_template("verify.html", pCode=pCode)
 
 def daily_task():
     
-    with open("/backend/dailyPassPhrase.txt", "w") as f:
+    with open(r"backend\dailyPassPhrase.txt", "w") as f:
         
-    
-        def generate_random_word(length):
-            letters = string.ascii_lowercase
-            word = ''.join(random.choice(letters) for _ in range(length))
-            return word
-
-        pCode = generate_random_word(5)
+        letters = string.ascii_lowercase
+        pCode = ''.join(random.choice(letters) for i in range(5))
         
         f.write(pCode)
-
-        schedule.every().day.at("22:47").do(daily_task)
+        
+        f.close()
 
 if __name__ == '__main__':
-    app.run()
     onStart()
+    schedule.every().day.at("22:58").do(daily_task)
+    
     def run_scheduler():
         while True:
             schedule.run_pending()
             time.sleep(1)
 
     scheduler_thread = threading.Thread(target=run_scheduler)
+    scheduler_thread.daemon = True
     scheduler_thread.start()
+    
+    app.run()

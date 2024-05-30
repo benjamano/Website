@@ -1,8 +1,13 @@
 import datetime, sqlite3, requests, uuid
+import threading
 
 from flask import Flask, render_template, redirect, request, url_for, session, flash, jsonify
 
 from odsclient import get_whole_dataset
+import random
+import string
+import schedule
+import time
 
 app = Flask(__name__, template_folder='../frontend/templates', static_folder='../frontend/static')
 
@@ -335,7 +340,39 @@ def hotbeansservice():
     
     return render_template("/ICTWebsite/ICTService.html")    
 
+# ------------------------------------------------- TESTING    ------------------------------------------------- #
+
+@app.route("/verify")
+def verify():
+    
+    with open("/backend/dailyPassPhrase.txt", "r") as f:
+        pCode = f.read()
+    
+    return render_template("verify.html", pCode=pCode)
+
+def daily_task():
+    
+    with open("/backend/dailyPassPhrase.txt", "w") as f:
+        
+    
+        def generate_random_word(length):
+            letters = string.ascii_lowercase
+            word = ''.join(random.choice(letters) for _ in range(length))
+            return word
+
+        pCode = generate_random_word(5)
+        
+        f.write(pCode)
+
+        schedule.every().day.at("22:45").do(daily_task)
 
 if __name__ == '__main__':
     app.run()
     onStart()
+    def run_scheduler():
+        while True:
+            schedule.run_pending()
+            time.sleep(1)
+
+    scheduler_thread = threading.Thread(target=run_scheduler)
+    scheduler_thread.start()

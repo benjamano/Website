@@ -1,1 +1,25 @@
+
+
 <h1>{{pCode}}</h1>
+
+<h2></h2>
+
+<input type="text" id="code" placeholder="Enter code">
+<button onclick="verify()">Verify</button>
+
+<script>
+    function verify() {
+        var code = document.getElementById("code").value;
+        fetch("/verifycode=" + code, {
+            method: "GET"
+        }).then(res => res.json()).then(data => {
+            if (data.result === 'yes') {
+                document.querySelector("h2").textContent = "Success";
+                alert("Verified");
+            } else {
+                document.querySelector("h2").textContent = "Invalid code";
+                alert("Invalid code");
+            }
+        });
+    }
+</script>

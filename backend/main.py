@@ -350,6 +350,19 @@ def verify():
     
     return render_template("verify.html", pCode=pCode)
 
+@app.route('/verifycode=<code>', methods=['GET'])
+def verify_code(code):
+    if not code:
+        return jsonify({'error': 'Passphrase not provided'}), 400
+    
+    with open(r"backend\dailyPassPhrase.txt", "r") as f:
+        passphrase = f.read()
+    
+        if code == passphrase:
+            return jsonify({'result': 'yes'})
+        else:
+            return jsonify({'result': 'no'})
+
 def daily_task():
     
     with open(r"backend\dailyPassPhrase.txt", "w") as f:

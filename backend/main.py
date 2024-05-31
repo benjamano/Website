@@ -345,7 +345,7 @@ def hotbeansservice():
 @app.route("/verify")
 def verify():
     
-    with open(r"backend\dailyPassPhrase.txt", "r") as f:
+    with open("backend\dailyPassPhrase.txt", "r") as f:
         pCode = f.read()
     
     return render_template("verify.html", pCode=pCode)
@@ -355,7 +355,7 @@ def verify_code(code):
     if not code:
         return jsonify({'error': 'Passphrase not provided'}), 400
     
-    with open(r"backend\dailyPassPhrase.txt", "r") as f:
+    with open("backend\dailyPassPhrase.txt", "r") as f:
         passphrase = f.read()
     
         if code == passphrase:
@@ -365,7 +365,7 @@ def verify_code(code):
 
 def daily_task():
     
-    with open(r"backend\dailyPassPhrase.txt", "w") as f:
+    with open("backend\dailyPassPhrase.txt", "w") as f:
         
         letters = string.ascii_lowercase
         pCode = ''.join(random.choice(letters) for i in range(5))

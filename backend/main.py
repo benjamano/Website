@@ -3,15 +3,23 @@ import threading
 
 from flask import Flask, render_template, redirect, request, url_for, session, flash, jsonify
 
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
+
 from odsclient import get_whole_dataset
 import random
 import string
 import schedule
 import time
+from urllib.parse import parse_qs
 
 app = Flask(__name__, template_folder='../frontend/templates', static_folder='../frontend/static')
 
 app.secret_key = "rfwef65657eo234w223fh33HI2UhuhgR7YG"
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///lme.db'
+db = SQLAlchemy(app)
 
 try:
 
@@ -340,6 +348,111 @@ def hotbeansservice():
     
     return render_template("/ICTWebsite/ICTService.html")    
 
+
+# -------------------------------------------------  Life Maker-Easier  ------------------------------------------------- #
+
+@app.route("/lme")
+def lme():
+    if 'loggedIntoLME' not in session or session['loggedIntoLME'] == False:
+        return redirect(url_for('lme_login'))
+
+    return render_template("/lifemakereasier/index.html")
+
+@app.route("/lme/login", methods = ['GET', 'POST'])
+def lme_login():
+    if 'loggedIntoLME' in session and session['loggedIntoLME'] == True:
+        return redirect(url_for('lme'))
+    
+    
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        
+        if username.title() == 'Ben' and password == 'B3n1sCool':
+            session['loggedIntoLME'] = True
+            return redirect(url_for('lme'))
+        
+        else:
+            flash('Invalid username or password')
+    
+    return render_template("/lifemakereasier/login.html")
+
+@app.route("/lme/money")
+def lme_money():
+    if 'loggedIntoLME' not in session or session['loggedIntoLME'] == False:
+        return redirect(url_for('lme_login'))
+    
+    return render_template("/lifemakereasier/money.html")
+
+@app.route("/lme/settings")
+def lme_settings():
+    if 'loggedIntoLME' not in session or session['loggedIntoLME'] == False:
+        return redirect(url_for('lme_login'))
+    
+    return render_template("/lifemakereasier/settings.html")
+
+# ------------------------------------------------- API ---------------------------------------------------------#
+
+@app.route("/api/logShift", methods = ['POST', 'GET'])
+def logShift():
+    raw_data = request.data.decode('utf-8')
+    parsed_data = parse_qs(raw_data)
+    
+    date = parsed_data.get('date', [None])[0]
+    startTime = parsed_data.get('startTime', [None])[0]
+    endTime = parsed_data.get('endTime', [None])[0]
+    breakTime = parsed_data.get('breakTime', [None])[0]
+    
+    if not date or not startTime or not endTime or not breakTime:
+        return jsonify({'error': 'Missing parameters'}), 400
+    
+    existingShift = Shifts.query.filter(Shifts.date == date).all()
+    
+    if len(existingShift) > 0:
+
+        return jsonify({'error': 'Shift already exists'}), 400
+    
+    shift = Shifts(date=date, startTime=startTime, endTime=endTime, breakTime=breakTime)
+    
+    db.session.add(shift)
+    
+    db.session.commit()
+    
+    return jsonify({'result': 'yes'})
+
+@app.route("/api/getShifts", methods = ['GET'])
+def getShifts():
+        
+        shifts = Shifts.query.all()
+        
+        shiftList = []
+        
+        for shift in shifts:
+            shiftList.append({'date': shift.date, 'startTime': shift.startTime, 'endTime': shift.endTime, 'breakTime': shift.breakTime})
+        
+        return jsonify(shiftList)
+    
+@app.route("/api/logExpense", methods = ['POST'])
+def logExpense():
+    raw_data = request.data.decode('utf-8')
+    parsed_data = parse_qs(raw_data)
+    
+    reason = parsed_data.get('reason', [None])[0]
+    date = parsed_data.get('date', [None])[0]
+    amount = parsed_data.get('amount', [None])[0]
+    description = parsed_data.get('description', [None])[0]
+    
+    if not date or not amount or not description:
+        return jsonify({'error': 'Missing parameters'}), 400
+    
+    newExpense = Expenses(reason=reason, date=date, amount=amount, description=description)
+    
+    db.session.add(newExpense)
+    
+    db.session.commit()
+    
+    return jsonify({'result': 'yes'})
+
 # ------------------------------------------------- TESTING    ------------------------------------------------- #
 
 @app.route("/verify")
@@ -373,6 +486,47 @@ def daily_task():
         f.write(pCode)
         
         f.close()
+        
+#------------------------- | SQL Alchemy CLASSES |--------------------------#
+
+
+
+
+class Shifts(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.String(10), nullable=False)
+    startTime = db.Column(db.String(5), nullable=False)
+    endTime = db.Column(db.String(5), nullable=False)
+    breakTime = db.Column(db.String(5), nullable=False)
+    isActive = db.Column(db.Boolean, default=True)
+
+
+
+class Jobs(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.Text, nullable=True)
+    location = db.Column(db.String(100), nullable=True)
+    salary = db.Column(db.String(20), nullable=True)
+    hourlyRate = db.Column(db.String(20), nullable=False)
+    isActive = db.Column(db.Boolean, default=True)
+
+
+
+class Expenses(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    reason = db.Column(db.String(100), nullable=False)
+    date = db.Column(db.String(10), nullable=False)
+    amount = db.Column(db.String(20), nullable=False)
+    description = db.Column(db.Text, nullable=True)
+    isActive = db.Column(db.Boolean, default=True)
+
+
+
+#End of SQL Alchemy Classes
+
+
+
 
 if __name__ == '__main__':
     onStart()
@@ -387,4 +541,8 @@ if __name__ == '__main__':
     scheduler_thread.daemon = True
     scheduler_thread.start()
     
+    with app.app_context():
+        db.create_all()
+    
     app.run()
+    

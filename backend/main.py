@@ -377,6 +377,11 @@ def lme_login():
     
     return render_template("/lifemakereasier/login.html")
 
+@app.route("/lme/logout")
+def lme_logout():
+    session['loggedIntoLME'] = False
+    return redirect(url_for('lme_login'))
+
 @app.route("/lme/money")
 def lme_money():
     if 'loggedIntoLME' not in session or session['loggedIntoLME'] == False:
@@ -511,6 +516,14 @@ class Jobs(db.Model):
     hourlyRate = db.Column(db.String(20), nullable=False)
     isActive = db.Column(db.Boolean, default=True)
 
+
+class PassedHourlyRates(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    hourlyRate = db.Column(db.String(20), nullable=False)
+    date = db.Column(db.String(10), nullable=False)
+    isActive = db.Column(db.Boolean, default=True)
+    jobId = db.Column(db.Integer, db.ForeignKey('jobs.id'))
+    job = db.relationship('Jobs', backref='passedHourlyRate')
 
 
 class Expenses(db.Model):

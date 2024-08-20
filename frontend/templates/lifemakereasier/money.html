@@ -1,0 +1,253 @@
+{% extends "/lifemakereasier/base.html" %}
+
+{% block title %}Money Utlities{% endblock %}
+
+{% block header %}Money Utlities{% endblock %}
+
+{% block content %}
+
+<div class="card mt-3 ms-2 me-2">
+
+    <div class="card-header">Add a Shift</div>
+
+    <div class="card-body">
+
+        <div class="row">
+
+            <div class="form-group col-3">
+
+                <label for="date">Date</label>
+                <input type="date" class="form-control" id="Shiftdate" name="date">
+
+            </div>
+
+            <div class="form-group col-3">
+
+                <label for="startTime">Start Time</label>
+                <input type="time" class="form-control" id="startTime" name="startTime" value="08:30">
+            </div>
+
+            <div class="form-group col-3">
+
+                <label for="endTime">End Time</label>
+                <input type="time" class="form-control" id="endTime" name="endTime" value="16:30" onchange="calculateHours()">
+
+            </div>
+
+            <div class="form-group col-3">
+
+                <label for="breakTime">Unpaid Break Time</label>
+                <input type="time" class="form-control" id="breakTime" name="breakTime" value="00:37">
+
+            </div>
+
+        </div>
+
+        <div class="row m-1 mt-4">
+
+            <button type="submit" class="btn btn-primary col-1" onclick="AddNewShift()">Submit</button>
+
+            <div class="form-group col-2">
+
+                <input type="text" class="form-control" id="totalHours" name="totalHours" readonly placeholder="Total Hours">
+            
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card mt-3 ms-2 me-2">
+
+    <div class="card-header">Shifts</div>
+
+    <div class="card-body">
+
+        <div id="collapseShiftTable">
+
+            <table class="table table-striped table-hover" id="ShiftList">
+
+                <thead>
+                    <tr>
+
+                        <th>Date</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Break Time</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="card mt-3 ms-2 me-2">
+
+    <div class="card-header">Add an Expense</div>
+
+    <div class="card-body">
+
+        <div class="row">
+
+            <div class="form-group col-2">
+
+                <label for="date">Date</label>
+                <input type="date" class="form-control" id="expenseDate" name="date">
+
+            </div>
+
+            <div class="form-group col-1">
+
+                <label for="amount">Amount</label>
+                <input type="number" class="form-control" id="expenseAmount" name="amount" step="0.01" min="0.00" value="0.00">
+
+            </div>
+            
+            <div class="form-group col-4">
+
+                <label for="description">Description</label>
+                <input type="text" class="form-control" id="expenseDescription" name="description">
+
+            </div>
+
+            <div class="form-group col-3">
+
+                <label for="Reason">Reason</label>
+                <input type="text" class="form-control" id="expenseReason" name="description">
+            
+            </div> 
+
+        </div>
+
+        <button type="submit" class="btn btn-primary col-1 m-1 mt-4" onclick="AddNewExpense()">Submit</button>
+    
+    </div>
+
+</div> 
+    
+<script>
+
+    document.addEventListener("DOMContentLoaded", function() {
+        $("#Shiftdate").val(new Date().toISOString().split('T')[0]);
+        $("#expenseDate").val(new Date().toISOString().split('T')[0]);
+
+        calculateHours();
+    });
+
+    var ShiftList = $('#ShiftList').DataTable({
+        //pageLength: 10,
+        //dom: 'Bfrtip',
+        ajax: {
+            type: "GET",
+            url: "../api/getShifts",
+            dataSrc: "",
+            data:{}
+        },
+        columns: [
+            {
+                data: 'date',
+                render: RenderAsDate,
+            },
+            {
+                data: 'startTime',
+                render: RenderValue,
+    
+            },
+            {
+                data: 'endTime',
+                render: RenderValue,
+    
+            },
+            {
+                data: 'breakTime',
+                render: RenderValue,
+    
+            },
+        ],
+        order: [[0, "desc"]],
+        stateSave: true,
+        stateDuration: 0
+    });
+    
+    function calculateHours() {
+        var startTime = $("#startTime").val();
+        var endTime = $("#endTime").val();
+        var breakTime = $("#breakTime").val();
+    
+        var startTimeCalc = new Date("01/01/2007 " + startTime);
+        var endTimeCalc = new Date("01/01/2007 " + endTime);
+    
+        var breakTimeParts = breakTime.split(':');
+        var breakTimeCalc = (parseInt(breakTimeParts[0]) * 60 + parseInt(breakTimeParts[1])) * 60 * 1000;
+    
+        var diff = endTimeCalc.getTime() - startTimeCalc.getTime() - breakTimeCalc;
+        var hours = Math.floor(diff / (1000 * 60 * 60));
+        var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+        $("#totalHours").val(hours + ":" + (minutes < 10 ? '0' : '') + minutes +' hours');
+    };
+
+    function AddNewShift() {
+        var date = $("#Shiftdate").val();
+        var startTime = $("#startTime").val();
+        var endTime = $("#endTime").val();
+        var breakTime = $("#breakTime").val();
+        var totalHours = $("#totalHours").val();
+    
+        $.ajax({
+            type: "POST",
+            url: "../api/logShift",
+            contentType: "application/json",
+            data: {
+                date: date,
+                startTime: startTime,
+                endTime: endTime,
+                breakTime: breakTime,
+            },
+            success: function(data) {
+                alert("Shift added successfully");
+                ShiftList.ajax.reload();
+            },
+            error: function(xhr, status, error) {
+                alert("Error adding shift: " + xhr.responseText);
+            }
+        });
+    };
+
+    function AddNewExpense(){
+        var date = $("#expenseDate").val();
+        var amount = $("#expenseAmount").val();
+        var description = $("#expenseDescription").val();
+        var reason = $("#expenseReason").val();
+
+        $.ajax({
+            type: "POST",
+            url: "../api/logExpense",
+            contentType: "application/json",
+            data: {
+                date: date,
+                amount: amount,
+                description: description,
+                reason: reason,
+            },
+            success: function(data) {
+                alert("Expense added successfully");
+            },
+            error: function(xhr, status, error) {
+                alert("Error adding expense: " + xhr.responseText);
+            }
+        });
+    }
+
+</script>
+
+{% endblock %}

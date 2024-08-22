@@ -463,12 +463,10 @@ def logExpense():
 
 @app.route("/api/createNewLink", methods = ['GET', 'POST'])
 def createNewLink():
-    raw_data = request.data.decode('utf-8')
-    parsed_data = parse_qs(raw_data)
     
-    app.logger.info(parsed_data)
+    URLName = request.json(force=True)
+    app.logger.info(URLName)
 
-    URLName = parsed_data.get('linkName', [None])[0]
     
     if URLName:
         new_link = f"https://benmercer.pythonanywhere.com/redirect{URLName}"

@@ -461,7 +461,7 @@ def logExpense():
 
     return jsonify({'result': 'yes'})
 
-@app.route("/api/createNewLink", methods = ['GET'])
+@app.route("/api/createNewLink", methods = ['GET', 'POST'])
 def createNewLink():
     raw_data = request.data.decode('utf-8')
     parsed_data = parse_qs(raw_data)

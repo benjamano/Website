@@ -500,7 +500,7 @@ def getLinks():
 
     return jsonify(linkList)
     
-@app.route("/redirect<URLName>", methods=['GET'])
+@app.route("/redirect=<URLName>", methods=['GET'])
 def redirectURL(URLName):
     if URLName:
         try:

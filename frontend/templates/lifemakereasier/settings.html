@@ -25,7 +25,7 @@
 
         <div class="row">
 
-            <div class="form-group col-3">
+            <div class="form-group col-5">
 
                 <label for="LinkURL">Link URL</label>
                 <input type="text" class="form-control" id="LinkURL" name="LinkURL" readonly>
@@ -39,18 +39,22 @@
 
             </div>
 
+        </div>
+
+        <div class="row p-2">
+
             <div class="form-group col-2">
 
                 <button type="submit" class="btn btn-warning" onclick="generateLink()">Generate New Link</button>
 
             </div>
 
-        </div>
+            <div class="form-group col-2">
 
-        <div class="form-group col-2">
+                <button type="submit" class="btn btn-success" onclick="addNewURL()">Save</button>
 
-            <button type="submit" class="btn btn-success" onclick="addNewURL()">Save</button>
-
+            </div>
+        
         </div>
 
         <div id="LinkTable">
@@ -82,20 +86,23 @@
 <script>
 
     function addNewURL() {
-        LinkList.ajax.reload();
+    linkURL = $("#LinkURL")
+    description = $("#LinkDescription")
 
         $.ajax({
             type: "Post",
         url: "../api/addNewURL",
             contentType: "application/json",
             data: {
-                linkName: linkName
+                linkURL: linkURL,
+                description: description
             },
             success: function (data) {
-                $("#LinkURL").val(date)
+                alert("Done");
+                LinkList.ajax.reload();
             },
             error: function (xhr, status, error) {
-                alert("Error adding shift: " + xhr.responseText);
+                alert("Error adding URL: " + xhr.responseText);
             }
         });
 
@@ -115,7 +122,7 @@
             $("#LinkURL").val(data.newLink)
             },
             error: function (xhr, status, error) {
-                alert("Error adding shift: " + xhr.responseText);
+                alert("Error generating URL: " + xhr.responseText);
             }
         });
     }

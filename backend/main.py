@@ -475,14 +475,11 @@ def createNewLink():
         
     return jsonify({"newLink": newLink})
 
-@app.route("/api/addNewURL")
+@app.route("/api/addNewURL", methods = ['GET', 'POST'])
 def addNewURL():
-    raw_data = request.data.decode('utf-8')
-    parsed_data = parse_qs(raw_data)
 
-    linkURL = parsed_data.get('linkURL', [None])[0]
-    noClicks = 0
-    description = parsed_data.get('description', [None])[0]
+    linkURL = URLName = request.args.get('linkURL')
+    description = URLName = request.args.get('description')
 
     newLink = LinkClicks(linkUrl = linkURL, description=description, noClicks=noClicks)
 
@@ -492,7 +489,7 @@ def addNewURL():
 
     return jsonify({'result': 'yes'})
 
-@app.route("/api/getLinks")
+@app.route("/api/getLinks", methods = ['GET'])
 def getLinks():
     links = LinkClicks.query.all()
 

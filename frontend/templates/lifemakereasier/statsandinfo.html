@@ -1,0 +1,22 @@
+{% extends "/lifemakereasier/base.html" %}
+
+{% block title %}Statistics{% endblock %}
+
+{% block header %}Statistics and Information{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Information</h2>
+            <p>Here is some information about your account:</p>
+            <ul>
+                <li>Username: {{ user.username }}</li>
+                <li>Email: {{ user.email }}</li>
+                <li>Account created: {{ user.date_joined }}</li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

@@ -465,7 +465,7 @@ def logExpense():
 def createNewLink():
     
     URLName = request.args.get('linkName')
-    app.logger.info(URLName)
+    #app.logger.info(URLName)
 
     
     if URLName:
@@ -481,7 +481,7 @@ def addNewURL():
     linkURL = URLName = request.args.get('linkURL')
     description = URLName = request.args.get('description')
 
-    newLink = LinkClicks(linkUrl = linkURL, description=description, noClicks=noClicks)
+    newLink = LinkClicks(linkUrl = linkURL, description=description, noClicks=0)
 
     db.session.add(newLink)
 

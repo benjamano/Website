@@ -86,8 +86,8 @@
 <script>
 
     function addNewURL() {
-    linkURL = $("#LinkURL")
-    description = $("#LinkDescription")
+    linkURL = $("#LinkURL").val()
+    description = $("#LinkDescription").val()
 
         $.ajax({
             type: "Post",

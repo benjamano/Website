@@ -464,7 +464,7 @@ def logExpense():
 @app.route("/api/createNewLink", methods = ['GET', 'POST'])
 def createNewLink():
     
-    URLName = request.json(force=True)
+    URLName = request.args(force=True)
     app.logger.info(URLName)
 
     

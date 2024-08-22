@@ -537,6 +537,13 @@ class Expenses(db.Model):
     isActive = db.Column(db.Boolean, default=True)
 
 
+class LinkClicks(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    linkUrl =  db.Column(db.String(500), nullable=False)
+    noClicks = db.Column(db.Integer, nullable=True)
+    description =  db.Column(db.String(100), nullable=False)
+    isActive = db.Column(db.Boolean, default=True)
+
 
 #End of SQL Alchemy Classes
 

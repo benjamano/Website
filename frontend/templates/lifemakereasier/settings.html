@@ -6,4 +6,166 @@
 
 {% block content %}
 
+<!-- id = db.Column(db.Integer, primary_key=True)
+    linkUrl =  db.Column(db.String(500), nullable=False)
+    noClicks = db.Column(db.Integer, nullable=True)
+    description =  db.Column(db.String(100), nullable=False)
+    isActive = db.Column(db.Boolean, default=True) -->
+
+<div class="card">
+
+    <div class="card-header">Create new Link</div>
+
+    <div class="card-body">
+
+        <div class="row">
+
+            <div class="form-group col-3">
+
+                <label for="LinkDescription">Description</label>
+                <input type="text" class="form-control" id="LinkDescription" name="LinkDescription">
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="form-group col-3">
+
+                <label for="LinkURL">Link URL</label>
+                <input type="text" class="form-control" id="LinkURL" name="LinkURL" readonly>
+
+            </div>
+
+            <div class="form-group col-3">
+
+                <label for="LinkName">Link Name</label>
+                <input type="text" class="form-control" id="LinkName" name="LinkName">
+
+            </div>
+
+            <div class="form-group col-3">
+
+                <button type="submit" class="btn btn-warning col-1" onclick="generateLink()">Generate New Link</button>
+
+            </div>
+
+        </div>
+
+        <div class="form-group col-3">
+
+            <button type="submit" class="btn btn-success col-1" onclick="addNewURL()">Save</button>
+
+        </div>
+
+        <div id="LinkTable">
+
+            <table class="table table-striped table-hover" id="LinkList">
+
+                <thead>
+                    <tr>
+
+                        <th>Id</th>
+                        <th>URL</th>
+                        <th>Number of Clicks</th>
+                        <th>Active</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+    function addNewURL() {
+        LinkList.ajax.reload();
+
+        $.ajax({
+            type: "Post",
+        url: "../api/addNewURL",
+            contentType: "application/json",
+            data: {
+                linkName: linkName
+            },
+            success: function (data) {
+                $("#LinkURL").val(date)
+            },
+            error: function (xhr, status, error) {
+                alert("Error adding shift: " + xhr.responseText);
+            }
+        });
+
+    }
+
+    function generateLink() {
+        linkName = $("#LinkName").val()
+
+        $.ajax({
+            type: "Get",
+            url: "../api/createNewLink",
+            contentType: "application/json",
+            data: {
+                linkName: linkName
+            },
+            success: function (data) {
+            $("#LinkURL").val(date)
+            },
+            error: function (xhr, status, error) {
+                alert("Error adding shift: " + xhr.responseText);
+            }
+        });
+    }
+
+    var LinkList = $('#LinkList').DataTable({
+        //pageLength: 10,
+        //dom: 'Bfrtip',
+        ajax: {
+            type: "GET",
+            url: "../api/getLinks",
+            dataSrc: "",
+            data: {}
+        },
+        columns: [
+            {
+                data: 'id',
+                render: RenderValue,
+            },
+            {
+                data: 'url',
+                render: RenderValue,
+
+            },
+            {
+                data: 'noClicks',
+                render: RenderValue,
+
+            },
+            {
+                data: 'isActive',
+                render: RenderValue,
+
+            },
+            {
+                data: 'description',
+                render: RenderValue,
+
+            },
+        ],
+        order: [[0, "desc"]],
+        stateSave: true,
+        stateDuration: 0
+    });
+
+</script>
+
 {% endblock %}

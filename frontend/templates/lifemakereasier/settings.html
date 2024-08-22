@@ -39,17 +39,17 @@
 
             </div>
 
-            <div class="form-group col-3">
+            <div class="form-group col-2">
 
-                <button type="submit" class="btn btn-warning col-1" onclick="generateLink()">Generate New Link</button>
+                <button type="submit" class="btn btn-warning" onclick="generateLink()">Generate New Link</button>
 
             </div>
 
         </div>
 
-        <div class="form-group col-3">
+        <div class="form-group col-2">
 
-            <button type="submit" class="btn btn-success col-1" onclick="addNewURL()">Save</button>
+            <button type="submit" class="btn btn-success" onclick="addNewURL()">Save</button>
 
         </div>
 
@@ -109,7 +109,7 @@
             url: "../api/createNewLink",
             contentType: "application/json",
             data: {
-                linkName: linkName
+            LinkName: LinkName
             },
             success: function (data) {
             $("#LinkURL").val(date)

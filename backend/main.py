@@ -464,6 +464,8 @@ def logExpense():
 def createNewLink():
     raw_data = request.data.decode('utf-8')
     parsed_data = parse_qs(raw_data)
+    
+    app.logger.info(parsed_data)
 
     URLName = parsed_data.get('linkName', [None])[0]
     

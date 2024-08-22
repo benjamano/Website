@@ -112,7 +112,7 @@
                 linkName: linkName
             },
             success: function (data) {
-                $("#LinkURL").val(date)
+            $("#LinkURL").val(data.newLink)
             },
             error: function (xhr, status, error) {
                 alert("Error adding shift: " + xhr.responseText);

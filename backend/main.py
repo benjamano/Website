@@ -469,11 +469,11 @@ def createNewLink():
 
     
     if URLName:
-        new_link = f"https://benmercer.pythonanywhere.com/redirect{URLName}"
+        newLink = f"https://benmercer.pythonanywhere.com/redirect={URLName}"
     else:
         return jsonify({"error": "linkName parameter is missing"}), 400
         
-    return jsonify({"new_link": new_link})
+    return jsonify({"newLink": newLink})
 
 @app.route("/api/addNewURL")
 def addNewURL():

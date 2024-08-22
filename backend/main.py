@@ -435,7 +435,7 @@ def getShifts():
         shiftList = []
 
         for shift in shifts:
-            shiftList.append({'date': shift.date, 'startTime': shift.startTime, 'endTime': shift.endTime, 'breakTime': shift.breakTime})
+            shiftList.append({'date': shift.date, 'startTime': shift.startTime, 'endTime': shift.endTime, 'breakTime': shift.breakTime, 'description': shift.description})
 
         return jsonify(shiftList)
 
@@ -460,6 +460,66 @@ def logExpense():
 
     return jsonify({'result': 'yes'})
 
+@app.route("/api/createNewLink", methods = ['GET'])
+def createNewLink():
+    raw_data = request.data.decode('utf-8')
+    parsed_data = parse_qs(raw_data)
+
+    URLName = parsed_data.get('linkName', [None])[0]
+    
+    if URLName:
+        new_link = f"https://benmercer.pythonanywhere.com/redirect{URLName}"
+    else:
+        return jsonify({"error": "linkName parameter is missing"}), 400
+        
+    return jsonify({"new_link": new_link})
+
+@app.route("/api/addNewURL")
+def addNewURL():
+    raw_data = request.data.decode('utf-8')
+    parsed_data = parse_qs(raw_data)
+
+    linkURL = parsed_data.get('linkURL', [None])[0]
+    noClicks = 0
+    description = parsed_data.get('description', [None])[0]
+
+    newLink = LinkClicks(linkUrl = linkURL, description=description, noClicks=noClicks)
+
+    db.session.add(newLink)
+
+    db.session.commit()
+
+    return jsonify({'result': 'yes'})
+
+@app.route("/api/getLinks")
+def getLinks():
+    links = LinkClicks.query.all()
+
+    linkList = []
+
+    for link in links:
+        linkList.append({'Id': link.id, 'url': link.linkUrl, 'noClicks': link.noClicks, 'isActive': link.isActive})
+
+    return jsonify(linkList)
+    
+@app.route("/redirect<URLName>", methods=['GET'])
+def redirectURL(URLName):
+    if URLName:
+        try:
+            URLName = f"https://benmercer.pythonanywhere.com/redirect{URLName}"
+        
+            link = LinkClicks.query.filter_by(linkUrl=URLName).first()
+            
+            if len(link) > 1:
+                link.noClicks = (link.noClicks or 0) + 1
+                db.session.commit()
+                
+        except:
+            pass
+
+    
+    return redirect(url_for(home))
+    
 # ------------------------------------------------- TESTING    ------------------------------------------------- #
 
 @app.route("/verify")

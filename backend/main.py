@@ -448,8 +448,8 @@ def deleteShift():
     
     stmt = delete(Shifts).where(Shifts.id == Id)
     
-    session.execute(stmt)
-    session.commit()
+    db.session.execute(stmt)
+    db.session.commit()
     
     return jsonify({"result": "yes"})
 

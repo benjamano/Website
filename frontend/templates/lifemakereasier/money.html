@@ -76,6 +76,7 @@
                         <th>Start Time</th>
                         <th>End Time</th>
                         <th>Break Time</th>
+                        <th>Delete</th>
 
                     </tr>
                 </thead>
@@ -172,11 +173,41 @@
                 render: RenderValue,
     
             },
+            {
+                data: 'id',
+                render: RenderDeleteShift,
+    
+            },
         ],
         order: [[0, "desc"]],
         stateSave: true,
         stateDuration: 0
     });
+
+    function RenderDeleteShift(data){
+        return '<div class="col-2" > <span class="fa fa-lg fa-trash intRed cursor-pointer" title = "Delete Shift" onclick="deleteShift(' + data + ')"> </span></div >
+    }
+
+    function deleteShift(ID) {
+    if (ID == 0 || ID == null) {
+        return
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "../api/deleteShift",
+        dataSrc: "",
+        data: {
+            Id: ID,
+        },
+        success: function (response) {
+            shiftList.ajax.reload();
+
+        }
+
+    });
+
+}
     
     function calculateHours() {
         var startTime = $("#startTime").val();

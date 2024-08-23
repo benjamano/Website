@@ -520,11 +520,11 @@ def getLinks():
 def redirectURL(URLName):
     if URLName:
         try:
-            URLName = f"https://benmercer.pythonanywhere.com/redirect{URLName}"
-        
-            link = LinkClicks.query.filter_by(linkUrl=URLName).first()
+            link = LinkClicks.query.filter(LinkClicks.linkUrl.contains(URLName)).first()
             
-            if len(link) > 1:
+            app.logger.info("Increment click", link)
+            
+            if link:
                 link.noClicks = (link.noClicks or 0) + 1
                 db.session.commit()
                 
@@ -532,7 +532,7 @@ def redirectURL(URLName):
             pass
 
     
-    return redirect(url_for(home))
+    return redirect(url_for('home'))
     
 # ------------------------------------------------- TESTING    ------------------------------------------------- #
 

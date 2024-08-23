@@ -446,9 +446,12 @@ def getShifts():
 def deleteShift():
     Id = request.args.get('id')
     
+    app.logger.info(Id)
+
     stmt = delete(Shifts).where(Shifts.id == Id)
     
     db.session.execute(stmt)
+    
     db.session.commit()
     
     return jsonify({"result": "yes"})

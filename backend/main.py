@@ -519,7 +519,7 @@ def getLinks():
 @app.route("/redirect=<URLName>", methods=['GET'])
 def redirectURL(URLName):
     if URLName:
-        app.logger.unfo(URLName)
+        app.logger.info(URLName)
         
         try:
             link = LinkClicks.query.filter(LinkClicks.linkUrl.contains(URLName)).first()

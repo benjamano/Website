@@ -478,8 +478,8 @@ def createNewLink():
 @app.route("/api/addNewURL", methods = ['GET', 'POST'])
 def addNewURL():
 
-    linkURL = URLName = request.args.get('linkURL')
-    description = URLName = request.args.get('description')
+    linkURL = request.form.get('linkURL')
+    description = request.form.get('description')
 
     newLink = LinkClicks(linkUrl = linkURL, description=description, noClicks=0)
 

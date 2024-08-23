@@ -442,7 +442,7 @@ def getShifts():
 
         return jsonify(shiftList)
 
-@app.route("/api/deleteShift", methods = ['POST'])
+@app.route("/api/deleteShift", methods = ['GET', 'POST'])
 def deleteShift():
     Id = request.args.get('id')
     

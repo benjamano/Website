@@ -525,7 +525,6 @@ def redirectURL(URLName):
             link = LinkClicks.query.filter(LinkClicks.linkUrl.contains(URLName)).first()
             
             if link:
-                app.logger.info("Increment click", link.linkUrl)
                 link.noClicks = (link.noClicks or 0) + 1
                 db.session.commit()
                 

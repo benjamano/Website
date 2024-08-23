@@ -446,7 +446,7 @@ def getShifts():
 def deleteShift():
     Id = request.args.get('id')
     
-    stmt = delete(Shifts).where(Shifts.c.id == Id)
+    stmt = delete(Shifts).where(Shifts.id == Id)
     
     session.execute(stmt)
     session.commit()

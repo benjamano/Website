@@ -447,8 +447,6 @@ def deleteShift():
     Id = request.form.get('id') 
     
     app.logger.info(Id)
-    app.logger.info(request)
-    app.logger.info(request.args)
 
     stmt = delete(Shifts).where(Shifts.id == Id)
     

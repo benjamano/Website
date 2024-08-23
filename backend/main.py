@@ -444,7 +444,7 @@ def getShifts():
 
 @app.route("/api/deleteShift", methods = ['GET', 'POST'])
 def deleteShift():
-    Id = request.args.get('id')
+    Id = request.form.get('id') 
     
     app.logger.info(Id)
     app.logger.info(request)

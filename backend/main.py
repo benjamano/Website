@@ -528,7 +528,8 @@ def redirectURL(URLName):
                 link.noClicks = (link.noClicks or 0) + 1
                 db.session.commit()
                 
-        except:
+        except Exception as e:
+            app.logger.info("Error while incrementing click", e)
             pass
 
     

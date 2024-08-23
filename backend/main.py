@@ -14,6 +14,8 @@ import string
 import schedule
 import time
 from urllib.parse import parse_qs
+from sqlalchemy import delete
+from sqlalchemy.orm import sessionmaker
 
 app = Flask(__name__, template_folder='../frontend/templates', static_folder='../frontend/static')
 
@@ -436,9 +438,23 @@ def getShifts():
         shiftList = []
 
         for shift in shifts:
-            shiftList.append({'date': shift.date, 'startTime': shift.startTime, 'endTime': shift.endTime, 'breakTime': shift.breakTime, 'description': shift.description})
+            shiftList.append({'date': shift.date, 'startTime': shift.startTime, 'endTime': shift.endTime, 'breakTime': shift.breakTime, 'id' : shift.id})
 
         return jsonify(shiftList)
+
+@app.route("/api/deleteShift", methods = ['GET', 'POST'])
+def deleteShift():
+    Id = request.form.get('id') 
+    
+    app.logger.info(Id)
+
+    stmt = delete(Shifts).where(Shifts.id == Id)
+    
+    db.session.execute(stmt)
+    
+    db.session.commit()
+    
+    return jsonify({"result": "yes"})
 
 @app.route("/api/logExpense", methods = ['POST'])
 def logExpense():

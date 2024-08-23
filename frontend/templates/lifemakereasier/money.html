@@ -1,8 +1,8 @@
 {% extends "/lifemakereasier/base.html" %}
 
-{% block title %}Money Utlities{% endblock %}
+{% block title %}Money Utilities{% endblock %}
 
-{% block header %}Money Utlities{% endblock %}
+{% block header %}Money Utilities{% endblock %}
 
 {% block content %}
 
@@ -76,6 +76,7 @@
                         <th>Start Time</th>
                         <th>End Time</th>
                         <th>Break Time</th>
+                        <th>Delete</th>
 
                     </tr>
                 </thead>
@@ -172,11 +173,45 @@
                 render: RenderValue,
     
             },
+            {
+                data: 'id',
+                render: RenderDeleteShift,
+    
+            },
         ],
         order: [[0, "desc"]],
         stateSave: true,
         stateDuration: 0
     });
+
+    function RenderDeleteShift(data){
+        return '<div class="col-2"> \
+            <span class="fa fa-lg fa-trash intRed cursor-pointer" \
+                  title="Delete Shift" \
+                  onclick="deleteShift(' + data + ')"> \
+            </span> \
+        </div>';
+    }
+
+    function deleteShift(ID) {
+    if (ID == 0 || ID == null) {
+        return
+    }
+
+    $.ajax({
+        type: "Post",
+        url: "../api/deleteShift",
+        data: {
+            id: ID,
+        },
+        success: function (response) {
+            ShiftList.ajax.reload();
+
+        }
+
+    });
+
+}
     
     function calculateHours() {
         var startTime = $("#startTime").val();

@@ -446,6 +446,9 @@ def getShifts():
 def deleteShift():
     Id = request.args.get('id')
     
+    for argument in request.args:
+        app.logger.info(argument)
+    
     app.logger.info(Id)
     app.logger.info(request)
     app.logger.info(request.args)

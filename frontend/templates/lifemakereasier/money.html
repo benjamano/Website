@@ -185,7 +185,12 @@
     });
 
     function RenderDeleteShift(data){
-        return '<div class="col-2" > <span class="fa fa-lg fa-trash intRed cursor-pointer" title = "Delete Shift" onclick="deleteShift(' + data + ')"> </span></div >
+        return '<div class="col-2"> \
+            <span class="fa fa-lg fa-trash intRed cursor-pointer" \
+                  title="Delete Shift" \
+                  onclick="deleteShift(' + data + ')"> \
+            </span> \
+        </div>';
     }
 
     function deleteShift(ID) {

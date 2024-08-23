@@ -436,7 +436,7 @@ def getShifts():
         shiftList = []
 
         for shift in shifts:
-            shiftList.append({'date': shift.date, 'startTime': shift.startTime, 'endTime': shift.endTime, 'breakTime': shift.breakTime, 'description': shift.description})
+            shiftList.append({'date': shift.date, 'startTime': shift.startTime, 'endTime': shift.endTime, 'breakTime': shift.breakTime})
 
         return jsonify(shiftList)
 

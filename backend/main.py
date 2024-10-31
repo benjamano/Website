@@ -16,6 +16,9 @@ import time
 from urllib.parse import parse_qs
 from sqlalchemy import delete
 from sqlalchemy.orm import sessionmaker
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 app = Flask(__name__, template_folder='../frontend/templates', static_folder='../frontend/static')
 
@@ -100,7 +103,6 @@ def fetchApiData(mode):
 @app.route("/getfaultdata")
 def faultdataapi():
     try:
-
         response = fetchApiData("faults")
 
         return jsonify(response["results"])
@@ -125,6 +127,64 @@ def energylctapi():
 def home():
 
     return render_template("index.html")
+
+@app.route("/play2day/api/sendLogMessage", methods = ['POST'])
+def sendScoreboardLogMessage():
+    try:
+        type = request.form["type"]
+        message = request.form["messegeContent"]
+        secretKey = request.form["secretKey"]
+
+        with open("backend/secretKey.txt", "r") as f:
+            secretKeyToCheck = f.read()
+
+        if secretKey == secretKeyToCheck:
+            
+            error = sendEmailToBen(type, message)
+            
+            if error:
+                return jsonify({"result": "ERROR: " + str(error)}), 500
+
+            return jsonify({"result": "yes"}), 200
+        else:
+            return jsonify({"result": "unauthorised"}), 401
+    except Exception as error:
+        app.logger.info("Error while sending log message:", error)
+        return jsonify({"result": "ERROR: " + str(error)})
+
+def sendEmailToBen(type, messageContent):
+    try:
+        type = type.title()
+        
+        with open("backend/emailDetails.txt", "r") as f:
+            senderEmail = f.readline()
+            receiverEmail = f.readline()
+            password = f.readline()
+            mode = f.readline().title()
+    
+        message = MIMEMultipart()
+        message["From"] = senderEmail
+        message["To"] = receiverEmail
+        message["Subject"] = f"New Scoreboard {type}"
+
+        body = f"Type: {type}<br>Message: {messageContent}<br>Time Logged: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}<br><hr>This Message was sent in environment: {mode}"
+        
+        message.attach(MIMEText(body, "html"))
+
+        try:
+            server = smtplib.SMTP("smtp.gmail.com", 587)
+            server.starttls()
+            server.login(senderEmail, password)
+            server.sendmail(senderEmail, receiverEmail, message.as_string())
+            server.close()
+            
+        except Exception as e:
+            return e
+        
+        return None
+        
+    except Exception as error:
+        return error
 
 @app.route("/projects")
 def laserTag():
@@ -531,9 +591,12 @@ def redirectURL(URLName):
         except Exception as e:
             app.logger.info("Error while incrementing click", e)
             pass
-
-    
+        
     return redirect(url_for('home'))
+
+@app.route("/api/logMoneyIn", methods = ['POST'])
+def logMoneyIn():
+    pass
     
 # ------------------------------------------------- TESTING    ------------------------------------------------- #
 

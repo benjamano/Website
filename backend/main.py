@@ -132,7 +132,7 @@ def home():
 def sendScoreboardLogMessage():
     try:
         type = request.form["type"]
-        message = request.form["message"]
+        message = request.form["messegeContent"]
         secretKey = request.form["secretKey"]
 
         with open("backend/secretKey.txt", "r") as f:
@@ -140,29 +140,36 @@ def sendScoreboardLogMessage():
 
         if secretKey == secretKeyToCheck:
             
-            sendEmailToBen(type, message)
+            error = sendEmailToBen(type, message)
+            
+            if error:
+                return jsonify({"result": "ERROR: " + str(error)}), 500
 
-            return jsonify({"result": "yes"})
+            return jsonify({"result": "yes"}), 200
         else:
-            return jsonify({"result": "no"})
+            return jsonify({"result": "unauthorised"}), 401
     except Exception as error:
         app.logger.info("Error while sending log message:", error)
-        return jsonify({"result": "no"})
+        return jsonify({"result": "ERROR: " + str(error)})
 
-def sendEmailToBen(type, message):
+def sendEmailToBen(type, messageContent):
     try:
+        type = type.title()
+        
         with open("backend/emailDetails.txt", "r") as f:
-            senderEmail = f.read()
-            receiverEmail = f.read()
-            password = f.read()
+            senderEmail = f.readline()
+            receiverEmail = f.readline()
+            password = f.readline()
+            mode = f.readline().title()
     
         message = MIMEMultipart()
         message["From"] = senderEmail
         message["To"] = receiverEmail
-        message["Subject"] = f"New Log Message: {type}"
+        message["Subject"] = f"New Scoreboard {type}"
 
-        body = f"Type: {type}\nMessage: {message}"
-        message.attach(MIMEText(body, "plain"))
+        body = f"Type: {type}<br>Message: {messageContent}<br>Time Logged: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}<br><hr>This Message was sent in environment: {mode}"
+        
+        message.attach(MIMEText(body, "html"))
 
         try:
             server = smtplib.SMTP("smtp.gmail.com", 587)
@@ -172,10 +179,12 @@ def sendEmailToBen(type, message):
             server.close()
             
         except Exception as e:
-            app.logger.info(f"Error while sending email: {e}")
+            return e
+        
+        return None
         
     except Exception as error:
-        app.logger.info("Error while sending email to Ben:", error)
+        return error
 
 @app.route("/projects")
 def laserTag():

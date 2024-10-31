@@ -16,6 +16,9 @@ import time
 from urllib.parse import parse_qs
 from sqlalchemy import delete
 from sqlalchemy.orm import sessionmaker
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 app = Flask(__name__, template_folder='../frontend/templates', static_folder='../frontend/static')
 
@@ -100,7 +103,6 @@ def fetchApiData(mode):
 @app.route("/getfaultdata")
 def faultdataapi():
     try:
-
         response = fetchApiData("faults")
 
         return jsonify(response["results"])
@@ -125,6 +127,55 @@ def energylctapi():
 def home():
 
     return render_template("index.html")
+
+@app.route("/play2day/api/sendLogMessage", methods = ['POST'])
+def sendScoreboardLogMessage():
+    try:
+        type = request.form["type"]
+        message = request.form["message"]
+        secretKey = request.form["secretKey"]
+
+        with open("backend/secretKey.txt", "r") as f:
+            secretKeyToCheck = f.read()
+
+        if secretKey == secretKeyToCheck:
+            
+            sendEmailToBen(type, message)
+
+            return jsonify({"result": "yes"})
+        else:
+            return jsonify({"result": "no"})
+    except Exception as error:
+        app.logger.info("Error while sending log message:", error)
+        return jsonify({"result": "no"})
+
+def sendEmailToBen(type, message):
+    try:
+        with open("backend/emailDetails.txt", "r") as f:
+            senderEmail = f.read()
+            receiverEmail = f.read()
+            password = f.read()
+    
+        message = MIMEMultipart()
+        message["From"] = senderEmail
+        message["To"] = receiverEmail
+        message["Subject"] = f"New Log Message: {type}"
+
+        body = f"Type: {type}\nMessage: {message}"
+        message.attach(MIMEText(body, "plain"))
+
+        try:
+            server = smtplib.SMTP("smtp.gmail.com", 587)
+            server.starttls()
+            server.login(senderEmail, password)
+            server.sendmail(senderEmail, receiverEmail, message.as_string())
+            server.close()
+            
+        except Exception as e:
+            app.logger.info(f"Error while sending email: {e}")
+        
+    except Exception as error:
+        app.logger.info("Error while sending email to Ben:", error)
 
 @app.route("/projects")
 def laserTag():
@@ -531,9 +582,12 @@ def redirectURL(URLName):
         except Exception as e:
             app.logger.info("Error while incrementing click", e)
             pass
-
-    
+        
     return redirect(url_for('home'))
+
+@app.route("/api/logMoneyIn", methods = ['POST'])
+def logMoneyIn():
+    pass
     
 # ------------------------------------------------- TESTING    ------------------------------------------------- #
 

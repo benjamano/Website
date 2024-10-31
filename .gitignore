@@ -171,3 +171,4 @@ cython_debug/
 #.idea/
 backend/secretKey.txt
 backend/emaildetails.txt
+backend/dailyPassPhrase.txt

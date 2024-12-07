@@ -15,41 +15,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
-<style>
-</style>
 
 <body>
-    <!---
-    <div class="topbar">
 
-        <ul>
-            <a href="https://benmercer.pythonanywhere.com/"><li>Home</li></a>
-            <a href="https://benmercer.pythonanywhere.com/#services"><li>Services</li></a>
-            <a href="https://benmercer.pythonanywhere.com/#skills"><li>Skills</li></a>
-            <a href="https://benmercer.pythonanywhere.com/projects"><li>Projects</li></a>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <a href="https://benmercer.pythonanywhere.com/#contact"><li>Contact</li></a>
-        </ul>
-    
-    </div>
-
-        -->
-
-    
-    <div class="sidebar">
-        <div class="logo">
-            <img src="{{ url_for('static', filename='images/FullLogo.png') }}" alt="My Logo - A BM with a small 'Designs' text">
-        </div>
-        <ul>
-            <a href="#home"><li>Home</li></a>
-            <a href="#services"><li>Services</li></a>
-            <a href="#skills"><li>Skills</li></a>
-            <a href="https://benmercer.pythonanywhere.com/projects"><li>Projects</li></a>
-            <!-- <li><a href="#portfolio">Portfolio</a></li>     -->
-            <a href="#contact"><li>Contact</li></a>
-            <a href="https://benmercer.pythonanywhere.com/lme"><li>Life Maker-Easier</li></a>
-        </ul>
-    </div>
 
     <div class="content">
         <div class="text">
@@ -62,7 +30,7 @@
 
             <div class="websitecontainer">
 
-                <div class="website" href="https://benmercer.pythonanywhere.com/hotbeanshome" onclick="window.location.href='https://benmercer.pythonanywhere.com/hotbeanshome'">
+                <div class="website" href="/hotbeanshome" onclick="window.location.href='/hotbeanshome'">
 
                     <img src="{{ url_for('static', filename='/images/hotbeanspreview.png') }}" alt="A preview for the Hot Beans page">
 
@@ -70,7 +38,7 @@
 
                 </div>
 
-                <div class="website" href="https://benmercer.pythonanywhere.com/p2dHome">
+                <div class="website" href="/p2dHome">
 
                     <img src="{{ url_for('static', filename='/images/P2DBooking Preview.png') }}" alt="">
 
@@ -80,15 +48,15 @@
                 
             </div>
 
-            <div class="lasertagpreview" onclick="window.location.href='https://benmercer.pythonanywhere.com/projects'"></div>
+            <div class="lasertagpreview" onclick="window.location.href='/projects'"></div>
 
-                <div class="textimageinfront" href="https://benmercer.pythonanywhere.com/projects" onclick="window.location.href='https://benmercer.pythonanywhere.com/projects'">
+                <div class="textimageinfront" href="/projects" onclick="window.location.href='/projects'">
 
-                    <img src="{{ url_for('static', filename='/images/LaserTagPrev.png') }}" href="https://benmercer.pythonanywhere.com/projects" onclick="window.location.href='https://benmercer.pythonanywhere.com/projects'">
+                    <img src="{{ url_for('static', filename='/images/LaserTagPrev.png') }}" href="/projects" onclick="window.location.href='/projects'">
 
-                    <div class="text" href="https://benmercer.pythonanywhere.com/projects" onclick="window.location.href='https://benmercer.pythonanywhere.com/projects'">
+                    <div class="text" href="/projects" onclick="window.location.href='/projects'">
 
-                        <h1 href="https://benmercer.pythonanywhere.com/projects" onclick="window.location.href='https://benmercer.pythonanywhere.com/projects'">Laser Tag <br> Gun Repairs</h1>
+                        <h1 href="/projects" onclick="window.location.href='/projects'">Play2Day <br> Technical Work</h1>
 
                     </div>
                 </div>

@@ -15,152 +15,85 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
-<style>
-    .slider-before, .slider-after {
-      user-select: none;
-    }
-    body {
-      -ms-overflow-style: none; /* for Internet Explorer, Edge */
-      scrollbar-width: none; /* for Firefox */
-      overflow-y: scroll; 
-    }
-    
-    body::-webkit-scrollbar {
-      display: none; /* for Chrome, Safari, and Opera */
-    }
-
-    video{
-        flex: 1;
-        max-width: 35vw;
-      }
-      @media (orientation: portrait) {
-  
-        video{
-          max-width: 65vw;
-        }
-  
-      }
-
-</style>
-<div class="topbar">
-
-    <ul>
-        <a href="https://benmercer.pythonanywhere.com/"><li>Home</li></a>
-        <a href="https://benmercer.pythonanywhere.com/#services"><li>Services</li></a>
-        <a href="https://benmercer.pythonanywhere.com/#skills"><li>Skills</li></a>
-        <a href="https://benmercer.pythonanywhere.com/projects"><li>Projects</li></a>
-        <!-- <li><a href="#portfolio">Portfolio</a></li> -->
-        <a href="https://benmercer.pythonanywhere.com/#contact"><li>Contact</li></a>
-    </ul>
-
-</div>
-<div class="sidebar">
-    <div class="logo">
-        <img src="{{ url_for('static', filename='images/FullLogo.png') }}" alt="My Logo - A BM with a small 'Designs' text">
-    </div>
-    <ul>
-        <a href="https://benmercer.pythonanywhere.com/"><li><i style="padding-right:8px;" class="fa-solid fa-house"></i>Home</li></a>
-        <a href="https://benmercer.pythonanywhere.com/#services"><li><i style="padding-right:8px;" class="fa-regular fa-clipboard"></i>Services</li></a>
-        <a href="https://benmercer.pythonanywhere.com/#skills"><li><i style="padding-right:8px;" class="fa-solid fa-check"></i>Skills</li></a>
-        <a href="https://benmercer.pythonanywhere.com/projects"><li><i style="padding-right:8px;" class="fa-solid fa-wand-magic-sparkles"></i>Projects</li></a>
-        <!-- <li><a href="#portfolio">Portfolio</a></li> -->
-        <a href="https://benmercer.pythonanywhere.com/#contact"><li><i style="padding-right:8px;" class="fa-solid fa-at"></i>Contact</li></a>
-    </ul>
-</div>
 <body>
-    <div class="content">
-        <div class="button-container" style="flex-direction: row; margin-top: 6vw;">
-            <div class="portrait-button">
-            <a href="#laser">
-                <img src="{{ url_for('static', filename='images/CrossHairWall.jpg') }}" alt="A photo from the laser tag arena, depicting a crosshair glowing red due to UV lighting">
-                <div class="button-content">
-                    <h2>Laser Tag Lighting</h2>
+    <section id="lighting">
+        <div class="container">
+            <div class="stickOutText">
+                <h2>Laser Tag Lighting</h2>
+            </div>
+            <div class="imageRevealContainer">
+                <div class="imageRevealBox" id="customImageSlider1">
+                    <img class="slider-before" src="{{ url_for('static', filename='images/before+after/BeforeIcicle-1.jpg') }}" alt="Before">
+                    <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AfterIcicle-1.jpg') }}" alt="After" >
+                    <div class="slider-handle"></div>
                 </div>
-            </a>
-            </div>
-            <div class="portrait-button">
-            <a href="#laserguns">
-                <img src="{{ url_for('static', filename='images/icons/buttons/GreenCrosshair.png') }}" alt="A photo from the laser tag arena, depicting a crosshair glowing green due to UV lighting">
-                <div class="button-content" style="color: white;">
-                    <h2>Laser-Tag Gun Repairs</h2>
+
+                <div class="imageRevealBox" id="customImageSlider2">
+                    <img class="slider-before" src="{{ url_for('static', filename='images/before+after/AlienBefore.jpg') }}" alt="Before" >
+                    <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AlienAfter.jpg') }}" alt="After" >
+                    <div class="slider-handle"></div>
                 </div>
-            </a>
-            </div>
-            <div class="portrait-button">
-            <a href="#socialmedia">
-                <img src="{{ url_for('static', filename='images/icons/buttons/GreenCrosshair.png') }}" alt="A photo from the laser tag arena, depicting a crosshair glowing green due to UV lighting">
-                <div class="button-content" style="color: white;">
-                    <h2>Social Media Portfolio</h2>
+
+                <div class="imageRevealBox" id="customImageSlider3">
+                    <img class="slider-before" src="{{ url_for('static', filename='images/before+after/BeforeCentre.jpg') }}" alt="Before" >
+                    <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AfterCentre.jpg') }}" alt="After" >
+                    <div class="slider-handle"></div>
                 </div>
-            </a>
-            </div>
-    </div>
 
-    <!-- <div class="fancybutton" href="#laser">
-        <img href="#laser" src="{{ url_for('static', filename='images/UVWall.jpg') }}" alt="A photo from the laser tag arena, depicting a wall glowing due to UV lighting"> -->
+                <div class="imageRevealBox" id="customImageSlider4">
+                    <img class="slider-before" src="{{ url_for('static', filename='images/before+after/BeforeSmallCorner.jpg') }}" alt="Before" >
+                    <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AfterSmallCorner.jpg') }}" alt="After" >
+                    <div class="slider-handle"></div>
+                </div>
 
-    <section id="laser" style="padding: 0px; margin-top: 128px;">
-        <div class="container" style="max-width: none; padding: 0px;">
-        <div class="stickouttext" style="border: solid 1px  grey; padding: 32px; border-radius: 32px 32px 0px 0px; display: inline-table; width: 70vw;">
-            <h2 style="font-weight: 700;">Laser Tag Improvements</h2>
-            <p >As part of my work at <a href="https://www.play2day.biz/">Play2Day</a>, I decided to improve the laser tag arena. During my time, I noticed that children would often get hurt, so I decided I wanted to increase the visibility inside the arena, but didn't want to harm the overall theme of the arena.  </p>
-            <p style="margin-bottom: 0px;">Below are some before and after photos of the arena.</p>
-        </div>
-        <div class="container" style="width: 100%; max-width: 98%; padding: 0px;">
-            <div class="button-container" style="border: solid 1px grey; padding: 6vw 0vw 6vw 0vw; border-radius: 16px;">
-            <div class="custom-image-slider" id="customImageSlider1" style="border-radius: 24px; margin-bottom: 82px;">
-                <img class="slider-before" src="{{ url_for('static', filename='images/before+after/BeforeIcicle-1.jpg') }}" alt="Before">
-                <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AfterIcicle-1.jpg') }}" alt="After" >
-                <div class="slider-handle"></div>
-            </div>
+                <div class="imageRevealBox" id="customImageSlider5">
+                    <img class="slider-before" src="{{ url_for('static', filename='images/before+after/BeforeCorner.jpg') }}" alt="Before" >
+                    <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AfterCorner.jpg') }}" alt="After">
+                    <div class="slider-handle"></div>
+                </div>
 
-            <div class="custom-image-slider" id="customImageSlider2" style="border-radius: 24px; margin-bottom: 24px;">
-                <img class="slider-before" src="{{ url_for('static', filename='images/before+after/AlienBefore.jpg') }}" alt="Before" >
-                <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AlienAfter.jpg') }}" alt="After" >
-                <div class="slider-handle"></div>
-            </div>
-
-            <div class="custom-image-slider" id="customImageSlider3" style=" border-radius: 24px; margin-bottom: 24px;">
-                <img class="slider-before" src="{{ url_for('static', filename='images/before+after/BeforeCentre.jpg') }}" alt="Before" >
-                <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AfterCentre.jpg') }}" alt="After" >
-                <div class="slider-handle"></div>
-            </div>
-
-            <div class="custom-image-slider" id="customImageSlider4" style=" border-radius: 24px; margin-bottom: 24px;">
-                <img class="slider-before" src="{{ url_for('static', filename='images/before+after/BeforeSmallCorner.jpg') }}" alt="Before" >
-                <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AfterSmallCorner.jpg') }}" alt="After" >
-                <div class="slider-handle"></div>
-            </div>
-
-            <div class="custom-image-slider" id="customImageSlider5" style=" border-radius: 24px; margin-bottom: 24px;">
-                <img class="slider-before" src="{{ url_for('static', filename='images/before+after/BeforeCorner.jpg') }}" alt="Before" >
-                <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AfterCorner.jpg') }}" alt="After">
-                <div class="slider-handle"></div>
-            </div>
-
-            <div class="custom-image-slider" id="customImageSlider6" style=" border-radius: 24px; margin-bottom: 24px;">
-                <img class="slider-before" src="{{ url_for('static', filename='images/before+after/BeforeGreenCorner.jpg') }}" alt="Before" >
-                <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AfterGreenCorner.jpg') }}" alt="After" >
-                <div class="slider-handle"></div>
-            </div>
+                <div class="imageRevealBox" id="customImageSlider6">
+                    <img class="slider-before" src="{{ url_for('static', filename='images/before+after/BeforeGreenCorner.jpg') }}" alt="Before" >
+                    <img class="slider-after" src="{{ url_for('static', filename='images/before+after/AfterGreenCorner.jpg') }}" alt="After" >
+                    <div class="slider-handle"></div>
+                </div>
             </div>
         </div>
         </section>
-        <section id="laserguns" style="padding:0px; margin-top: 32px;">
-            <div class="container" style="max-width: 98%; text-align: initial;">
-                <div class="columncontainter" style="border: solid 1px grey; border-radius: 16px;">
-                    <div class="alongsidetext">
-                        <h2>
-                            Laser Tag Gun Repairs
-                        </h2>
+        <section id="laserguns">
+            <div class="container">
+                <div class="stickOutText">
+                    <h2>Electronic and Technical Work</h2>
+                </div>
+                <div class="gunRepairsContainer">
+                    <!-- <div class="alongSideText">
                         <p>
                             As part of my work at <a href="https://www.play2day.biz/">Play2Day</a>, I took on the challenge of repairing the faulty Laser-Tag guns, I had to teach myself how to repair through trial and error. I was commited to this as I wanted to make a proper change to Play2Day, as it meant alot to me personally.
                         </p>
-                        <p>The video here shows a timelapse of me repairing a laser gun, this involved switching the shell (Case) of the gun. This is the most complicated procedure, mainly because it requries everything to be un-hot-glued. This usually takes about an hour and requires patience and knowledge on what you're doing. Keep in mind I had to full teach myself how to do this!!</p>
-                    </div>
-                <video autoplay muted playsinline loop style="pointer-events: none; border-radius: 16px;">
-                    <source src="{{ url_for('static', filename='videos/Timelapse-Gun-Case-1.mp4') }}" type="video/mp4">
-                </video>
+                        <p>
+                            The video here shows a timelapse of me repairing a laser gun, this involved switching the shell (Case) of the gun. This is the most complicated procedure, mainly because it requries everything to be un-hot-glued. This usually takes about an hour and requires patience and knowledge on what you're doing. Keep in mind I had to full teach myself how to do this!!
+                        </p>
+                    </div> -->
+                <figure class="videoReveal">
+                    <video autoplay muted playsinline loop>
+                        <source src="{{ url_for('static', filename='videos/Timelapse-Gun-Case-1.mp4') }}" type="video/mp4">
+                    </video>
+                    <figcaption>Fig.1 - Trulli, Puglia, Italy</figcaption>
+                </figure>
+
+                <figure class="videoReveal">
+                    <video autoplay muted playsinline loop>
+                        <source src="{{ url_for('static', filename='videos/Timelapse-Gun-Case-1.mp4') }}" type="video/mp4">
+                    </video>
+                    <figcaption>Fig.1 - Trulli, Puglia, Italy</figcaption>
+                </figure>
+
+                <figure class="videoReveal">
+                    <video autoplay muted playsinline loop>
+                        <source src="{{ url_for('static', filename='videos/Timelapse-Gun-Case-1.mp4') }}" type="video/mp4">
+                    </video>
+                    <figcaption>Fig.1 - Trulli, Puglia, Italy</figcaption>
+                </figure>
             </div>
         </section>
         <!--
@@ -227,3 +160,41 @@
 <script src="{{ url_for('static', filename='/Scripts/imagesliders.js') }}"></script>
 </body>
 </html>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const revealElements = document.querySelectorAll('.imageRevealBox');
+        revealElements.forEach((element, index) => {
+            setTimeout(() => {
+                element.classList.add('reveal');
+            }, index * 500);
+        });
+    });
+
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    function handleScroll() {
+        const revealElements = document.querySelectorAll('.imageRevealBox, .videoReveal');
+        revealElements.forEach((element, index) => {
+            if (isElementInViewport(element) && !element.classList.contains('reveal')) {
+                setTimeout(() => {
+                    element.classList.add('reveal');
+                }, index * 500);
+            }
+        });
+    }
+
+    document.addEventListener('scroll', handleScroll);
+    document.addEventListener('DOMContentLoaded', handleScroll);
+
+</script>

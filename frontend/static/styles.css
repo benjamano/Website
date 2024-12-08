@@ -312,17 +312,13 @@ section {
 }
 
 footer{
-    bottom: 0;
-    width: 100%;
-    background-color: #e5e5e5;
+    background-color: white;
     color: black;
     text-align: center;
     z-index: 999;
     display: flex;
     justify-content: center;
-    /* margin-left: 200px; */
-    position: relative;
-    margin-top: 48px;
+    height: 7rem;
 }
 
 .footer h1{
@@ -862,12 +858,13 @@ footer{
 
 .slider-before, .slider-after {
     user-select: none;
-  }
+}
+
 body {
--ms-overflow-style: none; /* for Internet Explorer, Edge */
-scrollbar-width: none; /* for Firefox */
-overflow-y: scroll; 
-background-color: #e3e3e3;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll; 
+    background-color: #e3e3e3;
 }
   
 body::-webkit-scrollbar {
@@ -962,14 +959,25 @@ video{
 
 video{
     pointer-events: none; 
-    border-radius: 1.5rem;
+    border-radius: 1.5rem 1.5rem 0rem 0rem;
     width: 100%;
+    margin-bottom: -4px;
 }
 
 figure{
     width: 30%;
     height: 30%;
     margin: 0;
+    margin-top: -4px;
+}
+
+figcaption{
+    text-align: left;
+    font-size: 1rem;
+    background-color: #f1f1f1;
+    border-radius: 0rem 0rem 1.5rem 1.5rem;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 33%);
+    padding: 1rem;
 }
 
 .videoReveal{
@@ -980,4 +988,20 @@ figure{
 
 body + div[is-visible] {
     display: none !important;
-  }
+}
+
+.socialMediaContainer{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 2rem;
+    border: solid 1px grey; 
+    border-radius:  16px 16px 0px 0px; 
+    align-items: center;
+    background-color: white;
+    justify-content: space-between;
+}
+
+ul{
+    text-align: left;
+}

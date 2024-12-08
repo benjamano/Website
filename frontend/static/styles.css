@@ -977,3 +977,7 @@ figure{
     transform: translateY(20px);
     transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
 }
+
+body + div[is-visible] {
+    display: none !important;
+  }

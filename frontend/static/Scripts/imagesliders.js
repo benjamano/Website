@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-        const sliders = document.querySelectorAll(".custom-image-slider");
+        const sliders = document.querySelectorAll(".sliderReveal");
   
         sliders.forEach((slider) => {
           const afterImage = slider.querySelector(".slider-after");

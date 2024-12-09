@@ -229,9 +229,9 @@ a:hover {
 }
 
 section {
-    padding: 20px;
-    margin-bottom: 30px 0;
-    text-align: left;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .container {
@@ -312,17 +312,14 @@ section {
 }
 
 footer{
-    bottom: 0;
-    width: 100%;
-    background-color: #e5e5e5;
+    background-color: white;
     color: black;
     text-align: center;
     z-index: 999;
     display: flex;
     justify-content: center;
-    /* margin-left: 200px; */
-    position: relative;
-    margin-top: 48px;
+    height: 7rem;
+    align-items: center;
 }
 
 .footer h1{
@@ -688,6 +685,7 @@ footer{
     width: 90%;
     margin: auto;
     cursor: pointer;
+    margin-bottom: 2rem;
 }
 .textimageinfront h1 h2{
     color: white;
@@ -858,4 +856,176 @@ footer{
         height: 70vw;
         width: 70vw;
     }
+}
+
+.slider-before, .slider-after {
+    user-select: none;
+}
+
+body {
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll; 
+    background-color: #e3e3e3;
+}
+  
+body::-webkit-scrollbar {
+display: none; /* for Chrome, Safari, and Opera */
+}
+
+video{
+    flex: 1;
+    max-width: 35vw;
+}
+
+@media (orientation: portrait) {
+
+    video{
+    max-width: 65vw;
+    }
+
+}
+
+
+/* UPDATED STYLE SET */
+
+.stickOutText{
+    border: solid 1px grey;
+    border-bottom: none;
+    border-radius: 32px 32px 0px 0px;
+    display: inline-block;
+    width: 70%;
+    background-color: white;
+}
+
+.container{
+    max-width: none;
+    padding: 0px;
+    text-align: center;
+}
+
+.imageRevealContainer{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    border: solid 1px grey; 
+    padding: 2rem;
+    gap: 2rem;
+    border-radius: 16px;
+    background-color: white;
+}
+
+.imageRevealBox {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 25vw;
+    width: 25vw;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    border-radius: 24px;
+}
+
+.imageRevealBox.reveal, .videoReveal.reveal {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gunRepairsContainer{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 2rem;
+    background-color: white;
+    border: solid 1px grey; 
+    border-radius: 16px;
+    gap: 2rem;
+}
+
+.alongSideText{
+    padding: 2rem;
+}
+
+video{
+    pointer-events: none; 
+    border-radius: 1.5rem 1.5rem 0rem 0rem;
+    width: 100%;
+    margin-bottom: -4px;
+}
+
+figure{
+    width: 30%;
+    height: 30%;
+    margin: 0;
+    margin-top: -4px;
+}
+
+figcaption{
+    text-align: left;
+    font-size: 1rem;
+    background-color: #f1f1f1;
+    border-radius: 0rem 0rem 1.5rem 1.5rem;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 33%);
+    padding: 1rem;
+}
+
+.videoReveal{
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+body + div[is-visible] {
+    display: none !important;
+}
+
+.socialMediaContainer{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+    border: solid 1px grey;
+    border-radius: 16px 16px 0px 0px;
+    align-items: center;
+    background-color: white;
+    justify-content: center;
+}
+
+ul{
+    text-align: left;
+}
+
+.socialMediaContainer .imageRevealContainer{
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    width: 100%;
+}
+
+.clickable{
+    text-decoration: underline;
+    color: rgb(0, 153, 255);
+    text-align: center;
+}
+
+.portrait{
+    height: 26vw !important;
+    width: 15vw !important;
+}
+
+img{
+    height: inherit;
+    width: inherit;
 }

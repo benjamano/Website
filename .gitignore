@@ -172,3 +172,4 @@ cython_debug/
 backend/secretKey.txt
 backend/emaildetails.txt
 backend/dailyPassPhrase.txt
+backend/dailyPassPhrase.txt

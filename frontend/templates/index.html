@@ -15,190 +15,49 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
-<style>
-</style>
 
 <body>
-    <!---
-    <div class="topbar">
-
-        <ul>
-            <a href="https://benmercer.pythonanywhere.com/"><li>Home</li></a>
-            <a href="https://benmercer.pythonanywhere.com/#services"><li>Services</li></a>
-            <a href="https://benmercer.pythonanywhere.com/#skills"><li>Skills</li></a>
-            <a href="https://benmercer.pythonanywhere.com/projects"><li>Projects</li></a>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <a href="https://benmercer.pythonanywhere.com/#contact"><li>Contact</li></a>
-        </ul>
     
+    <div class="container">
+        <h1>Benjamin Mercer</h1>
+        <h3>Full Stack Web Developer</h3>
     </div>
 
-        -->
+    <div class="websitecontainer">
 
-    
-    <div class="sidebar">
-        <div class="logo">
-            <img src="{{ url_for('static', filename='images/FullLogo.png') }}" alt="My Logo - A BM with a small 'Designs' text">
+        <div class="website" href="/hotbeanshome" onclick="window.location.href='/hotbeanshome'">
+
+            <img src="{{ url_for('static', filename='/images/hotbeanspreview.png') }}" alt="A preview for the Hot Beans page">
+
+            <h2>Web Development Company Website</h2>
+
         </div>
-        <ul>
-            <a href="#home"><li>Home</li></a>
-            <a href="#services"><li>Services</li></a>
-            <a href="#skills"><li>Skills</li></a>
-            <a href="https://benmercer.pythonanywhere.com/projects"><li>Projects</li></a>
-            <!-- <li><a href="#portfolio">Portfolio</a></li>     -->
-            <a href="#contact"><li>Contact</li></a>
-            <a href="https://benmercer.pythonanywhere.com/lme"><li>Life Maker-Easier</li></a>
-        </ul>
+
+        <div class="website" href="/p2dHome">
+
+            <img src="{{ url_for('static', filename='/images/P2DBooking Preview.png') }}" alt="">
+
+            <h2>Play Centre booking website</h2>
+
+        </div>
+        
     </div>
 
-    <div class="content">
-        <div class="text">
-            <section id="home" style="display: flex; justify-content: center;">
-            <div class="container">
-                <h1>Benjamin Mercer</h1>
-                <h3>Full Stack Web Developer</h3>
-            </div>
-            </section>
+    <div class="lasertagpreview" onclick="window.location.href='/projects'"></div>
 
-            <div class="websitecontainer">
+        <div class="textimageinfront" href="/projects" onclick="window.location.href='/projects'">
 
-                <div class="website" href="https://benmercer.pythonanywhere.com/hotbeanshome" onclick="window.location.href='https://benmercer.pythonanywhere.com/hotbeanshome'">
+            <img src="{{ url_for('static', filename='/images/LaserTagPrev.png') }}" href="/projects" onclick="window.location.href='/projects'">
 
-                    <img src="{{ url_for('static', filename='/images/hotbeanspreview.png') }}" alt="A preview for the Hot Beans page">
+            <div class="text" href="/projects" onclick="window.location.href='/projects'">
 
-                    <h2>Web Development Company Website</h2>
-
-                </div>
-
-                <div class="website" href="https://benmercer.pythonanywhere.com/p2dHome">
-
-                    <img src="{{ url_for('static', filename='/images/P2DBooking Preview.png') }}" alt="">
-
-                    <h2>Play Centre booking website</h2>
-
-                </div>
-                
-            </div>
-
-            <div class="lasertagpreview" onclick="window.location.href='https://benmercer.pythonanywhere.com/projects'"></div>
-
-                <div class="textimageinfront" href="https://benmercer.pythonanywhere.com/projects" onclick="window.location.href='https://benmercer.pythonanywhere.com/projects'">
-
-                    <img src="{{ url_for('static', filename='/images/LaserTagPrev.png') }}" href="https://benmercer.pythonanywhere.com/projects" onclick="window.location.href='https://benmercer.pythonanywhere.com/projects'">
-
-                    <div class="text" href="https://benmercer.pythonanywhere.com/projects" onclick="window.location.href='https://benmercer.pythonanywhere.com/projects'">
-
-                        <h1 href="https://benmercer.pythonanywhere.com/projects" onclick="window.location.href='https://benmercer.pythonanywhere.com/projects'">Laser Tag <br> Gun Repairs</h1>
-
-                    </div>
-                </div>
+                <h1 href="/projects" onclick="window.location.href='/projects'">Play2Day <br> Technical Work</h1>
 
             </div>
 
         </div>
 
-            <!--
-
-            <div class="button-container">
-                
-                <a href="#services">
-                <div class="fancybutton" href="#services">
-                        <img src="{{ url_for('static', filename='images/icons/buttons/Clipboard.png') }}" alt="An icon of an I">
-                        <br>
-                        <span><h2>My Services</h2></span>
-                </div>
-                </a>
-
-                <a href="#contact">
-                <div class="fancybutton" href="#contact">
-                        <img src="{{ url_for('static', filename='images/icons/buttons/EmailAeroplane.png') }}" alt="An icon of an @ symbol">
-                        <br>
-                        <span><h2>Contact Me</h2></span>
-                </div>
-                </a>
-
-                <a href="https://benmercer.pythonanywhere.com/projects">
-                <div class="fancybutton" href="https://benmercer.pythonanywhere.com/projects">
-                        <img src="{{ url_for('static', filename='images/icons/buttons/Projects.png') }}" alt="A set of icons showing a laser gun, computer and speaker">
-                        <br>
-                        <span><h2>Projects / Portfolio</h2></span>
-                </div>
-                </a>
-            </div>
-
-            <section id="services">
-                <div class="service-container">
-
-                    <div class="service-box" style="background-color: #004606;">
-                        <h3>FREE Website Development</h3>
-                        <p>To increase my range of abilities, I offer free web design & implementation for a limited time.</p>
-                        <li>Frontend, HTML5, CSS, React.js</li>
-                        <li>Backend, Python - Flask/Django </li>
-                        <li>Wordpress, Wix or other alternatives</li>
-                    </div>
-                
-                    <div class="service-box" style="background-color: #3d3900;">
-                        <h3>Facebook / Instagram Page Setup</h3>
-                        <p>I have experience with setting up social media pages, for example a child's play centre, <a href="https://www.facebook.com/play2dayipswich/">Play2Day</a></p>
-                        <li>Adding the relevent social media + website redirect links</li>
-                        <li>Creating visually appealing profile photos + cover photos</li>
-                        <li>Making opening times available (Where Relevant)</li>
-                        <li>Keeping contact details current, Address / Postcode, Phone Numbers, Emails</li>
-                    </div>
-
-                    <div class="service-box" style="background-color: #380000;">
-                        <h3>Google Maps Presence</h3>
-                        <p>I can create a google maps location equipped with all the details that may be relevant to your business</p>
-                        <li>Photos of the inside / out</li>
-                        <li>Contact Details</li>
-                        <li>Opening Times</li>
-                        <li>Address / Postcode</li>
-                        <li>Social Media / Website Links</li>
-                        <li>Setup the built in messging service</li>
-                        <li>Set up reviews and explaining how to respond to them</li>
-                    </div>
-                
-                </div>
-            
-                <ol>
-                    <li>
-                        <h3>I will first design a set of pages as per your suggestions, and make sure they are exactly how you envision it, and make adjustments accodingly.</h3>
-                    </li>
-                    <li>
-                        <h3>Once the design is complete, I will then begin to implement the backend, and make sure it is fully functional and secure.</h3>
-                    </li>
-                    <li>
-                        <h3>Once the backend is complete, I will then begin to implement the front-end, and make sure it is fully responsive and works on all devices as well as being visually appealing.</h3>
-                    </li>
-                    <li>
-                        <h3>I will then also optimise it for social media, adding the correct keywords and descriptions to boost your pages up in searches</h3>
-                    </li>
-                    <li>
-                        <h3>Finnaly we will go through a summary to make sure overall you're happy with the project and know how to correctly deploy it.</h3>
-                    </li>
-                </ol> 
-                <h3>Then you're done and dusted! Easy Peasy, Lemon Squeezy! </h3> 
-            </section>
-
-            <section id="skills">
-                <div class="gencont">
-                    <h2>Skills</h2>
-                    <h3>My current skills are:</h3>
-                    <ul>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>JavaScript</li>
-                        <li>Python</li>
-                        <li>Flask</li>
-                        <li>SQLite 3</li>
-                        <li>Git / GitHub</li>
-                        <li>React.js</li> 
-                        <li>Kotlin</li>
-                    </ul>
-                </div>
-            </section> 
-        </div>
-    </div>-->
+    </div>
 
 </body>
 

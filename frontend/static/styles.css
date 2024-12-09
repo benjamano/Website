@@ -1019,3 +1019,13 @@ ul{
     color: rgb(0, 153, 255);
     text-align: center;
 }
+
+.portrait{
+    height: 26vw !important;
+    width: 15vw !important;
+}
+
+img{
+    height: inherit;
+    width: inherit;
+}

@@ -319,6 +319,7 @@ footer{
     display: flex;
     justify-content: center;
     height: 7rem;
+    align-items: center;
 }
 
 .footer h1{
@@ -684,6 +685,7 @@ footer{
     width: 90%;
     margin: auto;
     cursor: pointer;
+    margin-bottom: 2rem;
 }
 .textimageinfront h1 h2{
     color: white;
@@ -992,16 +994,28 @@ body + div[is-visible] {
 
 .socialMediaContainer{
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
     padding: 2rem;
-    border: solid 1px grey; 
-    border-radius:  16px 16px 0px 0px; 
+    border: solid 1px grey;
+    border-radius: 16px 16px 0px 0px;
     align-items: center;
     background-color: white;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 ul{
     text-align: left;
+}
+
+.socialMediaContainer .imageRevealContainer{
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    width: 100%;
+}
+
+.clickable{
+    text-decoration: underline;
+    color: rgb(0, 153, 255);
+    text-align: center;
 }

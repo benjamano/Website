@@ -612,7 +612,8 @@ footer{
 .website img{
     border-radius: 22px 22px 0px 0px;
     width: 100%;
-  }
+}
+
 .website h2{
     color: black;
     text-align: left;
@@ -620,7 +621,7 @@ footer{
     margin: 0;
     margin: 22px;
     font-weight: 400;
-    font-size: 200%;
+    font-size: 3rem;
 }
 .website button{
     width: 100%;
